@@ -38,11 +38,11 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Wong Wei Yin
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/weiwong834.png" width="200px">
 
-[[github](http://github.com/johndoe)]
+[[github](http://github.com/weiwong834)]
 [[portfolio](team/johndoe.md)]
 
 * Role: Developer
