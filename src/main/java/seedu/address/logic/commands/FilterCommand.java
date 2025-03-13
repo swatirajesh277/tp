@@ -8,13 +8,11 @@ import seedu.address.model.Model;
 import seedu.address.model.person.StudentUnderProjectPredicate;
 
 /**
- * Filters and list all persons in Prof-iler whose project contain any of the argument keywords.
+ * Filters and list all students in Prof-iler whose project contain the given keyword.
  * Keyword matching is case insensitive.
  */
-public class FilterCommand extends Command{
-
+public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
-
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters for the student who is under the "
             + "specified project based on the keywords (case-insensitive)"
             + "and displays them as a list with index numbers. \n"
