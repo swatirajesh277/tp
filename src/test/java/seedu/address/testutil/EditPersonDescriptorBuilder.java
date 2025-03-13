@@ -64,10 +64,10 @@ public class EditPersonDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditPersonDescriptor} that we are building.
+     * Sets the {@code Project} of the {@code EditPersonDescriptor} that we are building.
      */
-    public EditPersonDescriptorBuilder withAddress(String address) {
-        descriptor.setProject(new Project(address));
+    public EditPersonDescriptorBuilder withProject(String project) {
+        descriptor.setProject(new Project(project));
         return this;
     }
 
