@@ -66,18 +66,18 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code String address} into an {@code Address}.
+     * Parses a {@code String project} into a {@code Project}.
      * Leading and trailing whitespaces will be trimmed.
      *
-     * @throws ParseException if the given {@code address} is invalid.
+     * @throws ParseException if the given {@code project} is invalid.
      */
-    public static Project parseAddress(String address) throws ParseException {
-        requireNonNull(address);
-        String trimmedAddress = address.trim();
-        if (!Project.isValidAddress(trimmedAddress)) {
+    public static Project parseProject(String project) throws ParseException {
+        requireNonNull(project);
+        String trimmedProject = project.trim();
+        if (!Project.isValidProject(trimmedProject)) {
             throw new ParseException(Project.MESSAGE_CONSTRAINTS);
         }
-        return new Project(trimmedAddress);
+        return new Project(trimmedProject);
     }
 
     /**

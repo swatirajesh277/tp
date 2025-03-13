@@ -20,18 +20,18 @@ public class ProjectTest {
     }
 
     @Test
-    public void isValidAddress() {
+    public void isValidProject() {
         // null address
-        assertThrows(NullPointerException.class, () -> Project.isValidAddress(null));
+        assertThrows(NullPointerException.class, () -> Project.isValidProject(null));
 
         // invalid addresses
-        assertFalse(Project.isValidAddress("")); // empty string
-        assertFalse(Project.isValidAddress(" ")); // spaces only
+        assertFalse(Project.isValidProject("")); // empty string
+        assertFalse(Project.isValidProject(" ")); // spaces only
 
         // valid addresses
-        assertTrue(Project.isValidAddress("Blk 456, Den Road, #01-355"));
-        assertTrue(Project.isValidAddress("-")); // one character
-        assertTrue(Project.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(Project.isValidProject("Blk 456, Den Road, #01-355"));
+        assertTrue(Project.isValidProject("-")); // one character
+        assertTrue(Project.isValidProject("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
     }
 
     @Test

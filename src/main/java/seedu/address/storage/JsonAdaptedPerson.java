@@ -27,7 +27,7 @@ class JsonAdaptedPerson {
     private final String name;
     private final String phone;
     private final String email;
-    private final String address;
+    private final String project;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -35,12 +35,12 @@ class JsonAdaptedPerson {
      */
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
-            @JsonProperty("email") String email, @JsonProperty("address") String address,
+            @JsonProperty("email") String email, @JsonProperty("project") String project,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.project = project;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -53,7 +53,7 @@ class JsonAdaptedPerson {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        address = source.getAddress().value;
+        project = source.getProject().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -94,13 +94,13 @@ class JsonAdaptedPerson {
         }
         final Email modelEmail = new Email(email);
 
-        if (address == null) {
+        if (project == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Project.class.getSimpleName()));
         }
-        if (!Project.isValidAddress(address)) {
+        if (!Project.isValidProject(project)) {
             throw new IllegalValueException(Project.MESSAGE_CONSTRAINTS);
         }
-        final Project modelProject = new Project(address);
+        final Project modelProject = new Project(project);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Person(modelName, modelPhone, modelEmail, modelProject, modelTags);

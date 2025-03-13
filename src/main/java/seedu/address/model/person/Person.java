@@ -49,7 +49,7 @@ public class Person {
         return email;
     }
 
-    public Project getAddress() {
+    public Project getProject() {
         return project;
     }
 
@@ -109,7 +109,7 @@ public class Person {
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
-                .add("address", project)
+                .add("project", project)
                 .add("tags", tags)
                 .toString();
     }
