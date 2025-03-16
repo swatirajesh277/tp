@@ -8,6 +8,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+
+
 
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
   <GridPane HBox.hgrow="ALWAYS">
@@ -28,9 +32,15 @@
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
       </HBox>
       <FlowPane fx:id="tags" />
-      <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+      <HBox spacing="5" alignment="CENTER_LEFT">
+        <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+        <Region GridPane.columnIndex="1" style="-fx-background-color: white;" minWidth="2" prefWidth="2" />
+
+        <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
+
+      </HBox>
       <Label fx:id="project" styleClass="cell_small_label" text="\$project" />
-      <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+
     </VBox>
   </GridPane>
 </HBox>
