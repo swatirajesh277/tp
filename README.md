@@ -20,7 +20,7 @@ Prof-iler provides core functionality for managing student research data efficie
 2. **Add Student** - Allows professors to add students with their names, student ID, phone number, email, project, project progress and optional tags.
 3. **Delete Student** -  Removes a student from the list based on their position in the list.
 
-- * For the detailed documentation of this project, see the **[Prof-iler Product Website](https://se-education.org/addressbook-level3)**.
+- * For the detailed documentation of this project, see the **[Prof-iler Product Website](https://ay2425s2-cs2103t-w12-3.github.io/tp/)**.
 - * This project is a **part of the se-education.org** initiative. If you would like to contribute code to this project, see [se-education.org](https://se-education.org/#contributing-to-se-edu) for more info.
 
 ## Acknowledgement
