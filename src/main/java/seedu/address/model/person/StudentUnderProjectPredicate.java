@@ -18,7 +18,7 @@ public class StudentUnderProjectPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        return StringUtil.containsWordIgnoreCase(person.getPhone().value, keyword);
+        return StringUtil.containsWordIgnoreCase(person.getProject().value, keyword);
     }
 
     @Override
