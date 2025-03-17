@@ -260,58 +260,109 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
-**Target user profile**:
+**Target user profile**: Research Professors in SoC
 
-* has a need to manage a significant number of contacts
+* has a need to manage a significant number of student researcher contacts and details
 * prefer desktop apps over other types
 * can type fast
 * prefers typing to mouse interactions
 * is reasonably comfortable using CLI apps
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**: A management system designed to help SoC professors organize, track, and maintain student research records over time that is optimized for use via Command Line Interface (CLI) while having the benefits of a Graphical User Interface (GUI).
 
 
 ### User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority  | As a …​                    | I want to …​                                                             | So that I can…​                                                                   |
+|-----------|----------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| `* * *`   | Professor at SoC           | view all current research students under me                              | quickly access the list of current students                                       |
+| `* * *`   | Professor at SoC           | delete student entries that are no longer active                         | keep the database current and relevant                                            |
+| `* * *`   | Professor at SoC           | add a new student to a specific project                                  | know who are part of that specific project                                        |
+| `* *`     | Professor at SoC           | filter students based on year, course, specialization or project         | quickly find suitable students without going through the whole list               |
+| `* *`     | Professor at SoC           | find a student's name in the directory                                   | remember what project this student worked on under me                             |
+| `* *`     | Professor at SoC           | mark student milestones as complete                                      | track the students' progress over the semester                                    |
+| `* *`     | Professor at SoC           | update and edit student information                                      | have the most up-to-date information regarding the student                        |
+| `* *`     | Professor at SoC           | tag what project the students are doing                                  | quickly know who to contact for a particular research                             |
+| `* *`     | Professor at SoC           | retrieve recently deleted changes                                        | retrieve wrongly deleted data efficiently                                         |
+| `* *`     | Professor at SoC           | clear all data at once                                                   | prepare for a new academic year                                                   |
+| `* *`     | Professor at SoC           | be notified when there are any duplicate entries                         | keep the data relevant                                                            |
+| `* *`     | Professor at SoC           | clear students from a specific project after the project is completed    | keep track of just the ongoing projects                                           |
+| `* *`     | Professor at SoC           | find all active research in a summary dashboard                          | get a quick overview of all the ongoing research                                  |
+| `* *`     | Professor at SoC           | receive reminders about the upcoming student deadlines                   | ensure timely feedback and submissions                                            |
+| `* *`     | Professor at SoC           | find students working on similar projects in the past                    | link up current students to past students for mentoring                           |
+| `* *`     | Professor at SoC           | undo changes                                                             | maintain productivity when i accidentally make unwanted changes                   |
+| `* *`     | Professor at SoC           | redo changes                                                             | change in case i change my mind after undoing a change                            |
+| `* *`     | Professor at SoC           | have a help command                                                      | see all available commands                                                        |
+| `* *`     | Professor at SoC           | use shortcuts to type a command faster                                   | retrieve information faster                                                       |
+| `* *`     | Professor at SoC           | use shortcuts to add new student profiles                                | create users quicker                                                              |
+| `* *`     | Professor at SoC           | log notes about students                                                 | refer to them in the future and find out additional information about the student |
+| `* *`     | Professor at SoC           | set a preferred name for my students                                     | know what to call them                                                            |
+| `* *`     | Forgetful Professor at SoC | set profile picture for my students                                      | remember how they look like                                                       |
+| `*`       | Vain Professor at SoC      | set my own profile picture                                               | admire my face everytime i use the application                                    |
+| `*`       | Professor at SoC           | export data about student research into a report format                  | share my research easily                                                          |
+| `*`       | Forgetful Professor at SoC | log research meetings with students                                      | do not forgot what we discussed in the meeting                                    |
+| `*`       | Professor at SoC           | maintain a professional network with past students                       | reconnect with them for future collaboration                                      |
+| `*`       | Professor at SoC           | create charts and diagrams to compare students across multiple semesters | decide if i need to take in more students for my projects                         |
+| `*`       | Professor at SoC           | export each student's grades for the current semester                    | update their grades into the system easily                                        |
+| `*`       | Professor at SoC           | color tag each students                                                  | sort them effectively                                                             |
 
 *{More to be added}*
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+(For all use cases below, the **System** is the `Prof-iler` and the **Actor** is the `user`, unless specified otherwise)
 
-**Use case: Delete a person**
+#### **Use case: UC01 List all students under User**
 
 **MSS**
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. User request to list all students
+2. Prof-iler displays the list of all students under user
+
+   Use case ends.
+
+**Extensions**
+* 2a. The List is empty.
+
+    Use case ends.
+
+#### **Use case: UC02 Delete a person**
+
+**MSS**
+
+1.  User requests to <u>list all students [(UC01)](#use-case-uc01-list-all-students-under-user)</u>
+2.  Prof-iler shows a list of students
+3.  User requests to delete a specific student in the list
+4.  Prof-iler deletes the student
 
     Use case ends.
 
 **Extensions**
 
-* 2a. The list is empty.
-
-  Use case ends.
-
 * 3a. The given index is invalid.
 
-    * 3a1. AddressBook shows an error message.
+    * 3a1. Prof-iler shows an error message.
 
       Use case resumes at step 2.
+
+#### **Use case: UC03 Add a student**
+
+**MSS**
+
+1. User enters the detail to add a student
+2. User request to add the student
+3. Prof-iler adds the student
+4. Prof-iler display the added student
+
+    Use case ends.
+
+**Extensions**
+* 2a. The input is invalid
+    * 2a1. Prof-iler shows an error message.
+    
+        Use case resumes at step 1.
 
 *{More to be added}*
 
@@ -320,14 +371,25 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
 2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4.  The datafile created by the program should be stored in a human-readable format.
+5.  Should work without requiring installation (i.e. packaged as a .jar file).
+6.  Should work without an internet connection, without depending on an online server.
+7.  Should follow the Object-oriented paradigm for ease of future expansion, where commands can be added with minimal changes to existing code.
+8.  The GUI should not cause any resolution-related inconveniences to the user for standard screen resolutions 
+1920x1080 and higher, and, for screen scales 100% and 125%. It should remain usable (all functions can be used even if the user experience is not optimal) for resolutions 1280x720 and higher, and, for screen scales 150%.
+9.  The file size for the .jar file should not exceed 100MB, and documents like PDF files should not exceed 15MB/file.
+10. The Developer Guide and User Guide should be PDF-friendly.
 
-*{More to be added}*
 
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-
+* **Use case**: Description of a set of sequences of actions, including variants, that a system performs to yield an observable result of value to an actor (role played by user)
+* **MSS (Main Success Scenario)**: Describes the most straightforward interaction for a given use case, which assumes that nothing goes wrong
+* **Extensions**: "Add-on"s to the MSS that describe exceptional/alternative flow of events
+* **Student ID**: A unique identifier assigned to each student by the university
+* **Project**: The title of the research project a student is working on
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix: Instructions for manual testing**
