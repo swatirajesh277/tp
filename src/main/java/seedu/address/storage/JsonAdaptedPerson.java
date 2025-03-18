@@ -108,7 +108,8 @@ class JsonAdaptedPerson {
         final Project modelProject = new Project(project);
 
         if (Integer.valueOf(progress) == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Progress.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Progress.class.getSimpleName()));
         }
         if (!Progress.isValidProgress(progress)) {
             throw new IllegalValueException(Progress.MESSAGE_CONSTRAINTS);

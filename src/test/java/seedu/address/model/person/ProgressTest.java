@@ -51,4 +51,6 @@ public class ProgressTest {
         // different values -> returns false
         assertFalse(progress.equals(new Progress(76)));
     }
+
 }
+
