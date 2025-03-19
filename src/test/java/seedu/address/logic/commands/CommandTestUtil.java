@@ -50,8 +50,8 @@ public class CommandTestUtil {
     public static final String EMAIL_DESC_BOB = " " + PREFIX_EMAIL + VALID_EMAIL_BOB;
     public static final String PROJECT_DESC_AMY = " " + PREFIX_PROJECT + VALID_PROJECT_AMY;
     public static final String PROJECT_DESC_BOB = " " + PREFIX_PROJECT + VALID_PROJECT_BOB;
-    public static final String PROGRESS_DESC_AMY = " " + PREFIX_PROGRESS + Integer.toString(VALID_PROGRESS_AMY);
-    public static final String PROGRESS_DESC_BOB = " " + PREFIX_PROGRESS + Integer.toString(VALID_PROGRESS_BOB);
+    public static final String PROGRESS_DESC_AMY = " " + PREFIX_PROGRESS + VALID_PROGRESS_AMY;
+    public static final String PROGRESS_DESC_BOB = " " + PREFIX_PROGRESS + VALID_PROGRESS_BOB;
     public static final String TAG_DESC_FRIEND = " " + PREFIX_TAG + VALID_TAG_FRIEND;
     public static final String TAG_DESC_HUSBAND = " " + PREFIX_TAG + VALID_TAG_HUSBAND;
 
@@ -59,7 +59,7 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_PROJECT_DESC = " " + PREFIX_PROJECT; // empty string not allowed for projects
-    public static final String INVALID_PROGRESS_DESC = " " + PREFIX_PROGRESS + " ";
+    public static final String INVALID_PROGRESS_DESC = " " + PREFIX_PROGRESS + 101;
     //empty string not allowed for progress
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 

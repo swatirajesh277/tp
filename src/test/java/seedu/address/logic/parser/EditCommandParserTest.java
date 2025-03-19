@@ -6,6 +6,7 @@ import static seedu.address.logic.commands.CommandTestUtil.EMAIL_DESC_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_EMAIL_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PHONE_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.INVALID_PROGRESS_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_PROJECT_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.INVALID_TAG_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.NAME_DESC_AMY;
@@ -160,8 +161,8 @@ public class EditCommandParserTest {
         assertParseSuccess(parser, userInput, expectedCommand);
 
         // progress
-        userInput = PROGRESS_DESC_AMY;
-        descriptor = new EditPersonDescriptorBuilder().withProject(String.valueOf(VALID_PROGRESS_AMY)).build();
+        userInput = targetIndex.getOneBased() + PROGRESS_DESC_AMY;
+        descriptor = new EditPersonDescriptorBuilder().withProgress(VALID_PROGRESS_AMY).build();
         expectedCommand = new EditCommand(targetIndex, descriptor);
         assertParseSuccess(parser, userInput, expectedCommand);
 
