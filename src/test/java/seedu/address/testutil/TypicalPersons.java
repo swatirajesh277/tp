@@ -27,22 +27,25 @@ public class TypicalPersons {
 
     public static final Person ALICE = new PersonBuilder().withName("Alice Pauline")
             .withProject("123, Jurong West Ave 6, #08-111").withEmail("alice@example.com")
-            .withProgress(90)
+            .withProgress(50)
             .withPhone("94351253")
             .withTags("friends").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
             .withProject("311, Clementi Ave 2, #02-25")
             .withEmail("johnd@example.com").withPhone("98765432")
+            .withProgress(100)
             .withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").withProject("wall street").withProgress(10).build();
+            .withEmail("heinz@example.com").withProject("wall street").withProgress(40).build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withProject("10th street").withTags("friends").build();
+            .withEmail("cornelia@example.com").withProject("10th street")
+            .withProgress(68).withTags("friends").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withEmail("werner@example.com").withProject("michegan ave").withProgress(88).build();
+            .withEmail("werner@example.com").withProject("michegan ave").withProgress(32).build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").withProject("little tokyo").build();
+            .withEmail("lydia@example.com").withProgress(22).withProject("little tokyo").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
+            .withProgress(10)
             .withEmail("anna@example.com").withProject("4th street").build();
 
     // Manually added

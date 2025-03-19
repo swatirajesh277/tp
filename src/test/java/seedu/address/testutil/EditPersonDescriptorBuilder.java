@@ -9,6 +9,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 import seedu.address.model.person.Project;
 import seedu.address.model.tag.Tag;
 
@@ -76,7 +77,7 @@ public class EditPersonDescriptorBuilder {
      * Sets the {@code Progress} of the {@code EditPersonDescriptor} that we are building.
      */
     public EditPersonDescriptorBuilder withProgress(int progress) {
-        descriptor.setProject(new Project(Integer.toString(progress)));
+        descriptor.setProgress(new Progress(progress));
         return this;
     }
 
