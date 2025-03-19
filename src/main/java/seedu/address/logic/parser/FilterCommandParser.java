@@ -2,6 +2,8 @@ package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
+import java.util.Arrays;
+
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.StudentUnderProjectPredicate;
@@ -25,9 +27,9 @@ public class FilterCommandParser implements Parser<FilterCommand> {
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
-        String projectKeyword = trimmedArgs;
+        String[] projectKeyword = trimmedArgs.split("\\s+");
 
-        return new FilterCommand(new StudentUnderProjectPredicate(projectKeyword));
+        return new FilterCommand(new StudentUnderProjectPredicate(Arrays.asList(projectKeyword)));
     }
 }
 
