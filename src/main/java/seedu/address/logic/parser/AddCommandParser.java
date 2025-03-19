@@ -47,16 +47,11 @@ public class AddCommandParser implements Parser<AddCommand> {
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Project project = ParserUtil.parseProject(argMultimap.getValue(PREFIX_PROJECT).get());
-        int progressValue;
-        try {
-            progressValue = argMultimap.getValue(PREFIX_PROGRESS)
-                    .map(Integer::parseInt)
-                    .orElse(0);
-            Progress progress = new Progress(progressValue);
-        } catch (IllegalArgumentException e) {
-            throw new ParseException(Progress.MESSAGE_CONSTRAINTS);
-        }
-        Progress progress = new Progress((progressValue));
+        int progressValue = argMultimap.getValue(PREFIX_PROGRESS)
+                .map(value -> Integer.parseInt(value))
+                .orElse(0);
+        Progress progress = ParserUtil.parseProgress(progressValue);
+
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Person person = new Person(name, phone, email, project, progress, tagList);

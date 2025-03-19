@@ -89,7 +89,7 @@ public class ParserUtil {
     public static Progress parseProgress(int progress) throws ParseException {
         requireNonNull(progress);
         if (!Progress.isValidProgress(progress)) {
-            throw new ParseException(Project.MESSAGE_CONSTRAINTS);
+            throw new ParseException(Progress.MESSAGE_CONSTRAINTS);
         }
         return new Progress(progress);
     }
