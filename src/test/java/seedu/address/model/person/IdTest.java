@@ -1,6 +1,8 @@
 package seedu.address.model.person;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -38,13 +40,37 @@ public class IdTest {
 
     @Test
     public void equals() {
-        Id idOne = new Id("A1234567Z");
-        Id idTwo = new Id("A1234567Z");
+        Id id = new Id("A1234567K");
+        Id sameId = new Id("A1234567K");
+        Id differentId = new Id("A7654321H");
 
-        assertTrue(idOne.equals(idTwo)); // Test for equality on same value
-        assertTrue(idOne.equals(idOne)); // Test same object reference
+        // same values -> returns true
+        assertEquals(id, sameId);
 
-        Id idDifferent = new Id("A7654321X");
-        assertFalse(idOne.equals(idDifferent)); // Test different values
+        // same object -> returns true
+        assertEquals(id, id);
+
+        // null -> returns false
+        assertNotEquals(null, id);
+
+        // different types -> returns false
+        assertNotEquals(5.0f, id);
+
+        // different values -> returns false
+        assertNotEquals(id, differentId);
+    }
+
+    @Test
+    public void hashCode_consistency() {
+        Id id = new Id("A1234567K");
+        assertEquals(id.hashCode(), id.hashCode());
+    }
+
+    @Test
+    public void hashCode_differentObjects() {
+        Id id1 = new Id("A1234567K");
+        Id id2 = new Id("A7654321H");
+
+        assertNotEquals(id1.hashCode(), id2.hashCode());
     }
 }
