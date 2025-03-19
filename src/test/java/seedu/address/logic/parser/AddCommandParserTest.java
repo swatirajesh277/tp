@@ -211,10 +211,8 @@ public class AddCommandParserTest {
                 Name.MESSAGE_CONSTRAINTS);
 
         // invalid progress
-        assertParseFailure(parser,
-                NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + PROJECT_DESC_BOB
-                        + INVALID_PROGRESS_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
-                Progress.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + PROJECT_DESC_BOB
+                + INVALID_PROGRESS_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Progress.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
