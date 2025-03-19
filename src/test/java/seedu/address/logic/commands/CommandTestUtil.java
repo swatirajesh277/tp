@@ -59,7 +59,8 @@ public class CommandTestUtil {
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
     public static final String INVALID_EMAIL_DESC = " " + PREFIX_EMAIL + "bob!yahoo"; // missing '@' symbol
     public static final String INVALID_PROJECT_DESC = " " + PREFIX_PROJECT; // empty string not allowed for projects
-    public static final String INVALID_PROGRESS_DESC = " " + PREFIX_PROGRESS + " "; //empty string not allowed for progress
+    public static final String INVALID_PROGRESS_DESC = " " + PREFIX_PROGRESS + " ";
+    //empty string not allowed for progress
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";

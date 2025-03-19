@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_PROJECT_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PROGRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_PROJECT_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalPersons.ALICE;
@@ -98,8 +98,9 @@ public class PersonTest {
     @Test
     public void toStringMethod() {
         String expected = Person.class.getCanonicalName() + "{name=" + ALICE.getName() + ", phone=" + ALICE.getPhone()
-                + ", email=" + ALICE.getEmail() + ", project=" + ALICE.getProject() + ", progress=" + ALICE.getProgress() +
-                ", tags=" + ALICE.getTags() + "}";
+                + ", email=" + ALICE.getEmail()
+                + ", project=" + ALICE.getProject() + ", progress=" + ALICE.getProgress()
+                + ", tags=" + ALICE.getTags() + "}";
         assertEquals(expected, ALICE.toString());
     }
 }
