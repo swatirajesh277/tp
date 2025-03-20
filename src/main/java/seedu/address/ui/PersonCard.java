@@ -40,7 +40,8 @@ public class PersonCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
-
+    @FXML
+    private Label id;
     @FXML
     private Label progress;
 
@@ -52,9 +53,11 @@ public class PersonCard extends UiPart<Region> {
         this.person = person;
         idx.setText(displayedIndex + ". ");
         name.setText(person.getName().fullName);
+        id.setText(person.getId().toString());
         phone.setText(person.getPhone().value);
         project.setText(person.getProject().value);
         email.setText(person.getEmail().value);
+        progress.setText("Progress: " + person.getProgress().toString() + "%");
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
