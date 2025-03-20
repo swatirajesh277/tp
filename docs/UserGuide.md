@@ -203,12 +203,13 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME p/PHONE_NUMBER e/EMAIL pr/PROJECT [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com pr/Project_Orbit t/friend t/colleague`
-**Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit** | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [pr/PROJECT] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**List** | `list`
-**Help** | `help`
+| Action     | Format, Examples                                                                                                                                            |
+|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**    | `add n/NAME p/PHONE_NUMBER e/EMAIL pr/PROJECT [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com pr/Project_Orbit t/friend t/colleague` |
+| **Clear**  | `clear`                                                                                                                                                     |
+| **Delete** | `delete INDEX`<br> e.g., `delete 3`                                                                                                                         |
+| **Edit**   | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [pr/PROJECT] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`                                |
+| **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                  |
+| **Filter** | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter prof-iler`                                                                                               |
+| **List**   | `list`                                                                                                                                                      |
+| **Help**   | `help`                                                                                                                                                      |
