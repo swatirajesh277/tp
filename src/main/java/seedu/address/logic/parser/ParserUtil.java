@@ -12,6 +12,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 import seedu.address.model.person.Project;
 import seedu.address.model.tag.Tag;
 
@@ -78,6 +79,19 @@ public class ParserUtil {
             throw new ParseException(Project.MESSAGE_CONSTRAINTS);
         }
         return new Project(trimmedProject);
+    }
+
+    /**
+     * Parses a {@code int progress} into a {@code Progress}.
+     *
+     * @throws ParseException if the given {@code progress} is invalid.
+     */
+    public static Progress parseProgress(int progress) throws ParseException {
+        requireNonNull(progress);
+        if (!Progress.isValidProgress(progress)) {
+            throw new ParseException(Progress.MESSAGE_CONSTRAINTS);
+        }
+        return new Progress(progress);
     }
 
     /**
