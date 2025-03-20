@@ -64,7 +64,7 @@ public class ProgressCommand extends Command {
         return new CommandResult(String.format(
                 MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson)));
     }
-    
+
     @Override
     public boolean equals(Object other) {
         if (other == this) {
