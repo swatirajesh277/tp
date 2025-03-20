@@ -128,6 +128,20 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
+### Filter for specific projects: `filter`
+
+Filters for projects that contain any of the given keywords.
+
+Format: `filter KEYWORD [MORE_KEYWORDS]`
+
+* The search is case-insensitive.
+* The order of the given keywords does not matter.
+* All the filtered student under the project will be shown in the displayed person list.
+
+Examples:
+* `filter prof-iler` returns `David Li` and `JianXi` which are the two students under the project `Prof-iler`
+    ![result for `filter prof-iler`](images/Filter_usage.png)
+
 ### Deleting a person : `delete`
 
 Deletes the specified person from Prof-iler.
