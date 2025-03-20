@@ -32,7 +32,7 @@
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
       </HBox>
       <FlowPane fx:id="tags" />
-      <Label fx:id="studentID" styleClass="cell_small_label" text="\$studentID" />
+      <Label fx:id="id" styleClass="cell_small_label" text="\$id" />
       <HBox spacing="5" alignment="CENTER_LEFT">
         <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
         <Region GridPane.columnIndex="1" style="-fx-background-color: white;" minWidth="2" prefWidth="2" />
