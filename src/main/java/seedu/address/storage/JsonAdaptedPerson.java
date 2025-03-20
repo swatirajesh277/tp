@@ -15,6 +15,7 @@ import seedu.address.model.person.Id;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 import seedu.address.model.person.Project;
 import seedu.address.model.tag.Tag;
 
@@ -30,20 +31,24 @@ class JsonAdaptedPerson {
     private final String phone;
     private final String email;
     private final String project;
+    private final int progress;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
      */
     @JsonCreator
-    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("id") String id,
-            @JsonProperty("phone") String phone, @JsonProperty("email") String email,
-            @JsonProperty("project") String project, @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+    public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("id") String id, 
+            @JsonProperty("phone") String phone,
+            @JsonProperty("email") String email, @JsonProperty("project") String project,
+            @JsonProperty("progress") int progress,
+            @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.id = id;
         this.phone = phone;
         this.email = email;
         this.project = project;
+        this.progress = progress;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -58,6 +63,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         project = source.getProject().value;
+        progress = source.getProgress().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -114,8 +120,17 @@ class JsonAdaptedPerson {
         }
         final Project modelProject = new Project(project);
 
+        if (Integer.valueOf(progress) == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+                    Progress.class.getSimpleName()));
+        }
+        if (!Progress.isValidProgress(progress)) {
+            throw new IllegalValueException(Progress.MESSAGE_CONSTRAINTS);
+        }
+        final Progress modelProgress = new Progress(progress);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelId, modelPhone, modelEmail, modelProject, modelTags);
+        return new Person(modelName, modelId, modelPhone, modelEmail, modelProject, modelProgress, modelTags);
     }
 
 }

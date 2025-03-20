@@ -10,6 +10,7 @@ import seedu.address.model.person.Id;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 import seedu.address.model.person.Project;
 import seedu.address.model.tag.Tag;
 
@@ -38,6 +39,7 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setProject(person.getProject());
+        descriptor.setProgress(person.getProgress());
         descriptor.setTags(person.getTags());
     }
 
@@ -78,6 +80,14 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withProject(String project) {
         descriptor.setProject(new Project(project));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Progress} of the {@code EditPersonDescriptor} that we are building.
+     */
+    public EditPersonDescriptorBuilder withProgress(int progress) {
+        descriptor.setProgress(new Progress(progress));
         return this;
     }
 

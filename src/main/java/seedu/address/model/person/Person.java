@@ -24,18 +24,20 @@ public class Person {
 
     // Data fields
     private final Project project;
+    private final Progress progress;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Id id, Phone phone, Email email, Project project, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, project, tags);
+    public Person(Name name, Id id, Phone phone, Email email, Project project, Progress progress, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, project, progress, tags);
         this.name = name;
         this.id = id;
         this.phone = phone;
         this.email = email;
         this.project = project;
+        this.progress = progress;
         this.tags.addAll(tags);
     }
 
@@ -57,6 +59,10 @@ public class Person {
 
     public Project getProject() {
         return project;
+    }
+
+    public Progress getProgress() {
+        return progress;
     }
 
     /**
@@ -101,13 +107,14 @@ public class Person {
                 && phone.equals(otherPerson.phone)
                 && email.equals(otherPerson.email)
                 && project.equals(otherPerson.project)
+                && progress.equals(otherPerson.progress)
                 && tags.equals(otherPerson.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, id, phone, email, project, tags);
+        return Objects.hash(name, id, phone, email, project, progress, tags);
     }
 
     @Override
@@ -118,6 +125,7 @@ public class Person {
                 .add("phone", phone)
                 .add("email", email)
                 .add("project", project)
+                .add("progress", progress)
                 .add("tags", tags)
                 .toString();
     }

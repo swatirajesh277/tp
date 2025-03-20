@@ -18,6 +18,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Id;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 import seedu.address.model.person.Project;
 import seedu.address.model.tag.Tag;
 
@@ -27,12 +28,14 @@ public class ParserUtilTest {
     private static final String INVALID_PHONE = "+651234";
     private static final String INVALID_ADDRESS = " ";
     private static final String INVALID_EMAIL = "example.com";
+    private static final int INVALID_PROGRESS = 101;
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = "Rachel Walker";
     private static final String VALID_ID = "A0263737F";
     private static final String VALID_PHONE = "123456";
     private static final String VALID_ADDRESS = "123 Main Street #0505";
+    private static final int VALID_PROGRESS = 50;
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
@@ -149,6 +152,29 @@ public class ParserUtilTest {
         String addressWithWhitespace = WHITESPACE + VALID_ADDRESS + WHITESPACE;
         Project expectedProject = new Project(VALID_ADDRESS);
         assertEquals(expectedProject, ParserUtil.parseProject(addressWithWhitespace));
+    }
+
+    @Test
+    public void parseProgress_null_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> ParserUtil.parseProgress((Integer) null));
+    }
+
+    @Test
+    public void parseProgress_invalidValue_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseProgress(INVALID_PROGRESS));
+    }
+
+    @Test
+    public void parseProgress_validValueWithoutWhitespace_returnsProgress() throws Exception {
+        Progress expectedProgress = new Progress(VALID_PROGRESS);
+        assertEquals(expectedProgress, ParserUtil.parseProgress(VALID_PROGRESS));
+    }
+
+    @Test
+    public void parseProgress_validValueWithWhitespace_returnsTrimmedProgress() throws Exception {
+        String progressWithWhitespace = WHITESPACE + VALID_PROGRESS + WHITESPACE;
+        Progress expectedProgress = new Progress(VALID_PROGRESS);
+        assertEquals(expectedProgress, ParserUtil.parseProgress(Integer.parseInt(progressWithWhitespace.trim())));
     }
 
     @Test
