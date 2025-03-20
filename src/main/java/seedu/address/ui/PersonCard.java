@@ -40,7 +40,6 @@ public class PersonCard extends UiPart<Region> {
     private Label email;
     @FXML
     private FlowPane tags;
-
     @FXML
     private Label progress;
 
@@ -55,6 +54,7 @@ public class PersonCard extends UiPart<Region> {
         phone.setText(person.getPhone().value);
         project.setText(person.getProject().value);
         email.setText(person.getEmail().value);
+        progress.setText("Progress: " + person.getProgress().toString() + "%");
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
