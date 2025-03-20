@@ -2,6 +2,7 @@
   "_comment": "AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook()",
   "persons" : [ {
     "name" : "Alice Pauline",
+    "id" : "A0284716F",
     "phone" : "94351253",
     "email" : "alice@example.com",
     "project" : "123, Jurong West Ave 6, #08-111",
@@ -9,6 +10,7 @@
     "tags" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
+    "id" : "A9472937S",
     "phone" : "98765432",
     "email" : "johnd@example.com",
     "project" : "311, Clementi Ave 2, #02-25",
@@ -16,6 +18,7 @@
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
+    "id" : "A0285516F",
     "phone" : "95352563",
     "email" : "heinz@example.com",
     "project" : "wall street",
@@ -23,6 +26,7 @@
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
+    "id" : "A0128588N",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
     "project" : "10th street",
@@ -30,6 +34,7 @@
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
+    "id" : "A0778839G",
     "phone" : "9482224",
     "email" : "werner@example.com",
     "project" : "michegan ave",
@@ -37,6 +42,7 @@
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
+    "id" : "A0284736H",
     "phone" : "9482427",
     "email" : "lydia@example.com",
     "project" : "little tokyo",
@@ -44,6 +50,7 @@
     "tags" : [ ]
   }, {
     "name" : "George Best",
+    "id" : "A0028152D",
     "phone" : "9482442",
     "email" : "anna@example.com",
     "project" : "4th street",
