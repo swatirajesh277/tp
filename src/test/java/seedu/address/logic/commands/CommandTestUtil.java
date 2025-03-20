@@ -20,6 +20,7 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Progress;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
 /**
@@ -65,6 +66,9 @@ public class CommandTestUtil {
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
+
+    public static final Progress PROGRESS_AMY = new Progress(VALID_PROGRESS_AMY);
+    public static final Progress PROGRESS_BOB = new Progress(VALID_PROGRESS_BOB);
 
     public static final EditCommand.EditPersonDescriptor DESC_AMY;
     public static final EditCommand.EditPersonDescriptor DESC_BOB;

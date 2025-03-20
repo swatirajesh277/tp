@@ -27,8 +27,14 @@ public class ProgressCommandParser implements Parser<ProgressCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ProgressCommand.MESSAGE_USAGE));
         }
 
+        Index index;
+        try {
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
+        } catch (ParseException pe) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ProgressCommand.MESSAGE_USAGE), pe);
+        }
+
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PROGRESS);
-        Index index = ParserUtil.parseIndex(argMultimap.getPreamble());
         Progress progress = ParserUtil.parseProgress(
                 Integer.parseInt(argMultimap.getValue(PREFIX_PROGRESS).get()));
 
