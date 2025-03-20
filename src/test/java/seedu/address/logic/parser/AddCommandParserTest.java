@@ -108,10 +108,10 @@ public class AddCommandParserTest {
 
         // multiple fields repeated
         assertParseFailure(parser,
-                validExpectedPersonString + PHONE_DESC_AMY + ID_DESC_AMY + EMAIL_DESC_AMY + NAME_DESC_AMY + PROJECT_DESC_AMY
-                        + PROGRESS_DESC_AMY + validExpectedPersonString,
-                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME, PREFIX_ID, PREFIX_PROJECT, PREFIX_EMAIL, PREFIX_PHONE,
-                        PREFIX_PROGRESS));
+                validExpectedPersonString + PHONE_DESC_AMY + ID_DESC_AMY + EMAIL_DESC_AMY + NAME_DESC_AMY
+                        + PROJECT_DESC_AMY + PROGRESS_DESC_AMY + validExpectedPersonString,
+                Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME, PREFIX_ID, PREFIX_PROJECT, PREFIX_EMAIL,
+                        PREFIX_PHONE, PREFIX_PROGRESS));
 
         // invalid value followed by valid value
 
@@ -170,8 +170,8 @@ public class AddCommandParserTest {
     public void parse_optionalFieldsMissing_success() {
         // zero tags
         Person expectedPerson = new PersonBuilder(AMY).withTags().build();
-        assertParseSuccess(parser, NAME_DESC_AMY + ID_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + PROJECT_DESC_AMY
-                + PROGRESS_DESC_AMY, new AddCommand(expectedPerson));
+        assertParseSuccess(parser, NAME_DESC_AMY + ID_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
+                + PROJECT_DESC_AMY + PROGRESS_DESC_AMY, new AddCommand(expectedPerson));
     }
 
     @Test
@@ -207,41 +207,42 @@ public class AddCommandParserTest {
     @Test
     public void parse_invalidValue_failure() {
         // invalid name
-        assertParseFailure(parser, INVALID_NAME_DESC + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + PROJECT_DESC_BOB
-                + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
-      
+        assertParseFailure(parser, INVALID_NAME_DESC + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Name.MESSAGE_CONSTRAINTS);
+
         // invalid id
         assertParseFailure(parser, NAME_DESC_BOB + INVALID_ID_DESC + PHONE_DESC_BOB + EMAIL_DESC_BOB
                 + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Id.MESSAGE_CONSTRAINTS);
 
         // invalid phone
-        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + INVALID_PHONE_DESC + EMAIL_DESC_BOB + PROJECT_DESC_BOB
-                + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Phone.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + INVALID_PHONE_DESC + EMAIL_DESC_BOB
+                + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Phone.MESSAGE_CONSTRAINTS);
 
         // invalid email
-        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + INVALID_EMAIL_DESC + PROJECT_DESC_BOB
-                + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + INVALID_EMAIL_DESC
+                + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Email.MESSAGE_CONSTRAINTS);
 
         // invalid project
-        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + INVALID_PROJECT_DESC
-                + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Project.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + INVALID_PROJECT_DESC + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND
+                + TAG_DESC_FRIEND, Project.MESSAGE_CONSTRAINTS);
 
         // invalid tag
-        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + PROJECT_DESC_BOB
-                + PROGRESS_DESC_BOB + INVALID_TAG_DESC + VALID_TAG_FRIEND, Tag.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + INVALID_TAG_DESC + VALID_TAG_FRIEND, Tag.MESSAGE_CONSTRAINTS);
 
         // two invalid values, only first invalid value reported
-        assertParseFailure(parser, INVALID_NAME_DESC + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + INVALID_PROJECT_DESC
-                + PROGRESS_DESC_BOB,
-                Name.MESSAGE_CONSTRAINTS);
-      
+        assertParseFailure(parser, INVALID_NAME_DESC + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + INVALID_PROJECT_DESC + PROGRESS_DESC_BOB, Name.MESSAGE_CONSTRAINTS);
+
         // invalid progress
-        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + PROJECT_DESC_BOB
-                + INVALID_PROGRESS_DESC + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, Progress.MESSAGE_CONSTRAINTS);
+        assertParseFailure(parser, NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
+                + PROJECT_DESC_BOB + INVALID_PROGRESS_DESC + TAG_DESC_HUSBAND
+                + TAG_DESC_FRIEND, Progress.MESSAGE_CONSTRAINTS);
 
         // non-empty preamble
-        assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+        assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + ID_DESC_BOB + PHONE_DESC_BOB
+                + EMAIL_DESC_BOB + PROJECT_DESC_BOB + PROGRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

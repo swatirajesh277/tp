@@ -77,8 +77,8 @@ public class CommandTestUtil {
 
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withId(VALID_ID_AMY).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withProject(VALID_PROJECT_AMY)
-                .withProgress(VALID_PROGRESS_AMY)
+                .withId(VALID_ID_AMY).withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY)
+                .withProject(VALID_PROJECT_AMY).withProgress(VALID_PROGRESS_AMY)
                 .withTags(VALID_TAG_FRIEND).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB).withId(VALID_ID_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withProject(VALID_PROJECT_BOB)

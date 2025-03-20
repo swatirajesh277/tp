@@ -109,7 +109,8 @@ public class EditCommand extends Command {
         Progress updatedProgress = editPersonDescriptor.getProgress().orElse(personToEdit.getProgress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updateId, updatedPhone, updatedEmail, updatedProject, updatedProgress, updatedTags);
+        return new Person(updatedName, updatedId, updatedPhone, updatedEmail, updatedProject,
+                        updatedProgress, updatedTags);
     }
 
     @Override
