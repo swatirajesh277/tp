@@ -32,6 +32,7 @@
         <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
       </HBox>
       <FlowPane fx:id="tags" />
+      <Label fx:id="studentID" styleClass="cell_small_label" text="\$studentID" />
       <HBox spacing="5" alignment="CENTER_LEFT">
         <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
         <Region GridPane.columnIndex="1" style="-fx-background-color: white;" minWidth="2" prefWidth="2" />
@@ -39,7 +40,12 @@
         <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
 
       </HBox>
+      <HBox spacing="5" alignment="CENTER_LEFT">
       <Label fx:id="project" styleClass="cell_small_label" text="\$project" />
+      <Region GridPane.columnIndex="1" style="-fx-background-color: white;" minWidth="2" prefWidth="2" />
+
+      <Label fx:id="progress" styleClass="cell_small_label" text="\$progress" />
+      </HBox>
 
     </VBox>
   </GridPane>
