@@ -2,12 +2,12 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PROGRESS;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.ProgressCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 
 /**
  * Parses input arguments and creates a new ProgressCommand object
@@ -21,15 +21,16 @@ public class ProgressCommandParser implements Parser<ProgressCommand> {
      */
     public ProgressCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_PHONE); //TODO: Change all to Progress
+        ArgumentMultimap argMultimap = ArgumentTokenizer.tokenize(args, PREFIX_PROGRESS);
 
-        if (argMultimap.getValue(PREFIX_PHONE).isEmpty() || argMultimap.getPreamble().isEmpty()) {
+        if (argMultimap.getValue(PREFIX_PROGRESS).isEmpty() || argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, ProgressCommand.MESSAGE_USAGE));
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PHONE);
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PROGRESS);
         Index index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        Phone progress = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
+        Progress progress = ParserUtil.parseProgress(
+                Integer.parseInt(argMultimap.getValue(PREFIX_PROGRESS).get()));
 
         return new ProgressCommand(index, progress);
     }

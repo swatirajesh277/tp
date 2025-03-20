@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PROGRESS;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 
 /**
  * Updates the project progress of an existing person.
@@ -24,20 +24,20 @@ public class ProgressCommand extends Command {
             + "by the index number used in the displayed person list. "
             + "Existing progress will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + PREFIX_PHONE + "PROGRESS\n"
+            + PREFIX_PROGRESS + "PROGRESS\n"
             + "Example: " + COMMAND_WORD + " 1 "
-            + PREFIX_PHONE + "45";
+            + PREFIX_PROGRESS + "45";
 
     public static final String MESSAGE_EDIT_PROGRESS_SUCCESS = "Updated progress of Person: %1$s";
 
     private final Index index;
-    private final Phone progress; //TODO: Change to Progress
+    private final Progress progress;
 
     /**
      * @param index index of the person in the filtered person list
      * @param progress progress of the person to be updated to
      */
-    public ProgressCommand(Index index, Phone progress) {
+    public ProgressCommand(Index index, Progress progress) {
         requireAllNonNull(index, progress);
 
         this.index = index;
@@ -54,13 +54,15 @@ public class ProgressCommand extends Command {
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
-                personToEdit.getName(), progress, personToEdit.getEmail(),
-                personToEdit.getProject(), personToEdit.getTags());
+                personToEdit.getName(), personToEdit.getPhone(),
+                personToEdit.getEmail(), personToEdit.getProject(),
+                progress, personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
 
-        return new CommandResult(String.format(MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson)));
+        return new CommandResult(String.format(
+                MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson)));
     }
 
     @Override
