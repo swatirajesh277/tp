@@ -85,7 +85,7 @@ A person can have unmentioned progress(default = 0)
 </div>
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com pr/Project pb/72 Prof-iler`
+* `add n/John Doe p/98765432 e/johnd@example.com pr/Prof-iler pb/72`
 * `add n/Betsy Crowe t/Y4 BZA e/betsycrowe@example.com p/1234567 pr/Orbital`
 
 ### Listing all persons : `list`
