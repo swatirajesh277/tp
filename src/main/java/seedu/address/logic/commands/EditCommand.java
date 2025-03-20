@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PROGRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
@@ -25,6 +26,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Progress;
 import seedu.address.model.person.Project;
 import seedu.address.model.tag.Tag;
 
@@ -43,6 +45,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
             + "[" + PREFIX_PROJECT + "PROJECT] "
+            + "[" + PREFIX_PROGRESS + "PROGRESS] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -99,9 +102,10 @@ public class EditCommand extends Command {
         Phone updatedPhone = editPersonDescriptor.getPhone().orElse(personToEdit.getPhone());
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Project updatedProject = editPersonDescriptor.getProject().orElse(personToEdit.getProject());
+        Progress updatedProgress = editPersonDescriptor.getProgress().orElse(personToEdit.getProgress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedProject, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedProject, updatedProgress, updatedTags);
     }
 
     @Override
@@ -137,6 +141,7 @@ public class EditCommand extends Command {
         private Phone phone;
         private Email email;
         private Project project;
+        private Progress progress;
         private Set<Tag> tags;
 
         public EditPersonDescriptor() {}
@@ -150,6 +155,7 @@ public class EditCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setProject(toCopy.project);
+            setProgress(toCopy.progress);
             setTags(toCopy.tags);
         }
 
@@ -157,7 +163,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, project, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, project, progress, tags);
         }
 
         public void setName(Name name) {
@@ -190,6 +196,14 @@ public class EditCommand extends Command {
 
         public Optional<Project> getProject() {
             return Optional.ofNullable(project);
+        }
+
+        public void setProgress(Progress progress) {
+            this.progress = progress;
+        }
+
+        public Optional<Progress> getProgress() {
+            return Optional.ofNullable(progress);
         }
 
         /**
@@ -225,6 +239,7 @@ public class EditCommand extends Command {
                     && Objects.equals(phone, otherEditPersonDescriptor.phone)
                     && Objects.equals(email, otherEditPersonDescriptor.email)
                     && Objects.equals(project, otherEditPersonDescriptor.project)
+                    && Objects.equals(progress, otherEditPersonDescriptor.progress)
                     && Objects.equals(tags, otherEditPersonDescriptor.tags);
         }
 
@@ -235,6 +250,7 @@ public class EditCommand extends Command {
                     .add("phone", phone)
                     .add("email", email)
                     .add("project", project)
+                    .add("progress", progress)
                     .add("tags", tags)
                     .toString();
         }
