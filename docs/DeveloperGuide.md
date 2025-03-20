@@ -362,7 +362,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The input is invalid
     * 2a1. Prof-iler shows an error message.
     
-        Use case resumes at step 1.
+    Use case resumes at step 1.
 
 *{More to be added}*
 
@@ -375,8 +375,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 5.  Should work without requiring installation (i.e. packaged as a .jar file).
 6.  Should work without an internet connection, without depending on an online server.
 7.  Should follow the Object-oriented paradigm for ease of future expansion, where commands can be added with minimal changes to existing code.
-8.  The GUI should not cause any resolution-related inconveniences to the user for standard screen resolutions 
-1920x1080 and higher, and, for screen scales 100% and 125%. It should remain usable (all functions can be used even if the user experience is not optimal) for resolutions 1280x720 and higher, and, for screen scales 150%.
+8.  The GUI should not cause any resolution-related inconveniences to the user for standard screen resolutions 1920x1080 and higher, and, for screen scales 100% and 125%. It should remain usable (all functions can be used even if the user experience is not optimal) for resolutions 1280x720 and higher, and, for screen scales 150%.
 9.  The file size for the .jar file should not exceed 100MB, and documents like PDF files should not exceed 15MB/file.
 
 
