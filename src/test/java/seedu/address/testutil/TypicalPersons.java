@@ -49,7 +49,7 @@ public class TypicalPersons {
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withId("A0012212D")
             .withPhone("8482424").withEmail("stefan@example.com").withProject("little india").withProgress("30").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withId("A7283937J")
-            .withPhone("8482131").withEmail("hans@example.com").withProject("chicago ave").build();
+            .withPhone("8482131").withEmail("hans@example.com").withProject("chicago ave").withProgress("69").build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withId(VALID_ID_AMY)
