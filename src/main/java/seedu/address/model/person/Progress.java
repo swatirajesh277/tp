@@ -20,7 +20,6 @@ public class Progress {
      *
      * @param progress A valid progress.
      */
-
     public Progress(String progress) {
         requireNonNull(progress);
         checkArgument(isValidProgress(progress), MESSAGE_CONSTRAINTS);
