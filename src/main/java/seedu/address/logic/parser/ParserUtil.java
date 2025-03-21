@@ -98,11 +98,11 @@ public class ParserUtil {
     }
 
     /**
-     * Parses a {@code int progress} into a {@code Progress}.
+     * Parses a {@code String progress} into a {@code Progress}.
      *
      * @throws ParseException if the given {@code progress} is invalid.
      */
-    public static Progress parseProgress(int progress) throws ParseException {
+    public static Progress parseProgress(String progress) throws ParseException {
         requireNonNull(progress);
         if (!Progress.isValidProgress(progress)) {
             throw new ParseException(Progress.MESSAGE_CONSTRAINTS);
