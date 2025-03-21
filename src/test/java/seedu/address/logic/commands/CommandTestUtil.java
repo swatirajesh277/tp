@@ -40,8 +40,8 @@ public class CommandTestUtil {
     public static final String VALID_PROJECT_AMY = "Project Amy-cable";
     public static final String VALID_PROJECT_BOB = "Project Bob-B";
 
-    public static final int VALID_PROGRESS_AMY = 78;
-    public static final int VALID_PROGRESS_BOB = 38;
+    public static final String VALID_PROGRESS_AMY = "78";
+    public static final String VALID_PROGRESS_BOB = "38";
 
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
