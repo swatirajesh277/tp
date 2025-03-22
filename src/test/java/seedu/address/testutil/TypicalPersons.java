@@ -39,15 +39,17 @@ public class TypicalPersons {
             .withPhone("87652533").withEmail("cornelia@example.com")
             .withProject("10th street").withProgress("68").withTags("friends").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withId("A0778839G")
-            .withPhone("9482224").withEmail("werner@example.com").withProject("michegan ave").withProgress("32").build();
+            .withPhone("9482224").withEmail("werner@example.com")
+            .withProject("michegan ave").withProgress("32").build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withId("A0284736H")
             .withPhone("9482427").withEmail("lydia@example.com").withProgress("22").withProject("little tokyo").build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withId("A0028152D")
             .withPhone("9482442").withProgress("10").withEmail("anna@example.com").withProject("4th street").build();
 
     // Manually added
-    public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withId("A0012212D")
-            .withPhone("8482424").withEmail("stefan@example.com").withProject("little india").withProgress("30").build();
+    public static final Person HOON = new PersonBuilder().withName("Hoon Meier")
+            .withId("A0012212D").withPhone("8482424").withEmail("stefan@example.com")
+            .withProject("little india").withProgress("30").build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withId("A7283937J")
             .withPhone("8482131").withEmail("hans@example.com").withProject("chicago ave").withProgress("69").build();
 

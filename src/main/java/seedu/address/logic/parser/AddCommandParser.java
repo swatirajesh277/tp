@@ -58,6 +58,7 @@ public class AddCommandParser implements Parser<AddCommand> {
             // If prefix progress is omitted, default to 0.
             progress = ParserUtil.parseProgress("");
         }
+
         Project project = ParserUtil.parseProject(argMultimap.getValue(PREFIX_PROJECT).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
