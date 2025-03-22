@@ -178,6 +178,20 @@ public class ParserUtilTest {
     }
 
     @Test
+    public void parseProgress_emptyString_returnsZeroProgress() throws Exception {
+        String emptyString = "";
+        Progress expectedProgress = new Progress();
+        assertEquals(expectedProgress, ParserUtil.parseProgress(emptyString));
+    }
+
+    @Test
+    public void parseProgress_emptyStringWithWhitespace_returnsZeroProgress() throws Exception {
+        String emptyString = WHITESPACE + "" + WHITESPACE + "" + WHITESPACE;
+        Progress expectedProgress = new Progress();
+        assertEquals(expectedProgress, ParserUtil.parseProgress(emptyString));
+    }
+
+    @Test
     public void parseEmail_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> ParserUtil.parseEmail((String) null));
     }
