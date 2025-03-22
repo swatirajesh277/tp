@@ -70,5 +70,23 @@ public class PersonCard extends UiPart<Region> {
     private void updateProgressBar(ProgressBar bar, Person person) {
         double progressValue = Double.parseDouble(person.getProgress().toString()) / 100;
         progressBar.progressProperty().set(progressValue);
+
+        String color;
+        if (progressValue < 0.33) {
+            color = "#ff6963"; // Red
+        } else if (progressValue < 0.66) {
+            color = "#ffcc00"; // Yellow
+        } else {
+            color = "#77dd77"; // Green
+        }
+
+        String progressBarStyle = String.format(
+                "-fx-accent: %s; "
+                        + "-fx-background-radius: 20px; "
+                        + "-fx-border-radius: 20px;",
+                color
+        );
+
+        progressBar.setStyle(progressBarStyle);
     }
 }

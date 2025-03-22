@@ -45,7 +45,7 @@
       <Label fx:id="project" styleClass="cell_small_label" text="\$project" />
       <Region GridPane.columnIndex="1" style="-fx-background-color: white;" minWidth="2" prefWidth="2" />
       <Label fx:id="progress" styleClass="cell_small_label" text="\$progress" />
-        <ProgressBar fx:id="progressBar"/>
+        <ProgressBar fx:id="progressBar" prefWidth="100" stylesheets="@ProgressBar.css"/>
       </HBox>
 
     </VBox>
