@@ -38,19 +38,27 @@ public class AddCommandParser implements Parser<AddCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_ID, PREFIX_PHONE, PREFIX_EMAIL,
                         PREFIX_PROJECT, PREFIX_PROGRESS, PREFIX_TAG);
 
-        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ID, PREFIX_PROJECT, PREFIX_PROGRESS,
+        if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_ID, PREFIX_PROJECT,
                 PREFIX_PHONE, PREFIX_EMAIL) || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
         }
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_ID, PREFIX_PHONE, PREFIX_EMAIL,
-                PREFIX_PROJECT, PREFIX_PROGRESS);
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_ID, PREFIX_PHONE,
+                PREFIX_EMAIL, PREFIX_PROJECT, PREFIX_PROGRESS);
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Id id = ParserUtil.parseId(argMultimap.getValue(PREFIX_ID).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
+
+        Progress progress; // Initialise progress
+        if (arePrefixesPresent(argMultimap, PREFIX_PROGRESS)) {
+            // If progress prefix found, parse value accordingly.
+            progress = ParserUtil.parseProgress(argMultimap.getValue(PREFIX_PROGRESS).get());
+        } else {
+            // If prefix progress is omitted, default to 0.
+            progress = ParserUtil.parseProgress("");
+        }
         Project project = ParserUtil.parseProject(argMultimap.getValue(PREFIX_PROJECT).get());
-        Progress progress = ParserUtil.parseProgress(argMultimap.getValue(PREFIX_PROGRESS).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Person person = new Person(name, id, phone, email, project, progress, tagList);
