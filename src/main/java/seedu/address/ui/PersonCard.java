@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -44,6 +45,8 @@ public class PersonCard extends UiPart<Region> {
     private Label id;
     @FXML
     private Label progress;
+    @FXML
+    private ProgressBar progressBar;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -58,8 +61,14 @@ public class PersonCard extends UiPart<Region> {
         project.setText(person.getProject().value);
         email.setText(person.getEmail().value);
         progress.setText("Progress: " + person.getProgress().toString() + "%");
+        updateProgressBar(progressBar, person);
         person.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
+    }
+
+    private void updateProgressBar(ProgressBar bar, Person person) {
+        double progressValue = Double.parseDouble(person.getProgress().toString()) / 100;
+        progressBar.progressProperty().set(progressValue);
     }
 }
