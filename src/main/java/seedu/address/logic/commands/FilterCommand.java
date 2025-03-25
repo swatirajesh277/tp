@@ -3,9 +3,12 @@ package seedu.address.logic.commands;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
 
+import java.util.function.Predicate;
+
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
+import seedu.address.model.person.Person;
 import seedu.address.model.person.ProjectContainsKeywordsPredicate;
 
 /**
@@ -21,9 +24,9 @@ public class FilterCommand extends Command {
             + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] "
             + "Example: " + COMMAND_WORD + " pr/ Prof-iler";
 
-    private final ProjectContainsKeywordsPredicate predicate;
+    private final Predicate<Person> predicate;
 
-    public FilterCommand(ProjectContainsKeywordsPredicate predicate) {
+    public FilterCommand(Predicate<Person> predicate) {
         this.predicate = predicate;
     }
 
