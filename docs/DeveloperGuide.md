@@ -292,19 +292,19 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`     | Professor at SoC           | find all active research in a summary dashboard                          | get a quick overview of all the ongoing research                                  |
 | `* *`     | Professor at SoC           | receive reminders about the upcoming student deadlines                   | ensure timely feedback and submissions                                            |
 | `* *`     | Professor at SoC           | find students working on similar projects in the past                    | link up current students to past students for mentoring                           |
-| `* *`     | Professor at SoC           | undo changes                                                             | maintain productivity when i accidentally make unwanted changes                   |
-| `* *`     | Professor at SoC           | redo changes                                                             | change in case i change my mind after undoing a change                            |
+| `* *`     | Professor at SoC           | undo changes                                                             | maintain productivity when I accidentally make unwanted changes                   |
+| `* *`     | Professor at SoC           | redo changes                                                             | change in case I change my mind after undoing a change                            |
 | `* *`     | Professor at SoC           | have a help command                                                      | see all available commands                                                        |
 | `* *`     | Professor at SoC           | use shortcuts to type a command faster                                   | retrieve information faster                                                       |
 | `* *`     | Professor at SoC           | use shortcuts to add new student profiles                                | create users quicker                                                              |
 | `* *`     | Professor at SoC           | log notes about students                                                 | refer to them in the future and find out additional information about the student |
 | `* *`     | Professor at SoC           | set a preferred name for my students                                     | know what to call them                                                            |
 | `* *`     | Forgetful Professor at SoC | set profile picture for my students                                      | remember how they look like                                                       |
-| `*`       | Vain Professor at SoC      | set my own profile picture                                               | admire my face everytime i use the application                                    |
+| `*`       | Vain Professor at SoC      | set my own profile picture                                               | admire my face everytime I use the application                                    |
 | `*`       | Professor at SoC           | export data about student research into a report format                  | share my research easily                                                          |
 | `*`       | Forgetful Professor at SoC | log research meetings with students                                      | do not forgot what we discussed in the meeting                                    |
 | `*`       | Professor at SoC           | maintain a professional network with past students                       | reconnect with them for future collaboration                                      |
-| `*`       | Professor at SoC           | create charts and diagrams to compare students across multiple semesters | decide if i need to take in more students for my projects                         |
+| `*`       | Professor at SoC           | create charts and diagrams to compare students across multiple semesters | decide if I need to take in more students for my projects                         |
 | `*`       | Professor at SoC           | export each student's grades for the current semester                    | update their grades into the system easily                                        |
 | `*`       | Professor at SoC           | color tag each students                                                  | sort them effectively                                                             |
 
