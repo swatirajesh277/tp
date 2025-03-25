@@ -25,7 +25,8 @@ public class TagContainsKeywordsPredicate implements Predicate<Person> {
         boolean tagContainsKeywords = false;
         for (Tag tag : tags) {
             String tagName = tag.tagName;
-            tagContainsKeywords = keywords.stream().anyMatch(keyword -> StringUtil.containsWordIgnoreCase(tagName, keyword));
+            tagContainsKeywords = keywords.stream().anyMatch(
+                    keyword -> StringUtil.containsWordIgnoreCase(tagName, keyword));
             if (tagContainsKeywords) {
                 break;
             }

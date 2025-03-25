@@ -33,8 +33,8 @@ public class ProjectContainsKeywordsPredicate implements Predicate<Person> {
         if (!(other instanceof ProjectContainsKeywordsPredicate)) {
             return false;
         }
-
-        ProjectContainsKeywordsPredicate otherProjectContainsKeywordsPredicate = (ProjectContainsKeywordsPredicate) other;
+        ProjectContainsKeywordsPredicate otherProjectContainsKeywordsPredicate =
+                (ProjectContainsKeywordsPredicate) other;
         return keywords.equals(otherProjectContainsKeywordsPredicate.keywords);
     }
 

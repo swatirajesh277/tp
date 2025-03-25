@@ -9,7 +9,6 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.ProjectContainsKeywordsPredicate;
 
 /**
  * Filters and list all students in Prof-iler whose project contain the given keyword.
