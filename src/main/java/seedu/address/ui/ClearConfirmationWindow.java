@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -108,5 +109,6 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
         isConfirmed = false;
         this.getRoot().close();
     }
+
 
 }

@@ -6,9 +6,9 @@
     -fx-background-color: dimgray;
 }
 
-#copyButton:hover {
-    -fx-background-color: gray;
-}
+/*#yesButton:hover {*/
+/*    -fx-background-color: gray;*/
+/*}*/
 
 #copyButton:armed {
     -fx-background-color: darkgray;
