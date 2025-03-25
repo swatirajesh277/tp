@@ -6,7 +6,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.person.StudentUnderProjectPredicate;
+import seedu.address.model.person.ProjectContainsKeywordsPredicate;
 
 /**
  * Filters and list all students in Prof-iler whose project contain the given keyword.
@@ -21,9 +21,9 @@ public class FilterCommand extends Command {
             + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] "
             + "Example: " + COMMAND_WORD + " pr/ Prof-iler";
 
-    private final StudentUnderProjectPredicate predicate;
+    private final ProjectContainsKeywordsPredicate predicate;
 
-    public FilterCommand(StudentUnderProjectPredicate predicate) {
+    public FilterCommand(ProjectContainsKeywordsPredicate predicate) {
         this.predicate = predicate;
     }
 

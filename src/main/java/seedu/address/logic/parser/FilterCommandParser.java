@@ -2,17 +2,13 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PROGRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
-import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.StudentUnderProjectPredicate;
+import seedu.address.model.person.ProjectContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FilterCommand object
@@ -28,18 +24,18 @@ public class FilterCommandParser implements Parser<FilterCommand> {
      */
     public FilterCommand parse(String args) throws ParseException {
         requireNonNull(args);
-        ArgumentMultimap arguMultimap = ArgumentTokenizer.tokenize(args, PREFIX_PROJECT);
+        ArgumentMultimap argumentMultimap = ArgumentTokenizer.tokenize(args, PREFIX_PROJECT);
 
-        if (arguMultimap.getValue(PREFIX_PROJECT).isEmpty() || !arguMultimap.getPreamble().isEmpty()
-                || arguMultimap.getValue(PREFIX_PROJECT).get().isEmpty()) {
+        if (argumentMultimap.getValue(PREFIX_PROJECT).isEmpty() || !argumentMultimap.getPreamble().isEmpty()
+                || argumentMultimap.getValue(PREFIX_PROJECT).get().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
-        arguMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PROJECT);
+        argumentMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PROJECT);
 
-        String[] projectKeywords = arguMultimap.getValue(PREFIX_PROJECT).get().split("\\s+");
+        String[] projectKeywords = argumentMultimap.getValue(PREFIX_PROJECT).get().split("\\s+");
 
-        return new FilterCommand(new StudentUnderProjectPredicate(Arrays.asList(projectKeywords)));
+        return new FilterCommand(new ProjectContainsKeywordsPredicate(Arrays.asList(projectKeywords)));
     }
 }
 
