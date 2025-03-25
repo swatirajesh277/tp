@@ -29,6 +29,11 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     private Label clearMessage;
 
     /**
+     * Stores the user's response.
+     */
+    private boolean isConfirmed = false;
+
+    /**
      * Creates a new ClearConfirmationWindow.
      *
      * @param root Stage to use as the root of the ClearConfirmation.
@@ -46,7 +51,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     }
 
     /**
-     * Shows the clear confirmation window.
+     * Shows the clear confirmation window and waits for user response.
      * @throws IllegalStateException
      *     <ul>
      *         <li>
@@ -63,10 +68,11 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
      *         </li>
      *     </ul>
      */
-    public void show() {
+    public boolean showAndWait() {
         logger.fine("Showing message to confirm clearing all records.");
-        getRoot().show();
+        getRoot().showAndWait();
         getRoot().centerOnScreen();
+        return isConfirmed;
     }
 
     /**
@@ -90,18 +96,17 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
         getRoot().requestFocus();
     }
 
+
     @FXML
     private void handleYesButton() {
-
-
+        isConfirmed = true;
+        this.getRoot().close();
     }
 
     @FXML
     private void handleNoButton() {
-        assert isShowing() : "Clear confirmation message is not showing when it should be.";
-        this.hide();
-
-
+        isConfirmed = false;
+        this.getRoot().close();
     }
 
 }

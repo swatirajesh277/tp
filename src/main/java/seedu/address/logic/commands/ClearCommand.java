@@ -2,6 +2,8 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.concurrent.CompletableFuture;
+
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import seedu.address.model.AddressBook;
@@ -21,23 +23,14 @@ public class ClearCommand extends Command {
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-//        ClearConfirmationWindow clearConfirmationWindow = new ClearConfirmationWindow();
-//        clearConfirmationWindow.show();
-//
-//
-//        model.setAddressBook(new AddressBook());
-//        return new CommandResult(MESSAGE_SUCCESS);
-        // Show confirmation dialog
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you sure you want to clear all data?", ButtonType.YES, ButtonType.NO);
-        alert.setTitle("Clear Confirmation");
-        alert.setHeaderText(null);
-        alert.showAndWait();
+        ClearConfirmationWindow clearConfirmationWindow = new ClearConfirmationWindow();
+        boolean isConfirmed = clearConfirmationWindow.showAndWait();
 
-        if (alert.getResult() == ButtonType.YES) {
+        if (isConfirmed) {
             model.setAddressBook(new AddressBook());
             return new CommandResult(MESSAGE_SUCCESS);
         } else {
-            return new CommandResult("Clearing data has been cancelled.");
+            return new CommandResult(MESSAGE_CANCELLED);
         }
     }
 }
