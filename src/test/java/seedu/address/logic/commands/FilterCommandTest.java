@@ -15,7 +15,8 @@ import org.junit.jupiter.api.Test;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
-import seedu.address.model.person.StudentUnderProjectPredicate;
+import seedu.address.model.person.Project;
+import seedu.address.model.person.ProjectContainsKeywordsPredicate;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FilterCommand}.
@@ -26,10 +27,10 @@ public class FilterCommandTest {
 
     @Test
     public void equals() {
-        StudentUnderProjectPredicate firstPredicate =
-                new StudentUnderProjectPredicate(Collections.singletonList("first"));
-        StudentUnderProjectPredicate secondPredicate =
-                new StudentUnderProjectPredicate(Collections.singletonList("second"));
+        ProjectContainsKeywordsPredicate firstPredicate =
+                new ProjectContainsKeywordsPredicate(Collections.singletonList("first"));
+        ProjectContainsKeywordsPredicate secondPredicate =
+                new ProjectContainsKeywordsPredicate(Collections.singletonList("second"));
 
         FilterCommand filterFirstCommand = new FilterCommand(firstPredicate);
         FilterCommand filterSecondCommand = new FilterCommand(secondPredicate);
@@ -54,7 +55,7 @@ public class FilterCommandTest {
     @Test
     public void execute_zeroKeywords_noProjectFound() {
         String expectedMessage = String.format(MESSAGE_PROJECTS_FILTERED_OVERVIEW, 0);
-        StudentUnderProjectPredicate predicate = preparePredicate(" ");
+        ProjectContainsKeywordsPredicate predicate = preparePredicate(" ");
         FilterCommand command = new FilterCommand(predicate);
         expectedModel.updateFilteredPersonList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
@@ -63,7 +64,7 @@ public class FilterCommandTest {
 
     @Test
     public void execute_multipleKeywords_multipleProjectsFound() {
-        StudentUnderProjectPredicate predicate = new StudentUnderProjectPredicate(Arrays.asList("keyword"));
+        ProjectContainsKeywordsPredicate predicate = new ProjectContainsKeywordsPredicate(Arrays.asList("keyword"));
         FilterCommand filterCommand = new FilterCommand(predicate);
         String expected = FilterCommand.class.getCanonicalName() + "{predicate=" + predicate + "}";
         assertEquals(expected, filterCommand.toString());
@@ -71,7 +72,7 @@ public class FilterCommandTest {
 
     @Test
     public void toStringMethod() {
-        StudentUnderProjectPredicate predicate = new StudentUnderProjectPredicate(Arrays.asList("keyword"));
+        ProjectContainsKeywordsPredicate predicate = new ProjectContainsKeywordsPredicate(Arrays.asList("keyword"));
         FilterCommand filterCommand = new FilterCommand(predicate);
         String expected = FilterCommand.class.getCanonicalName() + "{predicate=" + predicate + "}";
         assertEquals(expected, filterCommand.toString());
@@ -81,7 +82,7 @@ public class FilterCommandTest {
     /**
      * Parses {@code userInput} into a {@code StudentUnderProjectPredicate} {}
      */
-    private StudentUnderProjectPredicate preparePredicate(String userInput) {
-        return new StudentUnderProjectPredicate(Arrays.asList(userInput.split("\\s+")));
+    private ProjectContainsKeywordsPredicate preparePredicate(String userInput) {
+        return new ProjectContainsKeywordsPredicate(Arrays.asList(userInput.split("\\s+")));
     }
 }

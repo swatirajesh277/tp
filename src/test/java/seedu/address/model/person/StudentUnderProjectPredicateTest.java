@@ -16,14 +16,14 @@ public class StudentUnderProjectPredicateTest {
         List<String> firstPredicateKeywordList = Collections.singletonList("first");
         List<String> secondPredicateKeywordList = Arrays.asList("first", "second");
 
-        StudentUnderProjectPredicate firstPredicate = new StudentUnderProjectPredicate(firstPredicateKeywordList);
-        StudentUnderProjectPredicate secondPredicate = new StudentUnderProjectPredicate(secondPredicateKeywordList);
+        ProjectContainsKeywordsPredicate firstPredicate = new ProjectContainsKeywordsPredicate(firstPredicateKeywordList);
+        ProjectContainsKeywordsPredicate secondPredicate = new ProjectContainsKeywordsPredicate(secondPredicateKeywordList);
 
         // same object -> returns true
         assertTrue(firstPredicate.equals(firstPredicate));
 
         // same value -> returns true
-        StudentUnderProjectPredicate firstPredicateCopy = new StudentUnderProjectPredicate(firstPredicateKeywordList);
+        ProjectContainsKeywordsPredicate firstPredicateCopy = new ProjectContainsKeywordsPredicate(firstPredicateKeywordList);
         assertTrue(firstPredicate.equals(firstPredicateCopy));
 
         // different types -> returns false;
