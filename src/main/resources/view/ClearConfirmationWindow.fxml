@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Scene?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.stage.Stage?>
+
+<fx:root resizable="false" title="Clear Confirmation" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <scene>
+        <Scene>
+            <stylesheets>
+                <URL value="@ClearConfirmationWindow.css" />
+            </stylesheets>
+
+            <VBox fx:id="clearMessageContainer" alignment="CENTER" prefHeight="80.0" prefWidth="186.0">
+                <opaqueInsets>
+                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                </opaqueInsets>
+                <padding>
+                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                </padding>
+                <Label fx:id="clearMessage" text="Label">
+                    <VBox.margin>
+                        <Insets bottom="10.0" />
+                    </VBox.margin>
+                </Label>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <Button fx:id="noButton" cancelButton="true" defaultButton="true" mnemonicParsing="false"
+                            text="No" onAction="#handleNoButton"/>
+                    <Button fx:id="yesButton" mnemonicParsing="false" pickOnBounds="false" text="Yes"
+                            onAction="#handleYesButton"/>
+                </HBox>
+            </VBox>
+        </Scene>
+    </scene>
+</fx:root>
