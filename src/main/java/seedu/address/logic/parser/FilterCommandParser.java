@@ -10,7 +10,6 @@ import java.util.function.Predicate;
 
 import seedu.address.logic.commands.FilterCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.ProjectContainsKeywordsPredicate;
 import seedu.address.model.person.TagContainsKeywordsPredicate;
@@ -31,9 +30,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         requireNonNull(args);
         ArgumentMultimap argumentMultimap = ArgumentTokenizer.tokenize(args, PREFIX_PROJECT, PREFIX_TAG);
 
-
-        if (argumentMultimap.getAllValues(PREFIX_TAG).isEmpty()
-            && argumentMultimap.getAllValues(PREFIX_PROJECT).isEmpty()) {
+        if (!hasRequiredPrefix(argumentMultimap)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
 
@@ -42,26 +39,45 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         String[] projectKeywords = new String[0];
         Predicate<Person> filteredStudent = null;
         if (argumentMultimap.getValue(PREFIX_PROJECT).isPresent()) {
-            if (argumentMultimap.getValue(PREFIX_PROJECT).isEmpty()
-                || !argumentMultimap.getPreamble().isEmpty()
-                || argumentMultimap.getValue(PREFIX_PROJECT).get().isEmpty()) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
-            }
+            checkProjectFilterCondition(argumentMultimap);
             projectKeywords = argumentMultimap.getValue(PREFIX_PROJECT).get().split("\\s+");
             filteredStudent = new ProjectContainsKeywordsPredicate(Arrays.asList(projectKeywords));
         }
 
         if (argumentMultimap.getValue(PREFIX_TAG).isPresent()) {
-            if (argumentMultimap.getValue(PREFIX_TAG).isEmpty()
-                    || !argumentMultimap.getPreamble().isEmpty()
-                    || argumentMultimap.getValue(PREFIX_TAG).get().isEmpty()) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
-            }
+            checkTagFilterCondition(argumentMultimap);
             projectKeywords = argumentMultimap.getValue(PREFIX_TAG).get().split("\\s+");
             filteredStudent = new TagContainsKeywordsPredicate(Arrays.asList(projectKeywords));
         }
-        
+
         return new FilterCommand(filteredStudent);
+    }
+
+    private boolean isPrefixPresent(ArgumentMultimap argumentMultimap, Prefix prefix) {
+        return !argumentMultimap.getAllValues(prefix).isEmpty();
+    }
+
+    private void checkProjectFilterCondition(ArgumentMultimap argumentMultimap) throws ParseException {
+        if (isPrefixPresent(argumentMultimap, PREFIX_TAG)
+            || argumentMultimap.getValue(PREFIX_PROJECT).isEmpty()
+            || !argumentMultimap.getPreamble().isEmpty()
+            || argumentMultimap.getValue(PREFIX_PROJECT).get().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        }
+    }
+
+    private void checkTagFilterCondition(ArgumentMultimap argumentMultimap) throws ParseException {
+        if (isPrefixPresent(argumentMultimap, PREFIX_PROJECT)
+                || argumentMultimap.getValue(PREFIX_TAG).isEmpty()
+                || !argumentMultimap.getPreamble().isEmpty()
+                || argumentMultimap.getValue(PREFIX_TAG).get().isEmpty()) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        }
+    }
+
+    private boolean hasRequiredPrefix(ArgumentMultimap argumentMultimap) {
+        return !argumentMultimap.getAllValues(PREFIX_TAG).isEmpty()
+                || !argumentMultimap.getAllValues(PREFIX_PROJECT).isEmpty();
     }
 }
 
