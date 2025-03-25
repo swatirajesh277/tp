@@ -30,9 +30,12 @@ public class FilterCommandParser implements Parser<FilterCommand> {
         requireNonNull(args);
         ArgumentMultimap arguMultimap = ArgumentTokenizer.tokenize(args, PREFIX_PROJECT);
 
-        if (arguMultimap.getValue(PREFIX_PROJECT).isEmpty() || !(arguMultimap.getPreamble().isEmpty())) {
+        if (arguMultimap.getValue(PREFIX_PROJECT).isEmpty() || !arguMultimap.getPreamble().isEmpty()
+                || arguMultimap.getValue(PREFIX_PROJECT).get().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
         }
+
+        arguMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PROJECT);
 
         String[] projectKeywords = arguMultimap.getValue(PREFIX_PROJECT).get().split("\\s+");
 
