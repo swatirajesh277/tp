@@ -10,6 +10,7 @@
 <?import javafx.stage.Stage?>
 
 <fx:root resizable="false" title="Clear Confirmation" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+
     <scene>
         <Scene>
             <stylesheets>

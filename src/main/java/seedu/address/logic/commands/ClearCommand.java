@@ -2,10 +2,6 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.concurrent.CompletableFuture;
-
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.ui.ClearConfirmationWindow;
