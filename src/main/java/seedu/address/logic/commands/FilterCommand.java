@@ -1,6 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
@@ -16,8 +17,9 @@ public class FilterCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters for the student who is under the "
             + "specified project based on the keywords (case-insensitive)"
             + "and displays them as a list with index numbers. \n"
-            + "Parameters: KEYWORD\n"
-            + "Example: " + COMMAND_WORD + "Prof-iler";
+            + "Parameters: "
+            + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] "
+            + "Example: " + COMMAND_WORD + " pr/ Prof-iler";
 
     private final StudentUnderProjectPredicate predicate;
 
