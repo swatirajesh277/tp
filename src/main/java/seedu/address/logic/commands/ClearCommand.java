@@ -65,6 +65,9 @@ public class ClearCommand extends Command {
             return false;
         }
 
+        if (predicate == null) {
+            return otherClearCommand.predicate == null;
+        }
         return predicate.equals(otherClearCommand.predicate);
     }
 
