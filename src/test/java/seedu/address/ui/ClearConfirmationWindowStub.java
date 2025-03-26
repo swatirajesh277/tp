@@ -33,17 +33,17 @@ public class ClearConfirmationWindowStub implements ConfirmationWindow {
         return instance;
     }
 
+    @Override
+    public boolean isShowing() {
+        return isShowing;
+    }
+
     /**
      * Sets the result that showAndWait() should return
      */
     @Override
     public boolean showAndWait() {
         return confirmationResult;
-    }
-    
-    @Override
-    public boolean isShowing() {
-        return isShowing;
     }
 
     public void setShowing(boolean isShowing) {
