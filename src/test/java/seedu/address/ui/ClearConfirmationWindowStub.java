@@ -7,8 +7,8 @@ public class ClearConfirmationWindowStub implements ConfirmationWindow {
     private static ClearConfirmationWindowStub instance; // Singleton instance
 
     private boolean confirmationResult;
-    private boolean isShowing = false; // Default behavior: window is not open
-
+    private boolean isShowing; // Default behavior: window is not open
+    private boolean wasFocusCalled;
 
     private ClearConfirmationWindowStub() {
     }
@@ -28,20 +28,19 @@ public class ClearConfirmationWindowStub implements ConfirmationWindow {
     public static ClearConfirmationWindowStub getInstance() {
         if (instance == null) {
             instance = new ClearConfirmationWindowStub();
+            instance.resetValues();
         }
         return instance;
     }
 
     /**
-     * Simulates user response.
-     *
-     * @return true if confirmed, false if cancelled.
+     * Sets the result that showAndWait() should return
      */
     @Override
     public boolean showAndWait() {
         return confirmationResult;
     }
-
+    
     @Override
     public boolean isShowing() {
         return isShowing;
@@ -53,7 +52,23 @@ public class ClearConfirmationWindowStub implements ConfirmationWindow {
 
     @Override
     public void focus() {
-        // Does nothing, is a stub.
+        wasFocusCalled = true;
+    }
+
+    public boolean wasFocusCalled() {
+        return this.wasFocusCalled;
+    }
+
+    public void setWasFocusCalled(boolean wasFocusCalled) {
+        this.wasFocusCalled = wasFocusCalled;
+    }
+
+    /**
+     * Resets values to original to simulate fresh instantiation
+     */
+    public void resetValues() {
+        confirmationResult = false;
+        isShowing = false;
     }
 
 }
