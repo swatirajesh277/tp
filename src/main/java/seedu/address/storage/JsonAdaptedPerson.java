@@ -12,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Id;
+import seedu.address.model.person.Log;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -32,6 +33,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String project;
     private final String progress;
+    private final String log;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
 
     /**
@@ -44,6 +46,7 @@ class JsonAdaptedPerson {
             @JsonProperty("email") String email,
             @JsonProperty("project") String project,
             @JsonProperty("progress") String progress,
+            @JsonProperty("log") String log,
             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
         this.name = name;
         this.id = id;
@@ -51,6 +54,7 @@ class JsonAdaptedPerson {
         this.email = email;
         this.project = project;
         this.progress = progress;
+        this.log = log;
         if (tags != null) {
             this.tags.addAll(tags);
         }
@@ -66,6 +70,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         project = source.getProject().value;
         progress = source.getProgress().value;
+        log = source.getLog().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));
@@ -131,8 +136,13 @@ class JsonAdaptedPerson {
         }
         final Progress modelProgress = new Progress(progress);
 
+        if (log == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Log.class.getSimpleName()));
+        }
+        final Log modelLog = new Log(log);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelId, modelPhone, modelEmail, modelProject, modelProgress, modelTags);
+        return new Person(modelName, modelId, modelPhone, modelEmail, modelProject, modelProgress, modelLog, modelTags);
     }
 
 }

@@ -7,6 +7,7 @@
     "email" : "alice@example.com",
     "project" : "123, Jurong West Ave 6, #08-111",
     "progress": "50",
+    "log": "",
     "tags" : [ "friends" ]
   }, {
     "name" : "Benson Meier",
@@ -15,6 +16,7 @@
     "email" : "johnd@example.com",
     "project" : "311, Clementi Ave 2, #02-25",
     "progress": "100",
+    "log": "",
     "tags" : [ "owesMoney", "friends" ]
   }, {
     "name" : "Carl Kurz",
@@ -23,6 +25,7 @@
     "email" : "heinz@example.com",
     "project" : "wall street",
     "progress": "40",
+    "log": "",
     "tags" : [ ]
   }, {
     "name" : "Daniel Meier",
@@ -31,6 +34,7 @@
     "email" : "cornelia@example.com",
     "project" : "10th street",
     "progress": "68",
+    "log": "",
     "tags" : [ "friends" ]
   }, {
     "name" : "Elle Meyer",
@@ -39,6 +43,7 @@
     "email" : "werner@example.com",
     "project" : "michegan ave",
     "progress": "32",
+    "log": "",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
@@ -47,6 +52,7 @@
     "email" : "lydia@example.com",
     "project" : "little tokyo",
     "progress": "22",
+    "log": "",
     "tags" : [ ]
   }, {
     "name" : "George Best",
@@ -55,6 +61,7 @@
     "email" : "anna@example.com",
     "project" : "4th street",
     "progress": "10",
+    "log": "",
     "tags" : [ ]
   } ]
 }

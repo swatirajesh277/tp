@@ -61,6 +61,7 @@ public class PersonCard extends UiPart<Region> {
         id.setText(person.getId().toString());
         phone.setText(person.getPhone().value);
         project.setText(person.getProject().value);
+        log.setText(person.getLog().value);
         email.setText(person.getEmail().value);
         progress.setText("Progress: " + person.getProgress().toString() + "%");
         updateProgressBar(progressBar, person);

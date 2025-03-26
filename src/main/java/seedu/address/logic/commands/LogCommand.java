@@ -2,11 +2,16 @@ package seedu.address.logic.commands;
 
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_LOG;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+
+import java.util.List;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Log;
+import seedu.address.model.person.Person;
 
 /**
  * Changes the log of an existing student.
@@ -24,6 +29,8 @@ public class LogCommand extends Command {
             + PREFIX_LOG + "TA for CS2103T.";
 
     public static final String MESSAGE_ARGUMENTS = "Index: %1$d, Log: %2$s";
+    public static final String MESSAGE_ADD_LOG_SUCCESS = "Added log to Person: %1$s";
+    public static final String MESSAGE_DELETE_LOG_SUCCESS = "Removed log from Person: %1$s";
 
     private final Index index;
     private final Log log;
@@ -42,7 +49,31 @@ public class LogCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
-        throw new CommandException(String.format(MESSAGE_ARGUMENTS, index.getOneBased(), log));
+        List<Person> lastShownList = model.getFilteredPersonList();
+
+        if (index.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(String.format(MESSAGE_ARGUMENTS, index.getOneBased(), log));
+        }
+
+        Person personToEdit = lastShownList.get(index.getZeroBased());
+        Person editedPerson = new Person(
+                personToEdit.getName(), personToEdit.getId(), personToEdit.getPhone(),
+                personToEdit.getEmail(), personToEdit.getProject(),
+                personToEdit.getProgress(), log, personToEdit.getTags());
+        model.setPerson(personToEdit, editedPerson);
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+
+        return new CommandResult(generateSuccessMessage(editedPerson));
+    }
+
+    /**
+     * Generates a command execution success message based on whether
+     * the log is added to or removed from
+     * {@code personToEdit}.
+     */
+    private String generateSuccessMessage(Person personToEdit) {
+        String message = !log.value.isEmpty() ? MESSAGE_ADD_LOG_SUCCESS : MESSAGE_DELETE_LOG_SUCCESS;
+        return String.format(message, Messages.format(personToEdit));
     }
 
     @Override

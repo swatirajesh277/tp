@@ -55,7 +55,7 @@ public class ProgressCommand extends Command {
         Person personToEdit = lastShownList.get(index.getZeroBased());
         Person editedPerson = new Person(
                 personToEdit.getName(), personToEdit.getId(), personToEdit.getPhone(),
-                personToEdit.getEmail(), personToEdit.getProject(), progress, personToEdit.getTags());
+                personToEdit.getEmail(), personToEdit.getProject(), progress, personToEdit.getLog(), personToEdit.getTags());
 
         model.setPerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
