@@ -143,8 +143,10 @@ public class ModelManager implements Model {
     @Override
     public void updateSortedPersonList(Comparator<Person> comparator) {
         if (comparator == null) {
+            logger.info("Resetting sorted list to default insertion order.");
             sortedPersons.setComparator(null);
         } else {
+            logger.info("Sorting person list using comparator: " + comparator.getClass().getSimpleName());
             sortedPersons.setComparator(comparator);
         }
     }
