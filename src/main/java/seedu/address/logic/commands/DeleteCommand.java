@@ -26,8 +26,6 @@ public class DeleteCommand extends Command {
             + "Parameters: INDEX (must be positive integers separated by commas)\n"
             + "Example: " + COMMAND_WORD + " 1,2,4";
 
-    public static final String MESSAGE_DELETE_PERSON_SUCCESS = "Deleted Student(s): %1$s";
-
     private final List<Index> targetIndexes;
 
     public DeleteCommand(List<Index> targetIndexes) {
