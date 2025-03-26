@@ -4,8 +4,8 @@ import static java.util.Objects.requireNonNull;
 
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
-import seedu.address.ui.ClearConfirmationWindow;
 import seedu.address.ui.ConfirmationWindow;
+import seedu.address.ui.ConfirmationWindowFactory;
 
 /**
  * Clears the address book.
@@ -24,7 +24,7 @@ public class ClearCommand extends Command {
      * This constructor is used in normal execution.
      */
     public ClearCommand() {
-        this.confirmationWindow = ClearConfirmationWindow.getInstance();
+        this.confirmationWindow = ConfirmationWindowFactory.getConfirmationWindow();
     }
 
     /**
