@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 
+import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
@@ -25,7 +26,7 @@ public class ClearCommand extends Command {
      * Clears the whole address book
      */
     public ClearCommand() {
-        this.predicate = null;
+        this(null);
     }
 
     /**
@@ -51,5 +52,26 @@ public class ClearCommand extends Command {
 
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(String.format(Messages.MESSAGE_PERSONS_CLEARED_OVERVIEW, numPeopleCleared));
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
+
+        // instanceof handles nulls
+        if (!(other instanceof ClearCommand otherClearCommand)) {
+            return false;
+        }
+
+        return predicate.equals(otherClearCommand.predicate);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .add("predicate", predicate)
+                .toString();
     }
 }
