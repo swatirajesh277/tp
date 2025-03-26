@@ -8,6 +8,7 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.LogCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.person.Log;
 
 /**
  * Parses input arguments and creates a new {@code LogCommand} object
@@ -29,6 +30,6 @@ public class LogCommandParser implements Parser<LogCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, LogCommand.MESSAGE_USAGE), e);
         }
         String log = argMultimap.getValue(PREFIX_LOG).orElse("");
-        return new LogCommand(index, log);
+        return new LogCommand(index, new Log(log));
     }
 }

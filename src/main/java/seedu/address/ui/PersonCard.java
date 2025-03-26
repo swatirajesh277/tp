@@ -47,6 +47,8 @@ public class PersonCard extends UiPart<Region> {
     private Label progress;
     @FXML
     private ProgressBar progressBar;
+    @FXML
+    private Label log;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
