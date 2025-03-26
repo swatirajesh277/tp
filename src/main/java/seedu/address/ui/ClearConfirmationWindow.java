@@ -25,16 +25,10 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     private static ClearConfirmationWindow instance; // Singleton instance
 
     @FXML
-    private Button yesButton;
-
-    @FXML
     private Button noButton;
 
     @FXML
     private Label clearMessage;
-
-    @FXML
-    private VBox clearMessageContainer;
 
     /**
      * Stores the user's response.
