@@ -38,6 +38,31 @@ public class ClearCommandTest {
         assertCommandSuccess(new ClearCommand(stub), model, ClearCommand.MESSAGE_SUCCESS, expectedModel);
     }
 
+    @Test
+    public void execute_emptyAddressBook_cancel() {
+        Model model = new ModelManager();
+        Model expectedModel = new ModelManager();
+
+        // Use the stub and simulate user cancelling the clear action
+        ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
+        stub.setConfirmationResult(false); //Simulate clicking "No"
+
+        assertCommandSuccess(new ClearCommand(stub), model, ClearCommand.MESSAGE_CANCELLED, expectedModel);
+    }
+
+    @Test
+    public void execute_nonEmptyAddressBook_cancel() {
+        Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+
+        // Use the stub and simulate user cancelling the clear action
+        ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
+        stub.setConfirmationResult(false); //Simulate clicking "No"
+
+        assertCommandSuccess(new ClearCommand(stub), model, ClearCommand.MESSAGE_CANCELLED, expectedModel);
+    }
+
+
 }
 
 
