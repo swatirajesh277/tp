@@ -2,9 +2,13 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
@@ -35,6 +39,37 @@ public class ParserUtil {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
         return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+    }
+
+    /**
+     * Parses {@code String args} into a list of {@code Index}.
+     * @throws ParseException if any of the values are invalid.
+     */
+    public static List<Index> parseIndexes(String args) throws ParseException {
+        requireNonNull(args);
+        String[] parts = args.trim().split(",");
+        if (parts.length == 0) {
+            throw new ParseException("No index specified.");
+        }
+
+        List<Index> indexes = new ArrayList<>();
+
+        for (String part : parts) {
+            String trimmedPart = part.trim();
+            try {
+                Index index = parseIndex(trimmedPart);
+                indexes.add(index);
+            } catch (NumberFormatException e) {
+                throw new ParseException("Index format error: '" + trimmedPart + "' is not a valid number.");
+            } catch (ParseException pe) {
+                throw new ParseException("Invalid index: '" + trimmedPart + "' - " + pe.getMessage());
+            }
+        }
+
+        if (indexes.isEmpty()) {
+            throw new ParseException("No valid indices found.");
+        }
+        return indexes;
     }
 
     /**
