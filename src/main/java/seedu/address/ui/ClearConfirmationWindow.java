@@ -2,10 +2,12 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 
@@ -20,6 +22,8 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     private static final Logger logger = LogsCenter.getLogger(ClearConfirmationWindow.class);
     private static final String FXML = "ClearConfirmationWindow.fxml";
 
+    private static ClearConfirmationWindow instance; // Singleton instance
+
     @FXML
     private Button yesButton;
 
@@ -28,6 +32,9 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
 
     @FXML
     private Label clearMessage;
+
+    @FXML
+    private VBox clearMessageContainer;
 
     /**
      * Stores the user's response.
@@ -39,7 +46,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
      *
      * @param root Stage to use as the root of the ClearConfirmation.
      */
-    public ClearConfirmationWindow(Stage root) {
+    private ClearConfirmationWindow(Stage root) {
         super(FXML, root);
         clearMessage.setText(CLEAR_MESSAGE);
     }
@@ -47,8 +54,18 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     /**
      * Creates a new ClearConfirmationWindow.
      */
-    public ClearConfirmationWindow() {
+    private ClearConfirmationWindow() {
         this(new Stage());
+    }
+
+    /**
+     * Returns the single instance of ClearConfirmationWindow.
+     */
+    public static ClearConfirmationWindow getInstance() {
+        if (instance == null) {
+            instance = new ClearConfirmationWindow();
+        }
+        return instance;
     }
 
     /**
@@ -71,6 +88,9 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
      */
     public boolean showAndWait() {
         logger.fine("Showing message to confirm clearing all records.");
+
+        Platform.runLater(() -> noButton.requestFocus());
+
         getRoot().showAndWait();
         getRoot().centerOnScreen();
         return isConfirmed;
