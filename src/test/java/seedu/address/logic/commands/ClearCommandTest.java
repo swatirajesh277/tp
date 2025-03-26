@@ -41,6 +41,6 @@ public class ClearCommandTest {
         assertCommandSuccess(new ClearCommand(stub), model, ClearCommand.MESSAGE_SUCCESS, expectedModel);
     }
 
-    }
-
 }
+
+
