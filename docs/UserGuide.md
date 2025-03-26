@@ -82,8 +82,8 @@ Format: `add n/NAME id/STUDENT p/PHONE e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…
 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
-A person can have any number of tags (including 0) <br>
-A person can have unmentioned progress(default = 0)
+A person can have any number of tags (including 0). <br>
+A person can have unmentioned progress (default = 0).
 </div>
 
 Examples:
