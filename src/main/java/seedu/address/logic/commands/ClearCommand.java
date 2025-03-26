@@ -14,7 +14,7 @@ public class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
     public static final String MESSAGE_SUCCESS = "Prof-iler data has been cleared!";
-    public static final String MESSAGE_CANCELLED = "Clearing data has been cancelled";
+    public static final String MESSAGE_CANCELLED = "Clearing data has been cancelled.";
     public static final String MESSAGE_REPEATED = "Repeated clear command, please respond on pop up window.";
 
 
