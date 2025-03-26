@@ -20,7 +20,7 @@ public class ClearCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    public void execute_emptyAddressBook_success() {
+    public void execute_noPredicateEmptyAddressBook_success() {
         Model model = new ModelManager();
         Model expectedModel = new ModelManager();
 
@@ -28,7 +28,7 @@ public class ClearCommandTest {
     }
 
     @Test
-    public void execute_nonEmptyAddressBook_success() {
+    public void execute_noPredicateNonEmptyAddressBook_success() {
         Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         expectedModel.setAddressBook(new AddressBook());
 
@@ -36,7 +36,7 @@ public class ClearCommandTest {
     }
 
     @Test
-    public void execute_clearByProject_withMatchingPeople_success() {
+    public void execute_withPredicateWithMatchingPeople_success() {
         Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         Person targetPerson = model.getFilteredPersonList().get(0);
         expectedModel.deletePerson(targetPerson);
@@ -49,7 +49,7 @@ public class ClearCommandTest {
     }
 
     @Test
-    public void execute_clearByProject_noMatchingPeople_success() {
+    public void execute_withPredicateNoMatchingPeople_success() {
         Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
         ProjectEqualsTargetPredicate predicate = new ProjectEqualsTargetPredicate("NonExistentProject");
 
