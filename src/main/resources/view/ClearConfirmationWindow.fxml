@@ -17,7 +17,7 @@
                 <URL value="@ClearConfirmationWindow.css" />
             </stylesheets>
 
-            <VBox fx:id="clearMessageContainer" alignment="CENTER">
+            <VBox fx:id="clearMessageContainer" alignment="CENTER" prefHeight="68.0" prefWidth="270.0">
                 <opaqueInsets>
                     <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
                 </opaqueInsets>
@@ -29,12 +29,12 @@
                         <Insets bottom="10.0" />
                     </VBox.margin>
                 </Label>
-                <HBox>
-                    <Button fx:id="noButton" cancelButton="true" defaultButton="true" mnemonicParsing="false" onAction="#handleNoButton" text="No">
+                <HBox alignment="CENTER">
+                    <Button fx:id="noButton" cancelButton="true" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleNoButton" text="No">
                   <HBox.margin>
                      <Insets left="5.0" right="5.0" />
                   </HBox.margin></Button>
-                    <Button fx:id="yesButton" mnemonicParsing="false" onAction="#handleYesButton" pickOnBounds="false" text="Yes">
+                    <Button fx:id="yesButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleYesButton" pickOnBounds="false" text="Yes">
                   <opaqueInsets>
                      <Insets />
                   </opaqueInsets>
