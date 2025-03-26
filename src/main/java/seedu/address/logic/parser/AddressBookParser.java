@@ -87,7 +87,6 @@ public class AddressBookParser {
             return new ProgressCommandParser().parse(arguments);
 
         case SortCommand.COMMAND_WORD:
-            //return new SortCommandParser().parse(arguments);
             return new SortCommandParser().parse(arguments);
 
         default:

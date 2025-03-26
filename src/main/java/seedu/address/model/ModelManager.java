@@ -126,6 +126,9 @@ public class ModelManager implements Model {
         return filteredPersons;
     }
 
+    /**
+     * Returns a sorted view of the list of {@code Person} based on progress percentage.
+     */
     @Override
     public ObservableList<Person> getSortedPersonList() {
         return sortedPersons;
@@ -160,6 +163,7 @@ public class ModelManager implements Model {
         ModelManager otherModelManager = (ModelManager) other;
         return addressBook.equals(otherModelManager.addressBook)
                 && userPrefs.equals(otherModelManager.userPrefs)
-                && filteredPersons.equals(otherModelManager.filteredPersons);
+                && filteredPersons.equals(otherModelManager.filteredPersons)
+                && sortedPersons.equals(otherModelManager.sortedPersons);
     }
 }
