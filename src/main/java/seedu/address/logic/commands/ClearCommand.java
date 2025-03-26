@@ -49,12 +49,11 @@ public class ClearCommand extends Command {
         }
 
         boolean isConfirmed = confirmationWindow.showAndWait();
-
-        if (isConfirmed) {
+        if (!isConfirmed) {
+            return new CommandResult(MESSAGE_CANCELLED);
+        } else {
             model.setAddressBook(new AddressBook());
             return new CommandResult(MESSAGE_SUCCESS);
-        } else {
-            return new CommandResult(MESSAGE_CANCELLED);
         }
     }
 }
