@@ -39,6 +39,8 @@ public class CommandTestUtil {
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_PROJECT_AMY = "Project Amy-cable";
     public static final String VALID_PROJECT_BOB = "Project Bob-B";
+    public static final String VALID_LOG_AMY = "TA for CS2109S";
+    public static final String VALID_LOG_BOB = "Got A+ for CS2103T";
     public static final String VALID_PROGRESS_AMY = "78";
     public static final String VALID_PROGRESS_BOB = "38";
     public static final String VALID_NAME_IDA = "Ida Mueller";
