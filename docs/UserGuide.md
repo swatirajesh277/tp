@@ -78,7 +78,7 @@ Format: `help`
 Adds a person to Prof-iler.
 
 
-Format: `add n/NAME id/STUDENT p/PHONE e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​`
+Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]…​`
 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
