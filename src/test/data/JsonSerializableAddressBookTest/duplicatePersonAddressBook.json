@@ -4,7 +4,7 @@
     "id": "A0210103K",
     "phone": "94351253",
     "email": "alice@example.com",
-    "project": "123, Jurong West Ave 6, #08-111",
+    "project": "Orbital",
     "progress": "50",
     "tags": [ "friends" ]
   }, {
@@ -12,7 +12,7 @@
     "id": "A0210103K",
     "phone": "94351253",
     "email": "pauline@example.com",
-    "project": "4th street",
+    "project": "Orbital",
     "progress": "50"
   } ]
 }
