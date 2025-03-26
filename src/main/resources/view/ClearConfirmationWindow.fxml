@@ -10,40 +10,45 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
-<fx:root resizable="false" title="Clear Confirmation" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root resizable="false" title="Clear Confirmation" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/17"
+         xmlns:fx="http://javafx.com/fxml/1">
     <icons>
-        <Image url="@/images/help_icon.png" />
+        <Image url="@/images/help_icon.png"/>
     </icons>
     <scene>
         <Scene>
             <stylesheets>
-                <URL value="@ClearConfirmationWindow.css" />
+                <URL value="@ClearConfirmationWindow.css"/>
             </stylesheets>
 
             <VBox fx:id="clearMessageContainer" alignment="CENTER" prefHeight="68.0" prefWidth="270.0">
                 <opaqueInsets>
-                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0"/>
                 </opaqueInsets>
                 <padding>
-                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0" />
+                    <Insets bottom="10.0" left="5.0" right="10.0" top="5.0"/>
                 </padding>
                 <Label fx:id="clearMessage" text="Label">
                     <VBox.margin>
-                        <Insets bottom="10.0" />
+                        <Insets bottom="10.0"/>
                     </VBox.margin>
                 </Label>
                 <HBox alignment="CENTER">
-                    <Button fx:id="noButton" cancelButton="true" contentDisplay="CENTER" defaultButton="true" mnemonicParsing="false" onAction="#handleNoButton" text="No">
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin></Button>
-                    <Button fx:id="yesButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleYesButton" pickOnBounds="false" text="Yes">
-                  <opaqueInsets>
-                     <Insets />
-                  </opaqueInsets>
-                  <HBox.margin>
-                     <Insets left="5.0" right="5.0" />
-                  </HBox.margin></Button>
+                    <Button fx:id="yesButton" alignment="CENTER" mnemonicParsing="false"
+                            onAction="#handleYesButton" pickOnBounds="false" text="Yes">
+                        <HBox.margin>
+                            <Insets left="5.0" right="5.0"/>
+                        </HBox.margin>
+                    </Button>
+                    <Button fx:id="noButton" cancelButton="true" contentDisplay="CENTER" defaultButton="true"
+                            mnemonicParsing="false" onAction="#handleNoButton" text="No">
+                        <opaqueInsets>
+                            <Insets/>
+                        </opaqueInsets>
+                        <HBox.margin>
+                            <Insets left="5.0" right="5.0"/>
+                        </HBox.margin>
+                    </Button>
                 </HBox>
             </VBox>
         </Scene>
