@@ -12,8 +12,7 @@ import seedu.address.commons.core.LogsCenter;
 /**
  * Controller for clearing confirmation page.
  */
-public class ClearConfirmationWindow extends UiPart<Stage> {
-
+public class ClearConfirmationWindow extends UiPart<Stage> implements ConfirmationWindow {
 
     public static final String CLEAR_MESSAGE = "Confirm to clear all records?";
 
@@ -78,6 +77,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
      *         </li>
      *     </ul>
      */
+    @Override
     public boolean showAndWait() {
         logger.fine("Showing message to confirm clearing all records.");
 
@@ -91,6 +91,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     /**
      * Returns true if the clear confirmation window is currently being shown.
      */
+    @Override
     public boolean isShowing() {
         return getRoot().isShowing();
     }
@@ -105,6 +106,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> {
     /**
      * Focuses on the clear confirmation window.
      */
+    @Override
     public void focus() {
         getRoot().requestFocus();
     }
