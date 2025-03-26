@@ -9,8 +9,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.stage.Stage?>
 
+<?import javafx.scene.image.Image?>
 <fx:root resizable="false" title="Clear Confirmation" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-
+    <icons>
+        <Image url="@/images/help_icon.png"/>
+    </icons>
     <scene>
         <Scene>
             <stylesheets>
