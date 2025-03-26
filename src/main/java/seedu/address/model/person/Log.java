@@ -9,6 +9,11 @@ import static java.util.Objects.requireNonNull;
 public class Log {
     public final String value;
 
+    /**
+     * Constructs a {@code Log}.
+     *
+     * @param log A valid log.
+     */
     public Log(String log) {
         requireNonNull(log);
         value = log;
