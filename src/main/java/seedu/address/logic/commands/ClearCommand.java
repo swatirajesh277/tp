@@ -2,22 +2,54 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import java.util.List;
+
+import seedu.address.logic.Messages;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.ProjectEqualsTargetPredicate;
 
 /**
- * Clears the address book.
+ * Clears the address book, or clears by project.
  */
 public class ClearCommand extends Command {
 
     public static final String COMMAND_WORD = "clear";
-    public static final String MESSAGE_SUCCESS = "Prof-iler data has been cleared!";
 
+    public static final String MESSAGE_CLEAR_ALL_SUCCESS = "Prof-iler data has been cleared!";
+
+    private final ProjectEqualsTargetPredicate predicate;
+
+    /**
+     * Clears the whole address book
+     */
+    public ClearCommand() {
+        this.predicate = null;
+    }
+
+    /**
+     * Clears people according to predicate
+     * @param predicate The predicate to test against
+     */
+    public ClearCommand(ProjectEqualsTargetPredicate predicate) {
+        this.predicate = predicate;
+    }
 
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
-        model.setAddressBook(new AddressBook());
-        return new CommandResult(MESSAGE_SUCCESS);
+        if (predicate == null) {
+            model.setAddressBook(new AddressBook());
+            return new CommandResult(MESSAGE_CLEAR_ALL_SUCCESS);
+        }
+
+        model.updateFilteredPersonList(predicate);
+        List<Person> filteredPersonList = model.getFilteredPersonList().stream().toList();
+        int numPeopleCleared = filteredPersonList.size();
+        filteredPersonList.forEach(model::deletePerson);
+
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
+        return new CommandResult(String.format(Messages.MESSAGE_PERSONS_CLEARED_OVERVIEW, numPeopleCleared));
     }
 }
