@@ -19,7 +19,7 @@ Prof-iler is a **desktop app for managing contacts, optimized for use via a Comm
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Prof-iler application.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar prof-iler.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar Prof-iler.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -129,7 +129,7 @@ Format: `progress INDEX pb/PROGRESS`
 Example:
 *  `progress 1 pb/45` Edits the progress of the 1st person to be `45`.
 
-### Entering log for a person: `log`
+### Entering log for a student: `log`
 
 Adds log for the person whose index is specified.
 
@@ -140,7 +140,7 @@ Format: `log INDEX l/LOG`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `log 1 l/CS2103T tutor` Edits the log of the 1st person to be `CS2103T tutor`.
+* `log 1 l/CS2103T tutor` Edits the log of the 1st student to be `CS2103T tutor`.
 
 ### Locating persons by name: `find`
 
