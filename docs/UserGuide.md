@@ -78,11 +78,11 @@ Format: `help`
 Adds a person to Prof-iler.
 
 
-Format: `add n/NAME id/STUDENT p/PHONE e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​`
+Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]…​`
 
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
+A person can have any number of tags (including 0) <br>
 A person can have unmentioned progress(default = 0)
 </div>
 
