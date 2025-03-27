@@ -42,6 +42,7 @@ public class ClearCommandTest {
         ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
         stub.setConfirmationResult(true); //Simulate clicking "Yes"
 
+
         assertCommandSuccess(new ClearCommand(stub), model, ClearCommand.MESSAGE_CLEAR_ALL_SUCCESS, expectedModel);
     }
 
@@ -73,6 +74,7 @@ public class ClearCommandTest {
 
         assertCommandSuccess(new ClearCommand(predicate, stub), model,
                 String.format(Messages.MESSAGE_PERSONS_CLEARED_OVERVIEW, 0), expectedModel);
+
     }
 
     @Test

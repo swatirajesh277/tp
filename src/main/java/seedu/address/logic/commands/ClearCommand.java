@@ -62,6 +62,7 @@ public class ClearCommand extends Command {
         boolean isConfirmed = confirmationWindow.showAndWait();
         if (!isConfirmed) {
             return new CommandResult(MESSAGE_CANCELLED);
+
         }
 
         if (predicate == null) {
