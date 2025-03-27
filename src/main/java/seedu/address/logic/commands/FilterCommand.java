@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.function.Predicate;
 
@@ -18,11 +19,13 @@ import seedu.address.model.person.Person;
 public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters for the student who is under the "
-            + "specified project based on the keywords (case-insensitive)"
+            + "specified project based on the keywords (case-insensitive) "
             + "and displays them as a list with index numbers. \n"
-            + "Parameters: "
-            + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] "
-            + "Example: " + COMMAND_WORD + " pr/ Prof-iler";
+            + "Parameters: \n"
+            + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] \n"
+            + PREFIX_TAG + "KEYWORD [MORE KEYWORDS] \n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_PROJECT + " Prof-iler \n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_TAG + "W12" + " CS2103T";
 
     private final Predicate<Person> predicate;
 
