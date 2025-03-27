@@ -17,7 +17,7 @@ public class HelpCommand extends Command {
 
     public static final List<String> HELP_COMMANDS = Arrays.asList(
             "add: Add a new student in Prof-iler.\n"
-                    + "Usage: add NAME p/PHONE id/ID e/EMAIL pr/PROJECT [t/TAG]...\n"
+                    + "Usage: add NAME p/PHONE id/STUDENT_ID e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]...\n"
                     + "Example: add John Doe p/98765432 id/A0293712D e/john@example.com pr/Orbital t/Y3 t/CS",
 
             "delete: Remove student(s) by index number.\n"
