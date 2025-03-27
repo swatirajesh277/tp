@@ -24,6 +24,7 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.PersonBuilder;
+import seedu.address.ui.ClearConfirmationWindowStub;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for ProgressCommand.
@@ -105,7 +106,7 @@ public class ProgressCommandTest {
         assertFalse(standardCommand.equals(null));
 
         // different types -> returns false
-        assertFalse(standardCommand.equals(new ClearCommand()));
+        assertFalse(standardCommand.equals(new ClearCommand(ClearConfirmationWindowStub.getInstance())));
 
         // different index -> returns false
         assertNotEquals(new ProgressCommand(INDEX_SECOND_PERSON, PROGRESS_AMY), standardCommand);

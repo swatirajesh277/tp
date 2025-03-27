@@ -9,10 +9,12 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Id;
@@ -60,6 +62,33 @@ public class ParserUtilTest {
 
         // Leading and trailing whitespaces
         assertEquals(INDEX_FIRST_PERSON, ParserUtil.parseIndex("  1  "));
+    }
+
+    @Test
+    public void parseIndexes_validInput_success() throws Exception {
+        List<Index> expectedIndexes = Arrays.asList(Index.fromOneBased(1),
+                Index.fromOneBased(2), Index.fromOneBased(3));
+        assertEquals(expectedIndexes, ParserUtil.parseIndexes("1, 2, 3"));
+    }
+
+    @Test
+    public void parseIndexes_invalidInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndexes("1, a, 3"));
+    }
+
+    @Test
+    public void parseIndexes_emptyInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndexes(""));
+    }
+
+    @Test
+    public void parseIndexes_whitespaceInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndexes("   "));
+    }
+
+    @Test
+    public void parseIndexes_outOfRangeInput_throwsParseException() {
+        assertThrows(ParseException.class, () -> ParserUtil.parseIndexes("1, 2147483648"));
     }
 
     @Test
