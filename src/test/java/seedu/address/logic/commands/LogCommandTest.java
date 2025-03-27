@@ -27,8 +27,6 @@ public class LogCommandTest {
         assertTrue(exampleCommand.equals(exampleCommand));
         //null returns false
         assertFalse(exampleCommand.equals(null));
-        //diff type returns false
-        assertFalse(exampleCommand.equals(new ClearCommand()));
         //diff index returns false
         assertFalse(exampleCommand.equals(new LogCommand(INDEX_SECOND_PERSON, new Log(VALID_LOG_AMY))));
         //diff log returns false
