@@ -32,9 +32,9 @@ public class HelpCommand extends Command {
                     + "Usage: progress INDEX pb/PROGRESS\n"
                     + "Example: progress 1 pb/87",
 
-            "log: Adds log for student by index.\n" +
-                    "Format: log INDEX l/LOG\n" +
-                    "Example: log 1 l/CS2103T tutor",
+            "log: Adds log for student by index.\n"
+                    + "Format: log INDEX l/LOG\n"
+                    + "Example: log 1 l/CS2103T tutor",
 
             "find: Search students by name (case-insensitive).\n"
                     + "Usage: find KEYWORD [MORE_KEYWORDS]...\n"
