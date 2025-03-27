@@ -129,6 +129,19 @@ Format: `progress INDEX pb/PROGRESS`
 Example:
 *  `progress 1 pb/45` Edits the progress of the 1st person to be `45`.
 
+### Entering log for a person: `log`
+
+Adds log for the person whose index is specified.
+
+Format: `log INDEX l/LOG`
+
+* Adds the log to the person at the specified `INDEX`.
+* The index refers to the index number shown in the displayed person list.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `log 1 l/CS2103T tutor` Edits the log of the 1st person to be `CS2103T tutor`.
+
 ### Locating persons by name: `find`
 
 Finds persons whose names contain any of the given keywords.
@@ -232,4 +245,5 @@ Action | Format, Examples
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
 **Progress** | `progress INDEX [pb/PROGRESS]`<br> e.g., `progress 1 pb/45`
 **List** | `list`
+**Log** | `log INDEX l/LOG`
 **Help** | `help`
