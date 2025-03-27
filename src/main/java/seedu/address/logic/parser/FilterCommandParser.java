@@ -38,6 +38,14 @@ public class FilterCommandParser implements Parser<FilterCommand> {
 
         String[] projectKeywords = new String[0];
         Predicate<Person> filteredStudent = null;
+        filteredStudent = getStudentPredicate(argumentMultimap, filteredStudent);
+
+        return new FilterCommand(filteredStudent);
+    }
+
+    private Predicate<Person> getStudentPredicate(ArgumentMultimap argumentMultimap, Predicate<Person> filteredStudent)
+            throws ParseException {
+        String[] projectKeywords;
         if (argumentMultimap.getValue(PREFIX_PROJECT).isPresent()) {
             checkFilterCondition(argumentMultimap, PREFIX_PROJECT);
             projectKeywords = argumentMultimap.getValue(PREFIX_PROJECT).get().split("\\s+");
@@ -49,8 +57,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
             projectKeywords = argumentMultimap.getValue(PREFIX_TAG).get().split("\\s+");
             filteredStudent = new TagContainsKeywordsPredicate(Arrays.asList(projectKeywords));
         }
-
-        return new FilterCommand(filteredStudent);
+        return filteredStudent;
     }
 
     private boolean isPrefixPresent(ArgumentMultimap argumentMultimap, Prefix prefix) {
