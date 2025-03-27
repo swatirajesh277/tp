@@ -42,7 +42,8 @@ public class HelpCommand extends Command {
 
             "filter: Display students by specific project or tag.\n"
                     + "Usage: filter [pr/PROJECT] | [t/TAG]...\n"
-                    + "Examples: filter pr/Orbital, filter t/Y3",
+                    + "Example: filter pr/Orbital\n"
+                    + "Example: filter t/Y3",
 
             "sort: Organize students by progress in ascending or descending order.\n"
                     + "Usage: sort asc|desc\n"
@@ -51,8 +52,10 @@ public class HelpCommand extends Command {
             "list: Show all students.\n"
                     + "Usage: list",
 
-            "clear: Remove all students from Prof-iler.\n"
-                    + "Usage: clear\n"
+            "clear: Remove all students from list or from a specified project.\n"
+                    + "Usage: clear [pr/PROJECT]\n"
+                    + "Example: clear\n"
+                    + "Example: clear Orbital"
     );
 
     public static final String SHOWING_HELP_MESSAGE = "Opened help window.";
