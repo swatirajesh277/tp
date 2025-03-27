@@ -1,27 +1,35 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PROJECT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
+import java.util.function.Predicate;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
-import seedu.address.model.person.StudentUnderProjectPredicate;
+import seedu.address.model.person.Person;
 
 /**
- * Filters and list all students in Prof-iler whose project contain the given keyword.
- * Keyword matching is case insensitive.
+ * Filters and list all students in Prof-iler whose project contain the given keyword
+ * or whose tag contain the given keyword.
+ * Keyword matching is case-insensitive.
  */
 public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters for the student who is under the "
-            + "specified project based on the keywords (case-insensitive)"
+            + "specified project based on the keywords (case-insensitive) "
             + "and displays them as a list with index numbers. \n"
-            + "Parameters: KEYWORD\n"
-            + "Example: " + COMMAND_WORD + "Prof-iler";
+            + "Parameters: \n"
+            + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] \n"
+            + PREFIX_TAG + "KEYWORD [MORE KEYWORDS] \n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_PROJECT + " Prof-iler \n"
+            + "Example: " + COMMAND_WORD + " " + PREFIX_TAG + "W12" + " CS2103T";
 
-    private final StudentUnderProjectPredicate predicate;
+    private final Predicate<Person> predicate;
 
-    public FilterCommand(StudentUnderProjectPredicate predicate) {
+    public FilterCommand(Predicate<Person> predicate) {
         this.predicate = predicate;
     }
 

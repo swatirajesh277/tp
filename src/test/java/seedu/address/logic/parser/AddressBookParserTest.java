@@ -11,6 +11,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCommand;
@@ -22,16 +24,21 @@ import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.SortCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 import seedu.address.testutil.PersonBuilder;
 import seedu.address.testutil.PersonUtil;
+import seedu.address.testutil.TestConfirmationWindowProvider;
+import seedu.address.ui.ClearConfirmationWindowStub;
+import seedu.address.ui.ConfirmationWindowFactory;
 
 public class AddressBookParserTest {
 
     private final AddressBookParser parser = new AddressBookParser();
+    private final ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
 
     @Test
     public void parseCommand_add() throws Exception {
@@ -40,11 +47,26 @@ public class AddressBookParserTest {
         assertEquals(new AddCommand(person), command);
     }
 
+
+    @BeforeEach
+    public void setUp() {
+        // Install the test provider before each test
+        ConfirmationWindowFactory.setProvider(new TestConfirmationWindowProvider(stub));
+    }
+
+    @AfterEach
+    public void tearDown() {
+        // Reset to the default provider after each test
+        ConfirmationWindowFactory.resetProvider();
+    }
+
     @Test
     public void parseCommand_clear() throws Exception {
+        // Now this will work because the factory returns our stub
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD) instanceof ClearCommand);
         assertTrue(parser.parseCommand(ClearCommand.COMMAND_WORD + " 3") instanceof ClearCommand);
     }
+
 
     @Test
     public void parseCommand_delete() throws Exception {
@@ -89,9 +111,16 @@ public class AddressBookParserTest {
     }
 
     @Test
+    public void parseCommand_sort() throws Exception {
+        SortCommand command = (SortCommand) parser.parseCommand(SortCommand.COMMAND_WORD + " asc");
+        assertEquals(new SortCommand(true), command);
+
+    }
+
+    @Test
     public void parseCommand_unrecognisedInput_throwsParseException() {
         assertThrows(ParseException.class, String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), ()
-            -> parser.parseCommand(""));
+                -> parser.parseCommand(""));
     }
 
     @Test

@@ -35,7 +35,7 @@ public class DeleteCommand extends Command {
     @Override
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
-        List<Person> lastShownList = model.getFilteredPersonList();
+        List<Person> lastShownList = model.getSortedPersonList();
 
         List<Index> sortedIndexes = targetIndexes.stream()
                 .sorted(Comparator.comparingInt(Index::getZeroBased).reversed())
