@@ -31,7 +31,7 @@ public class TypicalPersons {
             .withId("A0284716F").withProject("Orbital").withEmail("alice@example.com")
             .withProgress("50").withPhone("94351253").withTags("friends").build();
     public static final Person BENSON = new PersonBuilder().withName("Benson Meier")
-            .withId("A9472937S").withProject("Orbital").withEmail("johnd@example.com")
+            .withId("A9472937S").withProject("Orbiting").withEmail("johnd@example.com")
             .withPhone("98765432").withProgress("100").withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withId("A0285516F")
             .withPhone("95352563").withEmail("heinz@example.com").withProject("GeoNumpy").withProgress("40").build();
