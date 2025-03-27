@@ -47,6 +47,8 @@ public class PersonCard extends UiPart<Region> {
     private Label progress;
     @FXML
     private ProgressBar progressBar;
+    @FXML
+    private Label log;
 
     /**
      * Creates a {@code PersonCode} with the given {@code Person} and index to display.
@@ -59,6 +61,7 @@ public class PersonCard extends UiPart<Region> {
         id.setText(person.getId().toString());
         phone.setText(person.getPhone().value);
         project.setText(person.getProject().value);
+        log.setText(person.getLog().value);
         email.setText(person.getEmail().value);
         progress.setText("Progress: " + person.getProgress().toString() + "%");
         updateProgressBar(progressBar, person);

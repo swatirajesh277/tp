@@ -5,6 +5,7 @@ import java.util.Set;
 
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Id;
+import seedu.address.model.person.Log;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -23,6 +24,7 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_PROJECT = "Prof-iler";
+    public static final String DEFAULT_LOG = "A+ in CS2103T and won in Hack4Good";
 
     private Name name;
     private Id id;
@@ -30,6 +32,7 @@ public class PersonBuilder {
     private Email email;
     private Project project;
     private Progress progress;
+    private Log log;
     private Set<Tag> tags;
 
     /**
@@ -42,6 +45,7 @@ public class PersonBuilder {
         email = new Email(DEFAULT_EMAIL);
         project = new Project(DEFAULT_PROJECT);
         progress = new Progress();
+        log = new Log(DEFAULT_LOG);
         tags = new HashSet<>();
     }
 
@@ -55,6 +59,7 @@ public class PersonBuilder {
         email = personToCopy.getEmail();
         project = personToCopy.getProject();
         progress = personToCopy.getProgress();
+        log = personToCopy.getLog();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -114,8 +119,16 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Log} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withLog(String log) {
+        this.log = new Log(log);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, id, phone, email, project, progress, tags);
+        return new Person(name, id, phone, email, project, progress, log, tags);
     }
 
 }

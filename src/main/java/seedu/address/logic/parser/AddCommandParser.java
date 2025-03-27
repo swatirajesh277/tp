@@ -16,6 +16,7 @@ import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Email;
 import seedu.address.model.person.Id;
+import seedu.address.model.person.Log;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -60,9 +61,10 @@ public class AddCommandParser implements Parser<AddCommand> {
         }
 
         Project project = ParserUtil.parseProject(argMultimap.getValue(PREFIX_PROJECT).get());
+        Log log = new Log("");
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Person person = new Person(name, id, phone, email, project, progress, tagList);
+        Person person = new Person(name, id, phone, email, project, progress, log, tagList);
 
         return new AddCommand(person);
     }

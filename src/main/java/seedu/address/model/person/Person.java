@@ -25,12 +25,14 @@ public class Person {
     // Data fields
     private final Project project;
     private final Progress progress;
+    private final Log log;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Id id, Phone phone, Email email, Project project, Progress progress, Set<Tag> tags) {
+    public Person(Name name, Id id, Phone phone, Email email, Project project, Progress progress, Log log,
+                   Set<Tag> tags) {
         requireAllNonNull(name, phone, email, project, progress, tags);
         this.name = name;
         this.id = id;
@@ -38,6 +40,7 @@ public class Person {
         this.email = email;
         this.project = project;
         this.progress = progress;
+        this.log = log;
         this.tags.addAll(tags);
     }
 
@@ -63,6 +66,9 @@ public class Person {
 
     public Progress getProgress() {
         return progress;
+    }
+    public Log getLog() {
+        return log;
     }
 
     /**

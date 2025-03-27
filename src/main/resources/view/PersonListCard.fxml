@@ -18,6 +18,7 @@
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
     </columnConstraints>
     <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
       <padding>
@@ -49,5 +50,13 @@
       </HBox>
 
     </VBox>
+
+    <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="1">
+            <padding>
+              <Insets top="5" right="5" bottom="5" left="15" />
+            </padding>
+    <Label fx:id="log" styleClass="cell_small_label" text="\$log" />
+    </VBox>
+
   </GridPane>
 </HBox>
