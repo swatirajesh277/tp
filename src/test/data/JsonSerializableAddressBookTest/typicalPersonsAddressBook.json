@@ -5,7 +5,7 @@
     "id" : "A0284716F",
     "phone" : "94351253",
     "email" : "alice@example.com",
-    "project" : "123, Jurong West Ave 6, #08-111",
+    "project" : "Orbital",
     "progress": "50",
     "tags" : [ "friends" ]
   }, {
@@ -13,7 +13,7 @@
     "id" : "A9472937S",
     "phone" : "98765432",
     "email" : "johnd@example.com",
-    "project" : "311, Clementi Ave 2, #02-25",
+    "project" : "Orbiting",
     "progress": "100",
     "tags" : [ "owesMoney", "friends" ]
   }, {
@@ -21,7 +21,7 @@
     "id" : "A0285516F",
     "phone" : "95352563",
     "email" : "heinz@example.com",
-    "project" : "wall street",
+    "project" : "GeoNumpy",
     "progress": "40",
     "tags" : [ ]
   }, {
@@ -29,7 +29,7 @@
     "id" : "A0128588N",
     "phone" : "87652533",
     "email" : "cornelia@example.com",
-    "project" : "10th street",
+    "project" : "AlgoMax",
     "progress": "68",
     "tags" : [ "friends" ]
   }, {
@@ -37,7 +37,7 @@
     "id" : "A0778839G",
     "phone" : "9482224",
     "email" : "werner@example.com",
-    "project" : "michegan ave",
+    "project" : "Prog_langs",
     "progress": "32",
     "tags" : [ ]
   }, {
@@ -45,7 +45,7 @@
     "id" : "A0284736H",
     "phone" : "9482427",
     "email" : "lydia@example.com",
-    "project" : "little tokyo",
+    "project" : "little",
     "progress": "22",
     "tags" : [ ]
   }, {
@@ -53,7 +53,7 @@
     "id" : "A0028152D",
     "phone" : "9482442",
     "email" : "anna@example.com",
-    "project" : "4th street",
+    "project" : "street",
     "progress": "10",
     "tags" : [ ]
   } ]

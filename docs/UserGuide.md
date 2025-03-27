@@ -19,7 +19,7 @@ Prof-iler is a **desktop app for managing contacts, optimized for use via a Comm
 
 1. Copy the file to the folder you want to use as the _home folder_ for your Prof-iler application.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar prof-iler.jar` command to run the application.<br>
+1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar Prof-iler.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -161,19 +161,21 @@ Examples:
 * `filter prof-iler` returns `David Li` and `JianXi` which are the two students under the project `Prof-iler`
     ![result for `filter prof-iler`](images/Filter_usage.png)
 
-### Deleting a person : `delete`
+### Deleting persons : `delete`
 
 Deletes the specified person from Prof-iler.
 
-Format: `delete INDEX`
+Format: `delete INDEX [INDEXES]...`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the person(s) at the specified `INDEX` or `INDEXES`.
+* The indexes refers to the index number shown in the displayed person list.
 * The index **must be a positive integer** 1, 2, 3, …​
+* Indexes can be specified in a list separated by commas (,), allowing for multiple deletions in a single command.
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in Prof-iler.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* delete 1, 3, 4 deletes the 1st, 3rd, and 4th persons from the displayed list in Prof-iler.
 
 ### Clearing all entries : `clear`
 
@@ -233,7 +235,7 @@ Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/22224444 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA`
 **Clear** | `clear`
-**Delete** | `delete INDEX`<br> e.g., `delete 3`
+**Delete** | `delete INDEX`<br> e.g., `delete 1, 3`
 **Edit** | `edit INDEX [n/NAME] [id/STUDENTID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`
 **Filter** | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter prof-iler`
 **Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
