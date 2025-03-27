@@ -7,13 +7,13 @@ import seedu.address.commons.util.StringUtil;
 import seedu.address.commons.util.ToStringBuilder;
 
 /**
- * Tests that a {@code Student}'s {@code Project} matches any of the keywords given.
+ * Tests that a {@code Person}'s {@code Project} matches any of the keywords given.
  */
-public class StudentUnderProjectPredicate implements Predicate<Person> {
+public class ProjectContainsKeywordsPredicate implements Predicate<Person> {
 
     private final List<String> keywords;
 
-    public StudentUnderProjectPredicate(List<String> keywords) {
+    public ProjectContainsKeywordsPredicate(List<String> keywords) {
         this.keywords = keywords;
     }
 
@@ -30,12 +30,12 @@ public class StudentUnderProjectPredicate implements Predicate<Person> {
         }
 
         // instaceof handles nulls
-        if (!(other instanceof StudentUnderProjectPredicate)) {
+        if (!(other instanceof ProjectContainsKeywordsPredicate)) {
             return false;
         }
-
-        StudentUnderProjectPredicate otherStudentUnderProjectPredicate = (StudentUnderProjectPredicate) other;
-        return keywords.equals(otherStudentUnderProjectPredicate.keywords);
+        ProjectContainsKeywordsPredicate otherProjectContainsKeywordsPredicate =
+                (ProjectContainsKeywordsPredicate) other;
+        return keywords.equals(otherProjectContainsKeywordsPredicate.keywords);
     }
 
     @Override
