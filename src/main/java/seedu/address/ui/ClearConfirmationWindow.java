@@ -39,6 +39,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
      */
     private ClearConfirmationWindow(Stage root) {
         super(FXML, root);
+        assert root != null;
         clearMessage.setText(CLEAR_MESSAGE);
     }
 
@@ -115,12 +116,14 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
     @FXML
     private void handleYesButton() {
         isConfirmed = true;
+        assert getRoot() != null;
         this.getRoot().close();
     }
 
     @FXML
     private void handleNoButton() {
         isConfirmed = false;
+        assert getRoot() != null;
         this.getRoot().close();
     }
 
