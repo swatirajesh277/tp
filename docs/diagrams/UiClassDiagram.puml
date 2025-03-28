@@ -39,6 +39,7 @@ MainWindow *-down-> "1" StatusBarFooter
 MainWindow --> "0..1" HelpWindow
 MainWindow --> "0..1" ClearConfirmationWindow
 
+
 PersonListPanel -down-> "*" PersonCard
 
 MainWindow -left-|> UiPart
@@ -50,7 +51,7 @@ PersonCard --|> UiPart
 StatusBarFooter --|> UiPart
 HelpWindow --|> UiPart
 ClearConfirmationWindow --|> UiPart
-ClearConfirmationWindow .left.|> ConfirmationWindow
+ClearConfirmationWindow --|> ConfirmationWindow
 
 PersonCard ..> Model
 UiManager -right-> Logic
