@@ -18,6 +18,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
     public ClearCommandParser() {
         this.confirmationWindow = ConfirmationWindowFactory.getConfirmationWindow();
+        assert confirmationWindow != null;
     }
 
     /**
@@ -26,6 +27,7 @@ public class ClearCommandParser implements Parser<ClearCommand> {
      */
     public ClearCommandParser(ConfirmationWindow confirmationWindow) {
         this.confirmationWindow = confirmationWindow;
+        assert confirmationWindow != null;
     }
 
     /**
