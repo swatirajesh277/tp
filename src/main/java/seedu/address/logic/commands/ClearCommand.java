@@ -6,8 +6,8 @@ import java.util.List;
 
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
-import seedu.address.model.Profiler;
 import seedu.address.model.Model;
+import seedu.address.model.Profiler;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.ProjectEqualsTargetPredicate;
 import seedu.address.ui.ConfirmationWindow;
