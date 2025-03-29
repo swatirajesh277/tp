@@ -6,6 +6,7 @@ skinparam classBackgroundColor UI_COLOR
 
 package UI <<Rectangle>>{
 Class "<<interface>>\nUi" as Ui
+Class "<<interface>>\nConfirmationWindow" as ConfirmationWindow
 Class "{abstract}\nUiPart" as UiPart
 Class UiManager
 Class MainWindow
@@ -15,6 +16,7 @@ Class PersonListPanel
 Class PersonCard
 Class StatusBarFooter
 Class CommandBox
+Class ClearConfirmationWindow
 }
 
 package Model <<Rectangle>> {
@@ -35,6 +37,8 @@ MainWindow *-down-> "1" ResultDisplay
 MainWindow *-down-> "1" PersonListPanel
 MainWindow *-down-> "1" StatusBarFooter
 MainWindow --> "0..1" HelpWindow
+MainWindow --> "0..1" ClearConfirmationWindow
+
 
 PersonListPanel -down-> "*" PersonCard
 
@@ -46,6 +50,8 @@ PersonListPanel --|> UiPart
 PersonCard --|> UiPart
 StatusBarFooter --|> UiPart
 HelpWindow --|> UiPart
+ClearConfirmationWindow --|> UiPart
+ClearConfirmationWindow --|> ConfirmationWindow
 
 PersonCard ..> Model
 UiManager -right-> Logic
