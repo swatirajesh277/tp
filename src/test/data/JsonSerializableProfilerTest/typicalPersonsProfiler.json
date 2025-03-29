@@ -1,5 +1,5 @@
 {
-  "_comment": "AddressBook save file which contains the same Person values as in TypicalPersons#getTypicalAddressBook()",
+  "_comment": "Profiler save file which contains the same Person values as in TypicalPersons#getTypicalProfiler()",
   "persons" : [ {
     "name" : "Alice Pauline",
     "id" : "A0284716F",

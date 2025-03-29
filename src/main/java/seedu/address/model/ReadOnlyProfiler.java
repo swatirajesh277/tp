@@ -6,7 +6,7 @@ import seedu.address.model.person.Person;
 /**
  * Unmodifiable view of Prof-iler data
  */
-public interface ReadOnlyAddressBook {
+public interface ReadOnlyProfiler {
 
     /**
      * Returns an unmodifiable view of the persons list.
