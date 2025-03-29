@@ -10,6 +10,7 @@ public class ConfirmationWindowFactory {
      * Sets a custom provider for testing
      */
     public static void setProvider(ConfirmationWindowProvider testProvider) {
+        assert testProvider != null;
         provider = testProvider;
     }
 
@@ -17,6 +18,7 @@ public class ConfirmationWindowFactory {
      * Gets a confirmation window instance
      */
     public static ConfirmationWindow getConfirmationWindow() {
+        assert provider != null;
         return provider.getConfirmationWindow();
     }
 
