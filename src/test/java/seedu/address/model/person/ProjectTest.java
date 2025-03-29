@@ -14,32 +14,32 @@ public class ProjectTest {
     }
 
     @Test
-    public void constructor_invalidAddress_throwsIllegalArgumentException() {
-        String invalidAddress = "";
-        assertThrows(IllegalArgumentException.class, () -> new Project(invalidAddress));
+    public void constructor_invalidProject_throwsIllegalArgumentException() {
+        String invalidProject = "";
+        assertThrows(IllegalArgumentException.class, () -> new Project(invalidProject));
     }
 
     @Test
     public void isValidProject() {
-        // null address
+        // null project
         assertThrows(NullPointerException.class, () -> Project.isValidProject(null));
 
-        // invalid addresses
+        // invalid projects
         assertFalse(Project.isValidProject("")); // empty string
         assertFalse(Project.isValidProject(" ")); // spaces only
 
-        // valid addresses
-        assertTrue(Project.isValidProject("Blk 456, Den Road, #01-355"));
+        // valid projects
+        assertTrue(Project.isValidProject("AlgoMax"));
         assertTrue(Project.isValidProject("-")); // one character
-        assertTrue(Project.isValidProject("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(Project.isValidProject("This is a very long project name")); // long project
     }
 
     @Test
     public void equals() {
-        Project project = new Project("Valid Address");
+        Project project = new Project("Valid Project");
 
         // same values -> returns true
-        assertTrue(project.equals(new Project("Valid Address")));
+        assertTrue(project.equals(new Project("Valid Project")));
 
         // same object -> returns true
         assertTrue(project.equals(project));
@@ -51,6 +51,6 @@ public class ProjectTest {
         assertFalse(project.equals(5.0f));
 
         // different values -> returns false
-        assertFalse(project.equals(new Project("Other Valid Address")));
+        assertFalse(project.equals(new Project("Other Valid Project")));
     }
 }

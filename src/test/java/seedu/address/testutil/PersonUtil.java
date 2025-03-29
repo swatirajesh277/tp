@@ -53,7 +53,7 @@ public class PersonUtil {
         descriptor.getId().ifPresent(id -> sb.append(PREFIX_ID).append(id.id).append(" "));
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
-        descriptor.getProject().ifPresent(address -> sb.append(PREFIX_PROJECT).append(address.value).append(" "));
+        descriptor.getProject().ifPresent(project -> sb.append(PREFIX_PROJECT).append(project.value).append(" "));
         if (descriptor.getProject().isPresent()) {
             sb.append(PREFIX_PROGRESS).append(descriptor.getProgress().get().getValue()).append(" ");
         } else {
