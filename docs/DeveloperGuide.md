@@ -215,7 +215,7 @@ The following sequence diagram shows how the `sort asc` operation works:
 * Pros: Can be optimized for specific use cases.
 * Cons: More complex to implement and maintain.
 
-#### Interactions with other Features:
+#### Interactions with other features:
 **Integration with `FilterCommand`**
 - The `SortCommand` works in conjunction with `FilterCommand` to refine and organize displayed results
 - Users can first apply a filter (e.g., `filter pr/ <ProjectName>`) to view the students in the project that contains any of the given keywords.
