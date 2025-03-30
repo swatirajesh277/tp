@@ -198,7 +198,7 @@ A pop-up message to confirm your action will appear. It defaults to `No` to prev
 
 ![clear message](images/clearMessage.png)
 
-Simply use keyboard arrow keys to toggle between the options. Press `enter` on your keyboard to confirm the selection. Alternatively, you can also click on the buttons using your cursor. 
+Simply use keyboard arrow keys to toggle between the options. Press `enter` on your keyboard to confirm the selection. Alternatively, you can also click on the buttons using your cursor.
 
 
 Format: `clear`

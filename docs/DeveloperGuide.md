@@ -36,7 +36,7 @@ Given below is a quick overview of main components and how they interact with ea
 
 **Main components of the architecture**
 
-**`Main`** (consisting of classes [`Main`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
+**`Main`** (consisting of classes [`Main`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/Main.java) and [`MainApp`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/MainApp.java)) is in charge of the app launch and shut down.
 * At app launch, it initializes the other components in the correct sequence, and connects them up with each other.
 * At shut down, it shuts down the other components and invokes cleanup methods where necessary.
 
@@ -68,13 +68,13 @@ The sections below give more details of each component.
 
 ### UI component
 
-The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
+The **API** of this component is specified in [`Ui.java`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/ui/Ui.java)
 
 ![Structure of the UI Component](images/UiClassDiagram.png)
 
 The UI consists of a `MainWindow` that is made up of parts e.g.`CommandBox`, `ResultDisplay`, `PersonListPanel`, `StatusBarFooter` etc. All these, including the `MainWindow`, inherit from the abstract `UiPart` class which captures the commonalities between classes that represent parts of the visible GUI.
 
-The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml). 
+The `UI` component uses the JavaFx UI framework. The layout of these UI parts are defined in matching `.fxml` files that are in the `src/main/resources/view` folder. For example, the layout of the [`MainWindow`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/ui/MainWindow.java) is specified in [`MainWindow.fxml`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/resources/view/MainWindow.fxml).
 
 The `ClearConfirmationWindow` class implements the `ConfirmationWindow` interface. This design allows for the use of a test stub, `ClearConfirmationWindowStub`, which also implements the `ConfirmationWindow` interface. The purpose of this stub is to facilitate unit testing by enabling the injection of a mock confirmation window during JUnit tests.
 
@@ -87,7 +87,7 @@ The `UI` component,
 
 ### Logic component
 
-**API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
+**API** : [`Logic.java`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/logic/Logic.java)
 
 Here's a (partial) class diagram of the `Logic` component:
 
@@ -117,10 +117,10 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 #### Special Case: `ClearCommandParser`:
-This class has an overloaded constructor, allowing for injection of a stub class `ClearConfirmationWindowStub` for unit tests, with the help of `ConfirmationWindowFactory`. 
+This class has an overloaded constructor, allowing for injection of a stub class `ClearConfirmationWindowStub` for unit tests, with the help of `ConfirmationWindowFactory`.
 
 ### Model component
-**API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
+**API** : [`Model.java`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
 
@@ -141,7 +141,7 @@ The `Model` component,
 
 ### Storage component
 
-**API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
+**API** : [`Storage.java`](https://github.com/AY2425S2-CS2103T-W12-3/tp/blob/master/src/main/java/seedu/address/storage/Storage.java)
 
 <img src="images/StorageClassDiagram.png" width="550" />
 
@@ -159,6 +159,68 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 ## **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
+
+### Sort feature
+
+#### Current Implementation
+The `SortCommand` is responsible for sorting students in Prof-iler based on their progress, in either ascending (`asc`) or descending (`desc`) order. It interacts with the `Model` component to update the displayed student list based on the specified sorting order.
+
+#### Class Structure
+##### `SortCommand`
+- `SortCommand` extends `Command`
+- Stores a boolean flag `isAscending` to determine sorting order
+- Executes sorting using a `Comparator<Person>` comparator on student's progress values
+- Calls `model.updateSortedPersonList(comparator)` to update the list
+
+##### `SortCommandParser`
+- Implements `Parser<SortCommand>`
+- Parses user input to determine sorting order
+- Throws a `ParseException` if input is invalid
+
+##### `Logic` Interface
+- Declares `getSortedPersonList()` for obtaining a sorted student list
+
+##### `LogicManager`
+- Implements `Logic`
+- Handles command execution and updates the stored address book after sorting
+- Overrides the `getSortedPersonList` to obtain the sorted list from model
+
+##### `Model` Interface
+- Declares `updateSortedPersonList(Comparator<Person>)`
+- Declares `getSortedPersonList`
+- Updates the internal representation of the sorted student list
+
+##### `ModelManager`
+- Initializes `sortedPersons` as a `SortedList<Person>` with reference to `filteredPerson`
+- Overrides `getSortedPersonList` to return the sorted list
+- Overrides `updateSortedPersonList` to update and sort the list based on the comparator
+
+#### Execution Flow
+1. **User Input**: The user inputs the command `sort asc` or `sort desc`.
+2. **Parsing**: `SortCommandParser` extracts sorting order from the user input.
+3. **Command Execution**: The `SortCommand` applies the comparator and calls `model.updateSortedPersonList(comparator)` to update the `Model`.
+4. **Model Update**: The `ModelManager` updates the internal `sortedPersons` list to reflect the new sorting order.
+5. **Storage Update**: The sorted data is saved to the storage file.
+
+The following sequence diagram shows how the `sort asc` operation works:
+![SortSequenceDiagram](images/SortSequenceDiagram.png)
+
+#### Design considerations:
+**Aspect: How sorting is executed:**
+* **Alternative 1 (current choice):** Uses a comparator to sort the list of persons.
+* Pros: Easy to implement and understand
+* Cons: May have performance issues for very large lists.
+
+* **Alternative 2:** Implement a custom sorting algorithm
+* Pros: Can be optimized for specific use cases.
+* Cons: More complex to implement and maintain.
+
+#### Interactions with other features:
+**Integration with `FilterCommand`**
+- The `SortCommand` works in conjunction with `FilterCommand` to refine and organize displayed results
+- Users can first apply a filter (e.g., `filter pr/ <ProjectName>`) to view the students in the project that contains any of the given keywords.
+- After filtering, users can execute `sort asc` to arrange students in those projects based on their progress in ascending order.
+- This ensures that sorting only affects the currently displayed subset rather than the entire student list.
 
 ### \[Proposed\] Undo/redo feature
 
