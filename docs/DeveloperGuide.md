@@ -160,6 +160,68 @@ Classes used by multiple components are in the `seedu.address.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Sort feature
+
+#### Current Implementation
+The `SortCommand` is responsible for sorting students in Prof-iler based on their progress, in either ascending (`asc`) or descending (`desc`) order. It interacts with the `Model` component to update the displayed student list based on the specified sorting order.
+
+#### Class Structure
+##### `SortCommand`
+- `SortCommand` extends `Command`
+- Stores a boolean flag `isAscending` to determine sorting order
+- Executes sorting using a `Comparator<Person>` comparator on student's progress values
+- Calls `model.updateSortedPersonList(comparator)` to update the list
+
+##### `SortCommandParser`
+- Implements `Parser<SortCommand>`
+- Parses user input to determine sorting order
+- Throws a `ParseException` if input is invalid
+
+##### `Logic` Interface
+- Declares `getSortedPersonList()` for obtaining a sorted student list
+
+##### `LogicManager`
+- Implements `Logic`
+- Handles command execution and updates the stored address book after sorting
+- Overrides the `getSortedPersonList` to obtain the sorted list from model
+
+##### `Model` Interface
+- Declares `updateSortedPersonList(Comparator<Person>)`
+- Declares `getSortedPersonList`
+- Updates the internal representation of the sorted student list
+
+##### `ModelManager`
+- Intializes `sortedPersons` as a `SortedList<Person>` with reference to `filteredPerson`
+- Overrides `getSortedPersonList` to return the sorted list
+- Overrides `updateSortedPersonList` to update and sort the list based on the comparator
+
+#### Execution Flow
+1. **User Input**: The user inputs the command `sort asc` or `sort desc`.
+2. **Parsing**: `SortCommandParser` extracts sorting order from the user input.
+3. **Command Execution**: The `SortCommand` applies the comparator and calls `model.updateSortedPersonList(comparator)` to update the `Model`.
+4. **Model Update**: The `ModelManager` updates the internal `sortedPersons` list to reflect the new sorting order.
+5. **Storage Update**: The sorted data is saved to the storage file.
+
+The following sequence diagram shows how the `sort asc` operation works:
+![SortSequenceDiagram](images/SortSequenceDiagram.png)
+
+#### Design considerations:
+**Aspect: How sorting is executed:**
+* **Alternative 1 (current choice):** Uses a comparator to sort the list of persons.
+* Pros: Easy to implement and understand
+* Cons: May have performance issues for very large lists.
+
+* **Alternative 2:** Implement a custom sorting algorithm
+* Pros: Can be optimized for specific use cases.
+* Cons: More complex to implement and maintain.
+
+#### Interactions with other Features:
+**Integration with `FilterCommand`**
+- The `SortCommand` works in conjunction with `FilterCommand` to refine and organize displayed results
+- Users can first apply a filter (e.g., filter pr/ <ProjectName>) to view students in the projects that contains the given keyword.
+- After filtering, users can execute `sort asc` to arrange students in those projects based on their progress in ascending order.
+- This ensures that sorting only affects the currently displayed subset rather than the entire student list.
+- 
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
