@@ -218,7 +218,7 @@ The following sequence diagram shows how the `sort asc` operation works:
 #### Interactions with other Features:
 **Integration with `FilterCommand`**
 - The `SortCommand` works in conjunction with `FilterCommand` to refine and organize displayed results
-- Users can first apply a filter (e.g., filter pr/ <ProjectName>) to view students in the projects that contains any of the given keywords.
+- Users can first apply a filter (e.g., `filter pr/ <ProjectName>`) to view the students in the project that contains any of the given keywords.
 - After filtering, users can execute `sort asc` to arrange students in those projects based on their progress in ascending order.
 - This ensures that sorting only affects the currently displayed subset rather than the entire student list.
 
