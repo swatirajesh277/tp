@@ -191,7 +191,7 @@ The `SortCommand` is responsible for sorting students in Prof-iler based on thei
 - Updates the internal representation of the sorted student list
 
 ##### `ModelManager`
-- Intializes `sortedPersons` as a `SortedList<Person>` with reference to `filteredPerson`
+- Initializes `sortedPersons` as a `SortedList<Person>` with reference to `filteredPerson`
 - Overrides `getSortedPersonList` to return the sorted list
 - Overrides `updateSortedPersonList` to update and sort the list based on the comparator
 
