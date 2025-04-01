@@ -355,7 +355,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | Professor at SoC            | retrieve recently deleted changes                                        | retrieve wrongly deleted data efficiently                                         |
 | `* *`    | Professor at SoC            | update progress of a student                                             | monitor and update the student's progress in that project                         |
 | `* *`    | Professor at SoC            | Sort students based on the progress                                      | know which students are behind progress                                           |
-| `* *`    | Professor at SoC            | delete multiple students at once                                         | perform delete faster when i have multiple students to delete                     |
+| `* *`    | Professor at SoC            | delete multiple students at once                                         | perform delete faster when I have multiple students to delete                     |
 | `* *`    | Professor at SoC            | clear all data at once                                                   | prepare for a new academic year                                                   |
 | `* *`    | Professor at SoC            | be asked for confirmation when clearing data                             | prevent accidentally clearing all data                                            |
 | `* *`    | Professor at SoC            | be notified when there are any duplicate entries                         | keep the data relevant                                                            |
