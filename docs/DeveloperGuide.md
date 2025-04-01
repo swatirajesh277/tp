@@ -347,7 +347,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | Professor at SoC            | view all current research students under me                              | quickly access the list of current students                                       |
 | `* * *`  | Professor at SoC            | delete student entries that are no longer active                         | keep the database current and relevant                                            |
 | `* * *`  | Professor at SoC            | add a new student to a specific project                                  | know who are part of that specific project                                        |
-| `* *`    | Professor at SoC            | filter students based on year, course, specialization or project         | quickly find suitable students without going through the whole list               |
+| `* *`    | Professor at SoC            | filter students based on projects and tags                               | quickly find suitable students without going through the whole list               |
 | `* *`    | Professor at SoC            | find a student's name in the directory                                   | remember what project this student worked on under me                             |
 | `* *`    | Professor at SoC            | mark student milestones as complete                                      | track the students' progress over the semester                                    |
 | `* *`    | Professor at SoC            | update and edit student information                                      | have the most up-to-date information regarding the student                        |
