@@ -22,6 +22,8 @@ public class ClearCommand extends Command {
     public static final String MESSAGE_CLEAR_ALL_SUCCESS = "Prof-iler data has been cleared!";
     public static final String MESSAGE_CANCELLED = "Clearing data has been cancelled.";
     public static final String MESSAGE_REPEATED = "Repeated clear command, please respond on pop up window.";
+    public static final String CLEAR_MESSAGE = "Confirm to clear all records?";
+    public static final String CLEAR_MATCHING_MESSAGE = "Confirm to clear matching records?";
 
     private final ProjectEqualsTargetPredicate predicate;
     private final ConfirmationWindow confirmationWindow;
@@ -34,6 +36,7 @@ public class ClearCommand extends Command {
      */
     public ClearCommand(ConfirmationWindow confirmationWindow) {
         this(null, confirmationWindow);
+        confirmationWindow.setMessage(CLEAR_MESSAGE);
     }
 
     /**
@@ -46,6 +49,7 @@ public class ClearCommand extends Command {
     public ClearCommand(ProjectEqualsTargetPredicate predicate, ConfirmationWindow confirmationWindow) {
         this.predicate = predicate;
         this.confirmationWindow = confirmationWindow;
+        confirmationWindow.setMessage(CLEAR_MATCHING_MESSAGE);
     }
 
     @Override

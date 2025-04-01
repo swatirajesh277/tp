@@ -15,8 +15,6 @@ import seedu.address.commons.core.LogsCenter;
  */
 public class ClearConfirmationWindow extends UiPart<Stage> implements ConfirmationWindow {
 
-    public static final String CLEAR_MESSAGE = "Confirm to clear all records?";
-
     private static final Logger logger = LogsCenter.getLogger(ClearConfirmationWindow.class);
     private static final String FXML = "ClearConfirmationWindow.fxml";
 
@@ -41,7 +39,6 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
     private ClearConfirmationWindow(Stage root) {
         super(FXML, root);
         assert root != null;
-        clearMessage.setText(CLEAR_MESSAGE);
         getRoot().initModality(Modality.APPLICATION_MODAL); // Make the window modal
     }
 
@@ -112,6 +109,12 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
     @Override
     public void focus() {
         getRoot().requestFocus();
+    }
+
+    @Override
+    public void setMessage(String message) {
+        clearMessage.setText(message);
+//        Platform.runLater(() -> clearMessage.setText(message));
     }
 
 
