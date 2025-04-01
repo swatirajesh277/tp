@@ -114,7 +114,6 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
     @Override
     public void setMessage(String message) {
         clearMessage.setText(message);
-//        Platform.runLater(() -> clearMessage.setText(message));
     }
 
 
