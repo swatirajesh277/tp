@@ -399,7 +399,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1.  User requests to list all students [(UC01)](#use-case-uc01-list-all-students-under-user)
+1.  User requests to <u>list all students [(UC01)](#use-case-uc01-list-all-students-under-user) </u>
 2.  Prof-iler shows a list of students
 3.  User requests to delete a specific student in the list
 4.  Prof-iler deletes the student
