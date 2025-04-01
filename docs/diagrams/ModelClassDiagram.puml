@@ -14,11 +14,14 @@ Class UserPrefs
 
 Class UniquePersonList
 Class Person
-Class Address
+Class Project
 Class Email
 Class Name
+Class Id
 Class Phone
+Class Progress
 Class Tag
+Class Log
 
 Class I #FFFFFF
 }
@@ -38,9 +41,12 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 AddressBook *--> "1" UniquePersonList
 UniquePersonList --> "~* all" Person
 Person *--> Name
+Person *--> Id
 Person *--> Phone
 Person *--> Email
-Person *--> Address
+Person *--> Project
+Person *--> Progress
+Person *--> Log
 Person *--> "*" Tag
 
 Person -[hidden]up--> I
