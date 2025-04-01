@@ -52,13 +52,6 @@ public class ClearCommand extends Command {
     public CommandResult execute(Model model) {
         requireNonNull(model);
 
-        // Ignore the command if the confirmation window is already open
-        if (confirmationWindow.isShowing()) {
-            assert confirmationWindow.isShowing();
-            confirmationWindow.focus();
-            return new CommandResult(MESSAGE_REPEATED);
-        }
-
         boolean isConfirmed = confirmationWindow.showAndWait();
         if (!isConfirmed) {
             return new CommandResult(MESSAGE_CANCELLED);
