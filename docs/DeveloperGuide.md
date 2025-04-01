@@ -404,8 +404,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     </a>
 2.  Prof-iler shows a list of students
 3.  User requests to delete the specific students in the list
-4.  Prof-iler delete the students
-
+4.  Prof-iler deletes the students
     Use case ends.
 
 **Extensions**
