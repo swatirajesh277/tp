@@ -79,7 +79,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
      */
     @Override
     public boolean showAndWait() {
-        logger.fine("Showing message to confirm clearing all records.");
+        logger.fine("Showing message to confirm clearing all/specific records.");
 
         Platform.runLater(() -> noButton.requestFocus());
 
