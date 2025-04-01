@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.logic.commands.ClearCommand;
 
 /**
  * Controller for clearing confirmation page.
@@ -20,6 +21,8 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
     private static final String FXML = "ClearConfirmationWindow.fxml";
 
     private static ClearConfirmationWindow instance; // Singleton instance
+
+    private ClearCommand currentCommand;
 
     @FXML
     private Button noButton;
@@ -100,6 +103,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
     /**
      * Hides the clear confirmation window.
      */
+    @Override
     public void hide() {
         getRoot().hide();
     }
@@ -127,5 +131,30 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
         this.getRoot().close();
     }
 
+    public void setCurrentCommand(ClearCommand command) {
+        this.currentCommand = command;
+        // Update message based on command type
+        if (command.hasPredicate()) {
+            clearMessage.setText("Confirm to clear matching project records?");
+        } else {
+            clearMessage.setText(CLEAR_MESSAGE);
+        }
+    }
 
+    public ClearCommand getCurrentCommand() {
+        return currentCommand;
+    }
+
+    public void close() {
+        if (getRoot().isShowing()) {
+            getRoot().close();
+        }
+    }
+
+    public void reset() {
+        isConfirmed = false;
+        currentCommand = null;
+
+    }
 }
+
