@@ -403,8 +403,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     list all students (UC01)
     </a>
 2.  Prof-iler shows a list of students
-3.  User requests to delete a specific student in the list
-4.  Prof-iler deletes the student
+3.  User requests to delete the specific students in the list
+4.  Prof-iler delete the students
 
     Use case ends.
 
@@ -431,6 +431,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The input is invalid
     * 2a1. Prof-iler shows an error message.
 
+    Use case resumes at step 1.
+* 2b. The student already exist
+    * 2b1. Prof-iler shows an error message.
     Use case resumes at step 1.
 
 *{More to be added}*
