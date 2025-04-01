@@ -10,12 +10,12 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Id {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "ID should start with 'A', followed by 7 digits, end with a letter, and it should not be blank";
+            "ID should start with 'A' or 'a', followed by 7 digits, end with a letter, and it should not be blank";
 
     /*
-     * The student ID must start with 'A', followed by 7 digits, and end with an alphabet.
+     * The student ID must start with 'A' or 'a', followed by 7 digits, and end with an alphabet.
      */
-    public static final String VALIDATION_REGEX = "[Aa]\\d{7}[A-Za-z]*";
+    public static final String VALIDATION_REGEX = "[Aa]\\d{7}[A-Za-z]";
 
     public final String id;
 
