@@ -432,7 +432,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
     * 2a1. Prof-iler shows an error message.
 
       Use case resumes at step 1.
-* 2b. The student already exist
+* 2b. The student already exists
     * 2b1. Prof-iler shows an error message.<br>
 
       Use case resumes at step 1.
