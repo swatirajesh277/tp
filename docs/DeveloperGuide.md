@@ -429,11 +429,10 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **Extensions**
 * 2a. The input is invalid
-    * 2a1. Prof-iler shows an error message.
-
+    * 2a1. Prof-iler shows an error message.<br>
     Use case resumes at step 1.
 * 2b. The student already exist
-    * 2b1. Prof-iler shows an error message.
+    * 2b1. Prof-iler shows an error message.<br>
     Use case resumes at step 1.
 
 *{More to be added}*
