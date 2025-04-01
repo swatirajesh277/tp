@@ -8,7 +8,4 @@ public interface ConfirmationWindow {
     boolean showAndWait();
     boolean isShowing();
     void focus();
-    void hide();
-    void close();
-    void reset();
 }

@@ -10,7 +10,6 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.ProjectEqualsTargetPredicate;
-import seedu.address.ui.ClearConfirmationWindow;
 import seedu.address.ui.ConfirmationWindow;
 
 /**
@@ -47,94 +46,25 @@ public class ClearCommand extends Command {
     public ClearCommand(ProjectEqualsTargetPredicate predicate, ConfirmationWindow confirmationWindow) {
         this.predicate = predicate;
         this.confirmationWindow = confirmationWindow;
-
     }
 
-    /**
-     * Returns true if this command has a predicate (project-specific clear).
-     */
-    public boolean hasPredicate() {
-        return predicate != null;
-    }
-
-
-    // Replace the execute method with this SLAP-friendly version:
     @Override
     public CommandResult execute(Model model) {
         requireNonNull(model);
 
-        if (!prepareConfirmation()) {
+        // Ignore the command if the confirmation window is already open
+        if (confirmationWindow.isShowing()) {
+            assert confirmationWindow.isShowing();
+            confirmationWindow.focus();
             return new CommandResult(MESSAGE_REPEATED);
         }
 
         boolean isConfirmed = confirmationWindow.showAndWait();
         if (!isConfirmed) {
             return new CommandResult(MESSAGE_CANCELLED);
+
         }
 
-        return performClear(model);
-    }
-
-    /**
-     * Prepares the confirmation window for showing.
-     * Returns false if the existing window should be kept (same command type).
-     */
-    private boolean prepareConfirmation() {
-        if (!confirmationWindow.isShowing()) {
-            if (confirmationWindow instanceof ClearConfirmationWindow) {
-                ((ClearConfirmationWindow) confirmationWindow).setCurrentCommand(this);
-            }
-            return true;
-        }
-
-        if (shouldReplaceExistingConfirmation()) {
-            replaceExistingConfirmation();
-            return true;
-        } else {
-            confirmationWindow.focus();
-            return false;
-        }
-    }
-
-    /**
-     * Determines if the current confirmation should replace an existing one.
-     */
-    private boolean shouldReplaceExistingConfirmation() {
-        if (!(confirmationWindow instanceof ClearConfirmationWindow)) {
-            return true;
-        }
-
-        ClearCommand existingCommand = ((ClearConfirmationWindow) confirmationWindow).getCurrentCommand();
-
-        return existingCommand == null ||
-                (existingCommand.hasPredicate() != this.hasPredicate()) ||
-                (existingCommand.hasPredicate() && this.hasPredicate() &&
-                        !existingCommand.predicate.equals(this.predicate));
-    }
-
-    /**
-     * Replaces the existing confirmation window with a new one.
-     */
-    private void replaceExistingConfirmation() {
-        confirmationWindow.hide();
-        confirmationWindow.reset();
-
-        if (confirmationWindow instanceof ClearConfirmationWindow) {
-            ((ClearConfirmationWindow) confirmationWindow).setCurrentCommand(this);
-        }
-
-        // Allow UI to update
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-    }
-
-    /**
-     * Performs the actual clear operation on the model.
-     */
-    private CommandResult performClear(Model model) {
         if (predicate == null) {
             model.setAddressBook(new AddressBook());
             return new CommandResult(MESSAGE_CLEAR_ALL_SUCCESS);
