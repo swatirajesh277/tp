@@ -13,9 +13,9 @@ public class Id {
             "ID should start with 'A', followed by 7 digits, end with a letter, and it should not be blank";
 
     /*
-     * The student ID must start with 'A', followed by 7 digits, and end with an uppercase alphabet.
+     * The student ID must start with 'A', followed by 7 digits, and end with an alphabet.
      */
-    public static final String VALIDATION_REGEX = "A\\d{7}[A-Z]*";
+    public static final String VALIDATION_REGEX = "[Aa]\\d{7}[A-Za-z]*";
 
     public final String id;
 
@@ -27,7 +27,7 @@ public class Id {
     public Id(String id) {
         requireNonNull(id);
         checkArgument(isValidId(id), MESSAGE_CONSTRAINTS);
-        this.id = id;
+        this.id = id.toUpperCase();
     }
 
     /**
