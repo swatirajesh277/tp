@@ -192,7 +192,11 @@ Examples:
 
 ### Clearing all entries : `clear`
 
-Clears all entries from Prof-iler.
+Clears all entries from Prof-iler, or clears a given project.
+
+* If no project is given, all the entries are cleared.
+* The project field is case-insensitive.
+* All the students under the project will be cleared.
 
 A pop-up message to confirm your action will appear. It defaults to `No` to prevent accidental deletion.
 
@@ -200,8 +204,11 @@ A pop-up message to confirm your action will appear. It defaults to `No` to prev
 
 Simply use keyboard arrow keys to toggle between the options. Press `enter` on your keyboard to confirm the selection. Alternatively, you can also click on the buttons using your cursor.
 
+Examples:
+* `clear` clears all entries.
+* `clear prof-iler` clears `David Li` and `JianXi` which are the two students under the project `Prof-iler`.
 
-Format: `clear`
+Format: `clear [PROJECT]`
 
 ### Exiting the program : `exit`
 
@@ -247,7 +254,7 @@ _Details coming soon ..._
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/22224444 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA`
-**Clear** | `clear`
+**Clear** | `clear [KEYWORD]`<br> e.g., `delete prof-iler`
 **Delete** | `delete INDEX`<br> e.g., `delete 1, 3`
 **Edit** | `edit INDEX [n/NAME] [id/STUDENTID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`
 **Filter** | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter prof-iler`
