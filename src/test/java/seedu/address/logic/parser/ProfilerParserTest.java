@@ -38,9 +38,9 @@ import seedu.address.testutil.TestConfirmationWindowProvider;
 import seedu.address.ui.ClearConfirmationWindowStub;
 import seedu.address.ui.ConfirmationWindowFactory;
 
-public class AddressBookParserTest {
+public class ProfilerParserTest {
 
-    private final AddressBookParser parser = new AddressBookParser();
+    private final ProfilerParser parser = new ProfilerParser();
     private final ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
 
     @Test
