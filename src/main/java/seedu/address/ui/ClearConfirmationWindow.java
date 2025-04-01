@@ -6,6 +6,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import seedu.address.commons.core.LogsCenter;
 
@@ -41,6 +42,7 @@ public class ClearConfirmationWindow extends UiPart<Stage> implements Confirmati
         super(FXML, root);
         assert root != null;
         clearMessage.setText(CLEAR_MESSAGE);
+        getRoot().initModality(Modality.APPLICATION_MODAL); // Make the window modal
     }
 
     /**
