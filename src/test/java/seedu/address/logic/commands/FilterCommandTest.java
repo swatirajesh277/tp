@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_PROJECTS_FILTERED_OVERVIEW;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalProfiler;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,8 +21,8 @@ import seedu.address.model.person.ProjectContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FilterCommand}.
  */
 public class FilterCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalProfiler(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalProfiler(), new UserPrefs());
 
     @Test
     public void equals() {

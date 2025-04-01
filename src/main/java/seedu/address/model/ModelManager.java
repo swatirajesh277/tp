@@ -21,27 +21,27 @@ import seedu.address.model.person.Person;
 public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
-    private final AddressBook addressBook;
+    private final Profiler profiler;
     private final UserPrefs userPrefs;
     private final FilteredList<Person> filteredPersons;
     private final SortedList<Person> sortedPersons;
 
     /**
-     * Initializes a ModelManager with the given addressBook and userPrefs.
+     * Initializes a ModelManager with the given profiler and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
-        requireAllNonNull(addressBook, userPrefs);
+    public ModelManager(ReadOnlyProfiler profiler, ReadOnlyUserPrefs userPrefs) {
+        requireAllNonNull(profiler, userPrefs);
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        logger.fine("Initializing with prof-iler: " + profiler + " and user prefs " + userPrefs);
 
-        this.addressBook = new AddressBook(addressBook);
+        this.profiler = new Profiler(profiler);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredPersons = new FilteredList<>(this.addressBook.getPersonList());
+        filteredPersons = new FilteredList<>(this.profiler.getPersonList());
         sortedPersons = new SortedList<>(filteredPersons);
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new Profiler(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -69,42 +69,42 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Path getAddressBookFilePath() {
-        return userPrefs.getAddressBookFilePath();
+    public Path getProfilerFilePath() {
+        return userPrefs.getProfilerFilePath();
     }
 
     @Override
-    public void setAddressBookFilePath(Path addressBookFilePath) {
-        requireNonNull(addressBookFilePath);
-        userPrefs.setAddressBookFilePath(addressBookFilePath);
+    public void setProfilerFilePath(Path profilerFilePath) {
+        requireNonNull(profilerFilePath);
+        userPrefs.setProfilerFilePath(profilerFilePath);
     }
 
-    //=========== AddressBook ================================================================================
+    //=========== Profiler ================================================================================
 
     @Override
-    public void setAddressBook(ReadOnlyAddressBook addressBook) {
-        this.addressBook.resetData(addressBook);
+    public void setProfiler(ReadOnlyProfiler profiler) {
+        this.profiler.resetData(profiler);
     }
 
     @Override
-    public ReadOnlyAddressBook getAddressBook() {
-        return addressBook;
+    public ReadOnlyProfiler getProfiler() {
+        return profiler;
     }
 
     @Override
     public boolean hasPerson(Person person) {
         requireNonNull(person);
-        return addressBook.hasPerson(person);
+        return profiler.hasPerson(person);
     }
 
     @Override
     public void deletePerson(Person target) {
-        addressBook.removePerson(target);
+        profiler.removePerson(target);
     }
 
     @Override
     public void addPerson(Person person) {
-        addressBook.addPerson(person);
+        profiler.addPerson(person);
         updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
     }
 
@@ -112,14 +112,14 @@ public class ModelManager implements Model {
     public void setPerson(Person target, Person editedPerson) {
         requireAllNonNull(target, editedPerson);
 
-        addressBook.setPerson(target, editedPerson);
+        profiler.setPerson(target, editedPerson);
     }
 
     //=========== Filtered Person List Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the list of {@code Person} backed by the internal list of
-     * {@code versionedAddressBook}
+     * {@code versionedProfiler}
      */
     @Override
     public ObservableList<Person> getFilteredPersonList() {
@@ -163,7 +163,7 @@ public class ModelManager implements Model {
         }
 
         ModelManager otherModelManager = (ModelManager) other;
-        return addressBook.equals(otherModelManager.addressBook)
+        return profiler.equals(otherModelManager.profiler)
                 && userPrefs.equals(otherModelManager.userPrefs)
                 && filteredPersons.equals(otherModelManager.filteredPersons)
                 && sortedPersons.equals(otherModelManager.sortedPersons);

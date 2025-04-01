@@ -11,7 +11,7 @@ import static seedu.address.testutil.TypicalPersons.DANIEL;
 import static seedu.address.testutil.TypicalPersons.ELLE;
 import static seedu.address.testutil.TypicalPersons.FIONA;
 import static seedu.address.testutil.TypicalPersons.GEORGE;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalProfiler;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -24,8 +24,8 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Person;
 
 public class SortCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalProfiler(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalProfiler(), new UserPrefs());
 
     @Test
     public void equals() {
