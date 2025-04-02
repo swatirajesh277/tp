@@ -19,8 +19,8 @@ public class ProjectContainsKeywordsPredicate implements Predicate<Person> {
 
     @Override
     public boolean test(Person person) {
-        return keywords.stream()
-                .anyMatch(keyword -> StringUtil.containsWordIgnoreCase(person.getProject().value, keyword));
+        return keywords.stream().allMatch(keyword ->
+                StringUtil.containsWordIgnoreCase(person.getProject().value, keyword));
     }
 
     @Override
