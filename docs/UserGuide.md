@@ -254,7 +254,7 @@ _Details coming soon ..._
 Action | Format, Examples
 --------|------------------
 **Add** | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/22224444 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA`
-**Clear** | `clear [KEYWORD]`<br> e.g., `delete prof-iler`
+**Clear** | `clear [KEYWORD]`<br> e.g., `clear prof-iler`
 **Delete** | `delete INDEX`<br> e.g., `delete 1, 3`
 **Edit** | `edit INDEX [n/NAME] [id/STUDENTID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`
 **Filter** | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter prof-iler`
