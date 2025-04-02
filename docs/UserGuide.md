@@ -161,20 +161,22 @@ Examples:
 
 ### Filter for specific projects: `filter`
 
-Filters for projects that contain any of the given keywords.
+Filters for projects that contains all the given keywords or tags that contain any of the given keywords.
 
 Format: `filter [pr/KEYWORD...] [t/KEYWORD...]`
 
-* The search is case-insensitive. e.g., `David` will match `DAVID`
-* The order of the given keywords does not matter. e.g.,`David Li` will match `Li David`
-* At least one of the optional field must be provided.
-* Only the full keyword will be matched. e.g., `David` will not match `Davids`
-* All the filtered student will be shown in the displayed person list to the screen.
-
+* The search is case-insensitive. e.g., `PROF-ILER` will match `prof-iler`
+* The order of the given keywords does not matter. e.g.,`Project Orbital` will match `Orbital Project`
+* At least one of the optional fields must be provided.
+* Whitespaces in between each keywords separates the keywords. e.g., `Project Orbital` searches for both keywords `Project` and `Orbital`
+* Only the full keyword will be matched. e.g., `Prof-iler` will not match `Prof-ilers`
+* Filtering for project requires the project to contain all the given keywords. e.g.,`filter pr/Project Orbital` will not match students with project `Orbital` while `filter pr/Orbital` will match student with `Project Orbital`
+* Filtering for tag requires the student to contain any of the given tags. e.g., `CS2103T` and `CS2101` will match any student that contain either `CS2103T` or `CS2101` or both tags.
+* All the filtered students will be shown in the displayed person list to the screen.
 Examples:
 * `filter pr/prof-iler` returns `David Li` and `JianXi` which are the two students under the project `Prof-iler`
     ![result for `filter pr/prof-iler`](images/filterProjectExample.png)
-* `filter t/CS2103T t/Tutor` returns `Alex Yeoh`, `Bernice Yu` and `David Li` which are the students that contains at least one of the given keywords for the tag.
+* `filter t/CS2103T Tutor` returns `Alex Yeoh`, `Bernice Yu` and `David Li` which are the students that contain at least one of the given keywords for the tag.
     ![result for `filter t/CS2103T t/Tutor](images/filterTagExample.png)
 
 ### Sorting based on progress: `sort`
