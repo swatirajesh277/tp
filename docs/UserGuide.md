@@ -161,8 +161,7 @@ Examples:
 
 ### Filter for specific projects: `filter`
 
-Filters for projects that contains all the given keywords or tags that contain any of the given keywords.
-
+Filters for projects that contain all the given keywords or tags that contain any of the given keywords.
 Format: `filter [pr/KEYWORD...] [t/KEYWORD...]`
 
 * The search is case-insensitive. e.g., `PROF-ILER` will match `prof-iler`
