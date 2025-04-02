@@ -39,20 +39,20 @@ public interface Model {
     /**
      * Returns the user prefs' prof-iler file path.
      */
-    Path getAddressBookFilePath();
+    Path getProfilerFilePath();
 
     /**
      * Sets the user prefs' prof-iler file path.
      */
-    void setAddressBookFilePath(Path addressBookFilePath);
+    void setProfilerFilePath(Path profilerFilePath);
 
     /**
-     * Replaces prof-iler data with the data in {@code addressBook}.
+     * Replaces prof-iler data with the data in {@code profiler}.
      */
-    void setAddressBook(ReadOnlyAddressBook addressBook);
+    void setProfiler(ReadOnlyProfiler profiler);
 
-    /** Returns the AddressBook */
-    ReadOnlyAddressBook getAddressBook();
+    /** Returns the Profiler */
+    ReadOnlyProfiler getProfiler();
 
     /**
      * Returns true if a person with the same identity as {@code person} exists in prof-iler.

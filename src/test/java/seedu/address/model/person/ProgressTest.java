@@ -25,7 +25,7 @@ public class ProgressTest {
 
     @Test
     public void isValidProgress() {
-        // valid addresses
+        // valid progresses
         assertTrue(Progress.isValidProgress("32"));
         assertTrue(Progress.isValidProgress("100"));
         assertTrue(Progress.isValidProgress("0"));
