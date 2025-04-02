@@ -5,6 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -47,14 +48,15 @@ public class ParserUtil {
         requireNonNull(args);
         String[] parts = args.trim().split(",");
 
-        List<Index> indexes = new ArrayList<>();
+        Set<Index> indexSet = new LinkedHashSet<>();
 
         for (String part : parts) {
             String trimmedPart = part.trim();
             Index index = parseIndex(trimmedPart);
-            indexes.add(index);
+            indexSet.add(index);
         }
-        return indexes;
+
+        return new ArrayList<>(indexSet);
     }
 
     /**

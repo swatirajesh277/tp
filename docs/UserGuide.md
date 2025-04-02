@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Prof-iler is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Prof-iler is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Prof-iler can help you manage ur projects faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -101,7 +101,6 @@ Format: `list`
 
 Edits an existing person in Prof-iler.
 
-
 Format: `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
@@ -164,15 +163,39 @@ Examples:
 
 Filters for projects that contain any of the given keywords.
 
-Format: `filter KEYWORD [MORE_KEYWORDS]`
+Format: `filter [pr/KEYWORD...] [t/KEYWORD...]`
 
-* The search is case-insensitive.
-* The order of the given keywords does not matter.
-* All the filtered student under the project will be shown in the displayed person list.
+* The search is case-insensitive. e.g., `David` will match `DAVID`
+* The order of the given keywords does not matter. e.g.,`David Li` will match `Li David`
+* At least one of the optional field must be provided.
+* Only the full keyword will be matched. e.g., `David` will not match `Davids`
+* All the filtered student will be shown in the displayed person list to the screen.
 
 Examples:
-* `filter prof-iler` returns `David Li` and `JianXi` which are the two students under the project `Prof-iler`
-    ![result for `filter prof-iler`](images/Filter_usage.png)
+* `filter pr/prof-iler` returns `David Li` and `JianXi` which are the two students under the project `Prof-iler`
+    ![result for `filter pr/prof-iler`](images/filterProjectExample.png)
+* `filter t/CS2103T t/Tutor` returns `Alex Yeoh`, `Bernice Yu` and `David Li` which are the students that contains at least one of the given keywords for the tag.
+    ![result for `filter t/CS2103T t/Tutor](images/filterTagExample.png)
+
+### Sorting based on progress: `sort`
+
+Sorts the student based on the progress, in either ascending or descending order.
+
+Format: `sort [asc] [desc]`
+
+* The order `asc` or `desc` is case-insensitive.
+* `asc` will sort the students based on ascending order of progress and `desc` will sort the students based on descending order of progress.
+* At least one of the optional field must be provided.
+* All the sorted students will be shown in the displayed person list to the screen.
+
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
+The `sort` command works in conjunction with the `filter` command. <br>
+For example, the user can first apply a `filter` command (e.g., `filter pr/Prof-iler`) to view the students in the project that contains the word Prof-iler. After filtering, user can execute `sort asc` to arrange students in those project based on their progress in ascending order. <br>
+This can also be done the other way round by applying the `sort` command first followed by `filter` command.
+</div>
+
+**Example usage of `filter pr/Prof-iler` followed by `sort asc`:**
+    ![SortWithFilterCommand](images/sortFilterCommandExample.png)
 
 ### Deleting persons : `delete`
 
@@ -192,7 +215,11 @@ Examples:
 
 ### Clearing all entries : `clear`
 
-Clears all entries from Prof-iler.
+Clears all entries from Prof-iler, or clears a given project.
+
+* If no project is given, all the entries are cleared.
+* The project field is case-insensitive.
+* All the students under the project will be cleared.
 
 A pop-up message to confirm your action will appear. It defaults to `No` to prevent accidental deletion.
 
@@ -200,8 +227,11 @@ A pop-up message to confirm your action will appear. It defaults to `No` to prev
 
 Simply use keyboard arrow keys to toggle between the options. Press `enter` on your keyboard to confirm the selection. Alternatively, you can also click on the buttons using your cursor.
 
+Examples:
+* `clear` clears all entries.
+* `clear prof-iler` clears `David Li` and `JianXi` which are the two students under the project `Prof-iler`.
 
-Format: `clear`
+Format: `clear [PROJECT]`
 
 ### Exiting the program : `exit`
 
@@ -244,15 +274,16 @@ _Details coming soon ..._
 
 ## Command summary
 
-Action | Format, Examples
---------|------------------
-**Add** | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/22224444 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA`
-**Clear** | `clear`
-**Delete** | `delete INDEX [,INDEXES] ...`<br> e.g., `delete 1, 3`
-**Edit** | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`
-**Filter** | `filter KEYWORD [MORE_KEYWORDS]`<br> e.g., `filter prof-iler`
-**Find** | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`
-**Progress** | `progress INDEX [pb/PROGRESS]`<br> e.g., `progress 1 pb/45`
-**List** | `list`
-**Log** | `log INDEX l/LOG`
-**Help** | `help`
+| Action       | Format, Examples                                                                                                                                                                               |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add**      | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/82793554 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA` |
+| **Clear**    | `clear [KEYWORD]`<br> e.g., `clear prof-iler`                                                                                                                                                                                       |
+| **Delete**   | `delete INDEX [,INDEXES] ...`<br> e.g., `delete 1, 3`                                                                                                                                                         |
+| **Edit**     | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                                |
+| **Filter**   | `filter [pr/KEYWORD...] [t/KEYWORD...]`<br> e.g., `filter pr/prof-iler` <br> eg., `filter t/CS2103T CS2109`                                                                                    |
+| **Sort**     | `sort [asc] [desc]`<br> e.g., `sort asc`                                                                                                                                                       |
+| **Find**     | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                     |
+| **Progress** | `progress INDEX [pb/PROGRESS]`<br> e.g., `progress 1 pb/45`                                                                                                                                    |
+| **List**     | `list`                                                                                                                                                                                         |
+| **Log**      | `log INDEX l/LOG`                                                                                                                                                                              |
+| **Help**     | `help`                                                                                                                                                                                         |
