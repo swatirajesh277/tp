@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Prof-iler is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+Prof-iler is a **desktop app for managing student research records, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). Designed for fast typing research professors at SoC, Prof-iler helps streamline research management by organizing, tracking, and maintaining student records over time. These records can be management tasks can be done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
