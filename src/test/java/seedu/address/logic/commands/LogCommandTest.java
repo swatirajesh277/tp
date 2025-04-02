@@ -7,15 +7,15 @@ import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
-import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalPersons.getTypicalProfiler;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
-import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
+import seedu.address.model.Profiler;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Log;
 import seedu.address.model.person.Person;
@@ -27,7 +27,7 @@ import seedu.address.testutil.PersonBuilder;
  */
 public class LogCommandTest {
     private static final String LOG_RANDOM = "Some random log";
-    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalProfiler(), new UserPrefs());
     @Test
     public void execute_addLogUnfilteredList_success() {
         Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
@@ -37,7 +37,7 @@ public class LogCommandTest {
 
         String expectedMessage = String.format(LogCommand.MESSAGE_ADD_LOG_SUCCESS, editedPerson);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
 
         assertCommandSuccess(logCommand, model, expectedMessage, expectedModel);
@@ -52,7 +52,7 @@ public class LogCommandTest {
 
         String expectedMessage = String.format(LogCommand.MESSAGE_DELETE_LOG_SUCCESS, editedPerson);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
 
         assertCommandSuccess(logCommand, model, expectedMessage, expectedModel);
@@ -68,7 +68,7 @@ public class LogCommandTest {
 
         String expectedMessage = String.format(LogCommand.MESSAGE_ADD_LOG_SUCCESS, editedPerson);
 
-        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
 
         assertCommandSuccess(logCommand, model, expectedMessage, expectedModel);
@@ -87,7 +87,7 @@ public class LogCommandTest {
         showPersonAtIndex(model, INDEX_FIRST_PERSON);
         Index outOfBoundIndex = INDEX_SECOND_PERSON;
 
-        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getProfiler().getPersonList().size());
 
         LogCommand logCommand = new LogCommand(outOfBoundIndex, new Log(VALID_LOG_BOB));
         assertCommandFailure(logCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
