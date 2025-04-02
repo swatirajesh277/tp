@@ -41,7 +41,7 @@
               </Button>
             </children>
           </HBox>
-          <TextArea fx:id="commandUsageArea" editable="false" wrapText="true" prefHeight="400" prefWidth="600">
+          <TextArea fx:id="commandUsageArea" editable="false" wrapText="true" prefHeight="500" prefWidth="750">
             <VBox.margin>
               <Insets top="10.0" />
             </VBox.margin>
