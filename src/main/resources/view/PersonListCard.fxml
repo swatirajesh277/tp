@@ -55,8 +55,9 @@
             <padding>
               <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
-    <Label fx:id="log" styleClass="cell_small_label" text="\$log" />
+      <VBox fx:id="logContainer" styleClass="log-box" stylesheets="@LogBox.css">
+    <Label fx:id="log" styleClass="cell_small_label" text="\$log" wrapText="true" />
     </VBox>
-
+    </VBox>
   </GridPane>
 </HBox>
