@@ -1,15 +1,25 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_LOG_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_LOG_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
+import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandTestUtil.showPersonAtIndex;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_PERSON;
+import static seedu.address.testutil.TypicalPersons.getTypicalAddressBook;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
+import seedu.address.model.AddressBook;
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
 import seedu.address.model.person.Log;
+import seedu.address.model.person.Person;
+import seedu.address.testutil.PersonBuilder;
 
 
 /**
@@ -17,19 +27,69 @@ import seedu.address.model.person.Log;
  */
 public class LogCommandTest {
     private static final String LOG_RANDOM = "Some random log";
+    private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
     @Test
-    public void equals() {
-        final LogCommand exampleCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(VALID_LOG_AMY));
-        //same values returns true
-        LogCommand commandWithSameValues = new LogCommand(INDEX_FIRST_PERSON, new Log(VALID_LOG_AMY));
-        assertTrue(exampleCommand.equals(commandWithSameValues));
-        //same object returns true
-        assertTrue(exampleCommand.equals(exampleCommand));
-        //null returns false
-        assertFalse(exampleCommand.equals(null));
-        //diff index returns false
-        assertFalse(exampleCommand.equals(new LogCommand(INDEX_SECOND_PERSON, new Log(VALID_LOG_AMY))));
-        //diff log returns false
-        assertFalse(exampleCommand.equals(new LogCommand(INDEX_FIRST_PERSON, new Log(VALID_LOG_BOB))));
+    public void execute_addLogUnfilteredList_success() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person editedPerson = new PersonBuilder(firstPerson).withLog(LOG_RANDOM).build();
+
+        LogCommand logCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(editedPerson.getLog().value));
+
+        String expectedMessage = String.format(LogCommand.MESSAGE_ADD_LOG_SUCCESS, editedPerson);
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(firstPerson, editedPerson);
+
+        assertCommandSuccess(logCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_deleteLogUnfilteredList_success() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person editedPerson = new PersonBuilder(firstPerson).withLog("").build();
+
+        LogCommand logCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(editedPerson.getLog().value));
+
+        String expectedMessage = String.format(LogCommand.MESSAGE_DELETE_LOG_SUCCESS, editedPerson);
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(firstPerson, editedPerson);
+
+        assertCommandSuccess(logCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_filteredList_success() {
+        Person firstPerson = model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased());
+        Person editedPerson = new PersonBuilder(model.getFilteredPersonList().get(INDEX_FIRST_PERSON.getZeroBased()))
+                .withLog(LOG_RANDOM).build();
+
+        LogCommand logCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(editedPerson.getLog().value));
+
+        String expectedMessage = String.format(LogCommand.MESSAGE_ADD_LOG_SUCCESS, editedPerson);
+
+        Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()), new UserPrefs());
+        expectedModel.setPerson(firstPerson, editedPerson);
+
+        assertCommandSuccess(logCommand, model, expectedMessage, expectedModel);
+    }
+
+    @Test
+    public void execute_invalidPersonIndexUnfilteredList_failure() {
+        Index outOfBoundIndex = Index.fromOneBased(model.getFilteredPersonList().size() + 1);
+        LogCommand logCommand = new LogCommand(outOfBoundIndex, new Log(VALID_LOG_BOB));
+
+        assertCommandFailure(logCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+    }
+
+    @Test
+    public void execute_invalidPersonIndexFilteredList_failure() {
+        showPersonAtIndex(model, INDEX_FIRST_PERSON);
+        Index outOfBoundIndex = INDEX_SECOND_PERSON;
+
+        assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getPersonList().size());
+
+        LogCommand logCommand = new LogCommand(outOfBoundIndex, new Log(VALID_LOG_BOB));
+        assertCommandFailure(logCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 }
