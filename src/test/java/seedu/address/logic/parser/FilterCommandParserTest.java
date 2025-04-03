@@ -35,7 +35,7 @@ public class FilterCommandParserTest {
 
         // having both prefix for tag and project
         assertParseFailure(parser, "filter t/ pr/ ", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                FilterCommand.MESSAGE_USAGE));
+                FilterCommand.MESSAGE_ONLY_PROJECT_OR_TAG));
     }
 
     @Test

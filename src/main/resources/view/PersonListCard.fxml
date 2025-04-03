@@ -14,13 +14,14 @@
 
 <?import javafx.scene.control.ProgressBar?>
 
-<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      prefWidth="100" prefHeight="100">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="150" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="10" prefWidth="150" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="10" prefWidth="150" />
     </columnConstraints>
-    <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0">
+    <VBox alignment="CENTER_LEFT" minHeight="105" GridPane.columnIndex="0" VBox.vgrow="ALWAYS">
       <padding>
         <Insets top="5" right="5" bottom="5" left="15" />
       </padding>
@@ -31,12 +32,12 @@
             <Region fx:constant="USE_PREF_SIZE" />
           </minWidth>
         </Label>
-        <Label fx:id="name" text="\$first" styleClass="cell_big_label" />
+        <Label fx:id="name" text="\$first" styleClass="cell_big_label" HBox.hgrow="ALWAYS"/>
       </HBox>
       <FlowPane fx:id="tags" />
-      <Label fx:id="id" styleClass="cell_small_label" text="\$id" />
+      <Label fx:id="id" styleClass="cell_small_label" text="\$id" HBox.hgrow="ALWAYS"/>
       <HBox spacing="5" alignment="CENTER_LEFT">
-        <Label fx:id="email" styleClass="cell_small_label" text="\$email" />
+        <Label fx:id="email" styleClass="cell_small_label" text="\$email" HBox.hgrow="ALWAYS"/>
         <Region GridPane.columnIndex="1" style="-fx-background-color: white;" minWidth="2" prefWidth="2" />
 
         <Label fx:id="phone" styleClass="cell_small_label" text="\$phone" />
@@ -55,7 +56,7 @@
             <padding>
               <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
-      <VBox fx:id="logContainer" styleClass="log-box" stylesheets="@LogBox.css">
+      <VBox fx:id="logContainer" styleClass="log-box">
     <Label fx:id="log" styleClass="cell_small_label" text="\$log" wrapText="true" />
     </VBox>
     </VBox>

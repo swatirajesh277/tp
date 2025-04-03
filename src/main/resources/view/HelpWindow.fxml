@@ -22,14 +22,14 @@
         <URL value="@HelpWindow.css" />
       </stylesheets>
 
-      <VBox alignment="TOP_CENTER" fx:id="helpContainer" styleClass="container">
+      <VBox alignment="TOP_CENTER" fx:id="helpContainer" styleClass = "container">
         <padding>
           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
         </padding>
         <children>
           <HBox alignment="CENTER">
             <children>
-              <Label fx:id="helpMessage" text="Label">
+              <Label fx:id="helpMessage" text="Label" styleClass="label">
                 <HBox.margin>
                   <Insets right="5.0" />
                 </HBox.margin>

@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
@@ -24,6 +25,9 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class MainWindow extends UiPart<Stage> {
 
     private static final String FXML = "MainWindow.fxml";
+    private static final String DARK_THEME = "/view/DarkTheme.css";
+    private static final String LIGHT_THEME = "/view/LightTheme.css";
+    private String currentTheme = DARK_THEME;
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -41,6 +45,13 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private MenuItem helpMenuItem;
+    @FXML
+    private Menu themeMenu;
+
+    @FXML
+    private MenuItem lightTheme;
+    @FXML
+    private MenuItem darkTheme;
 
     @FXML
     private StackPane personListPanelPlaceholder;
@@ -50,6 +61,7 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private StackPane statusbarPlaceholder;
+
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -68,6 +80,9 @@ public class MainWindow extends UiPart<Stage> {
 
         helpWindow = new HelpWindow();
         clearConfirmationWindow = ClearConfirmationWindow.getInstance();
+        lightTheme.setOnAction(e -> setTheme(LIGHT_THEME));
+        darkTheme.setOnAction(e -> setTheme(DARK_THEME));
+
     }
 
     public Stage getPrimaryStage() {
@@ -148,6 +163,21 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             helpWindow.focus();
         }
+        String currentThemePath = currentTheme.equals(LIGHT_THEME) ? LIGHT_THEME : DARK_THEME;
+
+        // Pass the correct theme to setTheme method
+        helpWindow.setTheme(currentThemePath);
+    }
+
+    @FXML
+    public void setTheme(String theme) {
+        if (!currentTheme.equals(theme)) {
+            primaryStage.getScene().getStylesheets().clear();
+            primaryStage.getScene().getStylesheets().add(getClass().getResource(theme).toExternalForm());
+            currentTheme = theme;
+            primaryStage.getScene().getRoot().applyCss();
+            primaryStage.getScene().getRoot().layout();
+        }
     }
 
     void show() {
@@ -167,6 +197,16 @@ public class MainWindow extends UiPart<Stage> {
         if (clearConfirmationWindow.isShowing()) {
             clearConfirmationWindow.hide();
         }
+    }
+
+    @FXML
+    private void handleLightTheme() {
+        setTheme(LIGHT_THEME);
+    }
+
+    @FXML
+    private void handleDarkTheme() {
+        setTheme(DARK_THEME);
     }
 
     public PersonListPanel getPersonListPanel() {
