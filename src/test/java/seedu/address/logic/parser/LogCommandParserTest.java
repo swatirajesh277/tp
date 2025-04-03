@@ -9,6 +9,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PERSON;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.Messages;
 import seedu.address.logic.commands.LogCommand;
 import seedu.address.model.person.Log;
 
@@ -35,5 +36,14 @@ public class LogCommandParserTest {
 
         assertParseFailure(parser, LogCommand.COMMAND_WORD, failMsg);
         assertParseFailure(parser, LogCommand.COMMAND_WORD + " " + nonEmptyLog, failMsg);
+    }
+
+    @Test
+    public void parse_repeatedField_failure() {
+        String failMsg = Messages.getErrorMessageForDuplicatePrefixes(PREFIX_LOG);
+        String userInput = INDEX_FIRST_PERSON.getOneBased()
+                + " " + PREFIX_LOG + nonEmptyLog
+                + " " + PREFIX_LOG + nonEmptyLog;
+        assertParseFailure(parser, userInput, failMsg);
     }
 }
