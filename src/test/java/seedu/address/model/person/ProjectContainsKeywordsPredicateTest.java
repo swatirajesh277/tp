@@ -53,13 +53,13 @@ public class ProjectContainsKeywordsPredicateTest {
         predicate = new ProjectContainsKeywordsPredicate(Arrays.asList("Project", "Rex"));
         assertTrue(predicate.test(new PersonBuilder().withProject("Project Rex").build()));
 
-        // Only one matching keyword
-        predicate = new ProjectContainsKeywordsPredicate(Arrays.asList("Project", "Bob"));
-        assertTrue(predicate.test(new PersonBuilder().withProject("Bob Builder").build()));
+        // More than the required keywords but matches all the given keywords
+        predicate = new ProjectContainsKeywordsPredicate(Arrays.asList("Project", "Orbital"));
+        assertTrue(predicate.test(new PersonBuilder().withProject("Project Orbital Apollo").build()));
 
         // Mix-case keywords
         predicate = new ProjectContainsKeywordsPredicate(Arrays.asList("pRoJECt", "bOB"));
-        assertTrue(predicate.test(new PersonBuilder().withProject("Alice Bob").build()));
+        assertTrue(predicate.test(new PersonBuilder().withProject("PROJECT Bob").build()));
     }
 
     @Test

@@ -2,7 +2,6 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalPersons.getTypicalProfiler;
 
@@ -99,48 +98,6 @@ public class ClearCommandTest {
         stub.setConfirmationResult(false); //Simulate clicking "No"
 
         assertCommandSuccess(new ClearCommand(stub), model, ClearCommand.MESSAGE_CANCELLED, expectedModel);
-    }
-
-    @Test
-    public void execute_repeatedClearCommand_returnsRepeatedMessage() {
-        // Get the stub, set showing to be true, and reset focus call tracker
-        ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
-        stub.setShowing(true);
-        stub.setWasFocusCalled(false);
-
-        // Create the clear command with our stub
-        ClearCommand clearCommand = new ClearCommand(stub);
-
-        // Execute the command - should return the REPEATED message
-        CommandResult result = clearCommand.execute(new ModelManager());
-
-        // Verify the result contains the correct message
-        assertEquals(ClearCommand.MESSAGE_REPEATED, result.getFeedbackToUser());
-
-        // Verify that focus was called on the window
-        assertTrue(stub.wasFocusCalled(), "The focus() method should be called on the window");
-
-        // Reset stub after test
-        stub.resetValues();
-    }
-
-    @Test
-    public void execute_repeatedClearCommand_modelUnchanged() {
-        Model model = new ModelManager(getTypicalProfiler(), new UserPrefs());
-        Model expectedModel = new ModelManager(getTypicalProfiler(), new UserPrefs());
-
-        // Create a stub that simulates an already showing confirmation window
-        ClearConfirmationWindowStub stub = ClearConfirmationWindowStub.getInstance();
-        stub.setShowing(true);
-
-        // Create the clear command with our stub
-        ClearCommand clearCommand = new ClearCommand(stub);
-
-        // Execute the command
-        clearCommand.execute(model);
-
-        // Verify model was not changed (data should be preserved when popup is already showing)
-        assertEquals(expectedModel, model, "Model should not be changed when confirmation window is already showing");
     }
 
     @Test

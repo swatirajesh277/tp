@@ -12,8 +12,8 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 
 /**
- * Filters and list all students in Prof-iler whose project contain the given keyword
- * or whose tag contain the given keyword.
+ * Filters and list all students in Prof-iler whose project contains all the given keywords
+ * or whose tag contains any of the given keyword.
  * Keyword matching is case-insensitive.
  */
 public class FilterCommand extends Command {

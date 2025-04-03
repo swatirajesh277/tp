@@ -14,10 +14,13 @@ Class UserPrefs
 
 Class UniquePersonList
 Class Person
-Class Address
+Class Project
 Class Email
 Class Name
+Class Id
 Class Phone
+Class Progress
+Class Log
 Class Tag
 
 Class I #FFFFFF
@@ -38,17 +41,20 @@ UserPrefs .up.|> ReadOnlyUserPrefs
 Profiler *--> "1" UniquePersonList
 UniquePersonList --> "~* all" Person
 Person *--> Name
+Person *--> Id
 Person *--> Phone
 Person *--> Email
-Person *--> Address
+Person *--> Project
+Person *--> Progress
+Person *--> Log
 Person *--> "*" Tag
+
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
 
 Name -[hidden]right-> Phone
-Phone -[hidden]right-> Address
-Address -[hidden]right-> Email
+
 
 ModelManager --> "~* filtered" Person
 @enduml
