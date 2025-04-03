@@ -73,17 +73,17 @@ Shows a link to the user guide and a list of all commands available in Prof-iler
 Format: `help`, can also be accessed via `F1` function key
 
 
-### Adding a person: `add`
+### Adding a student: `add`
 
-Adds a person to Prof-iler.
+Adds a student to Prof-iler.
 
 
 Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]…​`
 
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
-A person can have any number of tags (including 0). <br>
-A person can have unmentioned progress (default = 0).
+A student can have any number of tags (including 0). <br>
+A student can have unmentioned progress (default = 0).
 </div>
 
 Examples:
@@ -91,59 +91,59 @@ Examples:
 * `add n/Betsy Crowe t/Y4 id/A0055729D e/betsycrowe@example.com p/1234567 pr/Orbital`
 
 
-### Listing all persons : `list`
+### Listing all students : `list`
 
-Shows a list of all persons in Prof-iler.
+Shows a list of all students in Prof-iler.
 
 Format: `list`
 
-### Editing a person : `edit`
+### Editing a student : `edit`
 
-Edits an existing person in Prof-iler.
+Edits an existing student in Prof-iler.
 
 Format: `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`
 
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
+* Edits the student at the specified `INDEX`. The index refers to the index number shown in the displayed student list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `t/` without
+* When editing tags, the existing tags of the student will be removed i.e adding of tags is not cumulative.
+* You can remove all the student’s tags by typing `t/` without
     specifying any tags after it.
 
 Examples:
-*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
-*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+*  `edit 1 p/91234567 e/johndoe@example.com` Edits the phone number and email address of the 1st student to be `91234567` and `johndoe@example.com` respectively.
+*  `edit 2 n/Betsy Crower t/` Edits the name of the 2nd student to be `Betsy Crower` and clears all existing tags.
 
 ### Editing the progress : `progress`
 
-Edits the progress of an existing person in Prof-iler.
+Edits the progress of an existing student in Prof-iler.
 
 Format: `progress INDEX pb/PROGRESS`
 
-* Edits the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Edits the student at the specified `INDEX`.
+* The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
 * Existing progress will be updated to the input progress.
 
 Example:
-*  `progress 1 pb/45` Edits the progress of the 1st person to be `45`.
+*  `progress 1 pb/45` Edits the progress of the 1st student to be `45`.
 
 ### Entering log for a student: `log`
 
-Adds log for the person whose index is specified.
+Adds log for the student whose index is specified.
 
 Format: `log INDEX l/LOG`
 
-* Adds the log to the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Adds the log to the student at the specified `INDEX`.
+* The index refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `log 1 l/CS2103T tutor` Edits the log of the 1st student to be `CS2103T tutor`.
 
-### Locating persons by name: `find`
+### Locating students by name: `find`
 
-Finds persons whose names contain any of the given keywords.
+Finds students whose names contain any of the given keywords.
 
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
@@ -151,7 +151,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search).
+* Students matching at least one keyword will be returned (i.e. `OR` search).
   e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 
 Examples:
@@ -171,7 +171,7 @@ Format: `filter [pr/KEYWORD...] [t/KEYWORD...]`
 * Only the full keyword will be matched. e.g., `Prof-iler` will not match `Prof-ilers`
 * Filtering for project requires the project to contain all the given keywords. e.g.,`filter pr/Project Orbital` will not match students with project `Orbital` while `filter pr/Orbital` will match student with `Project Orbital`
 * Filtering for tag requires the student to contain any of the given tags. e.g., `CS2103T` and `CS2101` will match any student that contain either `CS2103T` or `CS2101` or both tags.
-* All the filtered students will be shown in the displayed person list to the screen.
+* All the filtered students will be shown in the displayed student list to the screen.
 Examples:
 * `filter pr/prof-iler` returns `David Li` and `JianXi` which are the two students under the project `Prof-iler`
     ![result for `filter pr/prof-iler`](images/filterProjectExample.png)
@@ -187,7 +187,7 @@ Format: `sort [asc] [desc]`
 * The order `asc` or `desc` is case-insensitive.
 * `asc` will sort the students based on ascending order of progress and `desc` will sort the students based on descending order of progress.
 * At least one of the optional field must be provided.
-* All the sorted students will be shown in the displayed person list to the screen.
+* All the sorted students will be shown in the displayed student list to the screen.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
 The `sort` command works in conjunction with the `filter` command. <br>
@@ -198,21 +198,21 @@ This can also be done the other way round by applying the `sort` command first f
 **Example usage of `filter pr/Prof-iler` followed by `sort asc`:**
     ![SortWithFilterCommand](images/sortFilterCommandExample.png)
 
-### Deleting persons : `delete`
+### Deleting students : `delete`
 
-Deletes the specified person from Prof-iler.
+Deletes the specified student from Prof-iler.
 
 Format: `delete INDEX [,INDEXES] ...`
 
-* Deletes the person(s) at the specified `INDEX` or `INDEXES`.
-* The indexes refers to the index number shown in the displayed person list.
+* Deletes the student(s) at the specified `INDEX` or `INDEXES`.
+* The indexes refers to the index number shown in the displayed student list.
 * The index **must be a positive integer** 1, 2, 3, …​
 * Indexes can be specified in a list separated by commas (,), allowing for multiple deletions in a single command.
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in Prof-iler.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-* delete 1, 3, 4 deletes the 1st, 3rd, and 4th persons from the displayed list in Prof-iler.
+* `list` followed by `delete 2` deletes the 2nd student in Prof-iler.
+* `find Betsy` followed by `delete 1` deletes the 1st student in the results of the `find` command.
+* delete 1, 3, 4 deletes the 1st, 3rd, and 4th students from the displayed list in Prof-iler.
 
 ### Clearing all entries : `clear`
 
