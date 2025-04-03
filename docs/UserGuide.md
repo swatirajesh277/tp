@@ -66,11 +66,11 @@ Prof-iler is a **desktop app for managing contacts, optimized for use via a Comm
 
 ### Viewing help : `help`
 
-Shows a message explaining how to access the help page.
+Shows a link to the user guide and a list of all commands available in Prof-iler.
 
 ![help message](images/helpMessage.png)
 
-Format: `help`
+Format: `help`, can also be accessed via `F1` function key
 
 
 ### Adding a person: `add`
@@ -101,7 +101,7 @@ Format: `list`
 
 Edits an existing person in Prof-iler.
 
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`
+Format: `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`
 
 * Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -201,7 +201,7 @@ This can also be done the other way round by applying the `sort` command first f
 
 Deletes the specified person from Prof-iler.
 
-Format: `delete INDEX [INDEXES]...`
+Format: `delete INDEX [,INDEXES] ...`
 
 * Deletes the person(s) at the specified `INDEX` or `INDEXES`.
 * The indexes refers to the index number shown in the displayed person list.
@@ -276,10 +276,10 @@ _Details coming soon ..._
 
 | Action       | Format, Examples                                                                                                                                                                               |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add**      | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/22224444 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA` |
+| **Add**      | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT pb/PROGRESS [t/TAG]…​` <br> e.g., `add n/James Ho id/A0223615H p/82793554 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA` |
 | **Clear**    | `clear [KEYWORD]`<br> e.g., `clear prof-iler`                                                                                                                                                                                       |
-| **Delete**   | `delete INDEX`<br> e.g., `delete 1, 3`                                                                                                                                                         |
-| **Edit**     | `edit INDEX [n/NAME] [id/STUDENTID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                                |
+| **Delete**   | `delete INDEX [,INDEXES] ...`<br> e.g., `delete 1, 3`                                                                                                                                                         |
+| **Edit**     | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                                |
 | **Filter**   | `filter [pr/KEYWORD...] [t/KEYWORD...]`<br> e.g., `filter pr/prof-iler` <br> eg., `filter t/CS2103T CS2109`                                                                                    |
 | **Sort**     | `sort [asc] [desc]`<br> e.g., `sort asc`                                                                                                                                                       |
 | **Find**     | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                     |
