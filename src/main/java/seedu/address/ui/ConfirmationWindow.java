@@ -8,4 +8,5 @@ public interface ConfirmationWindow {
     boolean showAndWait();
     boolean isShowing();
     void focus();
+    void setMessage(String message);
 }
