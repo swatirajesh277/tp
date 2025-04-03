@@ -70,6 +70,7 @@ public class ConfirmationWindowFactoryTest {
      */
     private static class StubConfirmationWindow implements ConfirmationWindow {
         private boolean showing = false;
+        private String message;
 
         @Override
         public boolean showAndWait() {
@@ -86,6 +87,13 @@ public class ConfirmationWindowFactoryTest {
         public void focus() {
             // Do nothing for the stub
         }
+
+        @Override
+        public void setMessage(String message) {
+            this.message = message;
+        }
+
+
     }
 
     /**

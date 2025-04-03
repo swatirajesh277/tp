@@ -36,16 +36,21 @@ public class IdTest {
         assertTrue(Id.isValidId("A0282883E")); // starts with A, followed by 7 digits and ends with an alphabet
         assertTrue(Id.isValidId("A0383847D"));
         assertTrue(Id.isValidId("A0002732B"));
+        assertTrue(Id.isValidId("a0002732b")); // starts and ends with lowercase
     }
 
     @Test
     public void equals() {
         Id id = new Id("A1234567K");
         Id sameId = new Id("A1234567K");
+        Id sameIdLowercase = new Id("a1234567k");
         Id differentId = new Id("A7654321H");
 
         // same values -> returns true
         assertEquals(id, sameId);
+
+        // same case-insensitive values -> returns true
+        assertEquals(id, sameIdLowercase);
 
         // same object -> returns true
         assertEquals(id, id);

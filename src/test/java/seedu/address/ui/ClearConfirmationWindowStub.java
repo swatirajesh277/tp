@@ -9,6 +9,7 @@ public class ClearConfirmationWindowStub implements ConfirmationWindow {
     private boolean confirmationResult;
     private boolean isShowing; // Default behavior: window is not open
     private boolean wasFocusCalled;
+    private String message;
 
     private ClearConfirmationWindowStub() {
     }
@@ -31,6 +32,11 @@ public class ClearConfirmationWindowStub implements ConfirmationWindow {
             instance.resetValues();
         }
         return instance;
+    }
+
+    @Override
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     @Override

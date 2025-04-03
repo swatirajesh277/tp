@@ -52,7 +52,7 @@ public class LogCommand extends Command {
         List<Person> lastShownList = model.getSortedPersonList();
 
         if (index.getZeroBased() >= lastShownList.size()) {
-            throw new CommandException(String.format(MESSAGE_ARGUMENTS, index.getOneBased(), log));
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
 
         Person personToEdit = lastShownList.get(index.getZeroBased());
@@ -73,7 +73,7 @@ public class LogCommand extends Command {
      */
     private String generateSuccessMessage(Person personToEdit) {
         String message = !log.value.isEmpty() ? MESSAGE_ADD_LOG_SUCCESS : MESSAGE_DELETE_LOG_SUCCESS;
-        return String.format(message, Messages.format(personToEdit));
+        return String.format(message, personToEdit);
     }
 
     @Override

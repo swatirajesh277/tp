@@ -17,11 +17,11 @@ public class HelpCommand extends Command {
 
     public static final List<String> HELP_COMMANDS = Arrays.asList(
             "add: Add a new student in Prof-iler.\n"
-                    + "Usage: add NAME p/PHONE id/STUDENT_ID e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]...\n"
-                    + "Example: add John Doe p/98765432 id/A0293712D e/john@example.com pr/Orbital pb/38 t/Y3 t/CS",
+                    + "Usage: add n/NAME p/PHONE id/STUDENT_ID e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]...\n"
+                    + "Example: add n/John Doe p/98765432 id/A0293712D e/john@example.com pr/Orbital pb/38 t/Y3 t/CS",
 
-            "delete: Remove student(s) by index number.\n"
-                    + "Usage: delete INDEX [MORE_INDEXES] (separated by commas)\n"
+            "delete: Remove student(s) by index.\n"
+                    + "Usage: delete INDEX [,INDEXES] ... (separated by commas)\n"
                     + "Example: delete 1, 3",
 
             "edit: Modify student details by index.\n"

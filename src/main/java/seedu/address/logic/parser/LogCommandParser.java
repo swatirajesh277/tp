@@ -29,6 +29,9 @@ public class LogCommandParser implements Parser<LogCommand> {
         } catch (IllegalValueException e) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, LogCommand.MESSAGE_USAGE), e);
         }
+
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_LOG);
+
         String log = argMultimap.getValue(PREFIX_LOG).orElse("");
         return new LogCommand(index, new Log(log));
     }
