@@ -15,15 +15,15 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
 1. Ensure you have Java `17` or above installed in your Computer.<br>
    **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-1. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-W12-3/tp/releases).
+2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-W12-3/tp/releases).
 
-1. Copy the file to the folder you want to use as the _home folder_ for your Prof-iler application.
+3. Copy the file to the folder you want to use as the _home folder_ for your Prof-iler application.
 
-1. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar Prof-iler.jar` command to run the application.<br>
+4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar Prof-iler.jar` command to run the application.<br>
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
-1. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
+5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
    * `list` : Lists all contacts.
@@ -36,7 +36,7 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
 
    * `exit` : Exits the app.
 
-1. Refer to the [Features](#features) below for details of each command.
+6. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/Y4` or as `n/John Doe`.
+  e.g. `n/NAME [t/TAG]` can be used as `n/John Doe t/Y4` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/Y4`, `t/CS t/Y4` etc.
@@ -80,6 +80,21 @@ Adds a person to Prof-iler.
 
 Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]…​`
 
+* All included fields must not be blank.
+* `NAME` should only contain alphanumeric characters and spaces.
+* `STUDENT_ID` should start with `A` or `a`, followed by 7 digits, and end with a letter.
+* `PHONE` should only contain numbers, and it should be at least 3 digits long.
+* `EMAIL` should be of the format `local-part@domain` and adhere to the following constraints:
+  * The local-part should only contain alphanumeric characters and the special characters `+_.-`.
+  * The local-part may not start or end with any special characters.
+  * This is followed by `@` and then a domain name.
+  * The domain name is made up of domain labels separated by periods, and must:
+    * end with a domain label at least 2 characters long,
+    * have each domain label start and end with alphanumeric characters,
+    * have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
+* `PROJECT` can be any value.
+* `PROGRESS` should be a whole number between 0 and 100.
+* Each `TAG` should be alphanumeric.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
 A person can have any number of tags (including 0). <br>
@@ -205,14 +220,14 @@ Deletes the specified person from Prof-iler.
 Format: `delete INDEX [,INDEXES] ...`
 
 * Deletes the person(s) at the specified `INDEX` or `INDEXES`.
-* The indexes refers to the index number shown in the displayed person list.
-* The index **must be a positive integer** 1, 2, 3, …​
-* Indexes can be specified in a list separated by commas (,), allowing for multiple deletions in a single command.
+* The indexes refer to the index numbers shown in the displayed person list.
+* The indexes **must be positive integers** 1, 2, 3, …​
+* Indexes can be specified in a list separated by commas `,`, allowing for multiple deletions in a single command.
 
 Examples:
 * `list` followed by `delete 2` deletes the 2nd person in Prof-iler.
 * `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
-* delete 1, 3, 4 deletes the 1st, 3rd, and 4th persons from the displayed list in Prof-iler.
+* `delete 1, 3, 4` deletes the 1st, 3rd, and 4th persons from the displayed list in Prof-iler.
 
 ### Clearing all entries : `clear`
 
