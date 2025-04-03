@@ -516,3 +516,9 @@ testers are expected to do more *exploratory* testing.
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+## **Appendix: Planned Enhancements**
+Team Size: 5
+1. Update light theme for confirmation window when clearing records. 
+2. Improve UI to cater to extremely long values. Currently, if values are over a certain number of characters, it will be concatenated with `...`.
+3. Allow change of theme with CLI command, to conform to `Recommendation-CLI-First`.
