@@ -15,7 +15,10 @@ UniquePersonList -right-> Person
 Person -up-> "*" Tag
 
 Person *--> Name
+Person *--> Id
 Person *--> Phone
 Person *--> Email
-Person *--> Address
+Person *--> Project
+Person *--> Progress
+Person *--> "0..1" Log
 @enduml
