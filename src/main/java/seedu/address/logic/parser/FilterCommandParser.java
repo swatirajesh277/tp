@@ -36,41 +36,37 @@ public class FilterCommandParser implements Parser<FilterCommand> {
 
         argumentMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PROJECT, PREFIX_TAG);
 
-        String[] projectKeywords = new String[0];
-        Predicate<Person> filteredStudent = null;
-        filteredStudent = getStudentPredicate(argumentMultimap, filteredStudent);
-
-        return new FilterCommand(filteredStudent);
+        return new FilterCommand(getStudentPredicate(argumentMultimap));
     }
 
-    private Predicate<Person> getStudentPredicate(ArgumentMultimap argumentMultimap, Predicate<Person> filteredStudent)
+    private Predicate<Person> getStudentPredicate(ArgumentMultimap argumentMultimap)
             throws ParseException {
         String[] projectKeywords;
         if (argumentMultimap.getValue(PREFIX_PROJECT).isPresent()) {
             checkFilterCondition(argumentMultimap, PREFIX_PROJECT);
             projectKeywords = argumentMultimap.getValue(PREFIX_PROJECT).get().split("\\s+");
-            filteredStudent = new ProjectContainsKeywordsPredicate(Arrays.asList(projectKeywords));
+            return new ProjectContainsKeywordsPredicate(Arrays.asList(projectKeywords));
         }
 
         if (argumentMultimap.getValue(PREFIX_TAG).isPresent()) {
             checkFilterCondition(argumentMultimap, PREFIX_TAG);
             projectKeywords = argumentMultimap.getValue(PREFIX_TAG).get().split("\\s+");
-            filteredStudent = new TagContainsKeywordsPredicate(Arrays.asList(projectKeywords));
+            return new TagContainsKeywordsPredicate(Arrays.asList(projectKeywords));
         }
-        return filteredStudent;
-    }
-
-    private boolean isPrefixPresent(ArgumentMultimap argumentMultimap, Prefix prefix) {
-        return !argumentMultimap.getAllValues(prefix).isEmpty();
+        return null;
     }
 
     private void checkFilterCondition(ArgumentMultimap argumentMultimap, Prefix prefix) throws ParseException {
-        if (isPrefixPresent(argumentMultimap, prefix == PREFIX_PROJECT ? PREFIX_TAG : PREFIX_PROJECT)
-                || argumentMultimap.getValue(prefix).isEmpty()
+        if (argumentMultimap.getValue(prefix == PREFIX_PROJECT ? PREFIX_TAG : PREFIX_PROJECT).isPresent()) {
+            throw new ParseException(String.format(
+                    MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_ONLY_PROJECT_OR_TAG
+            ));
+        }
+        if (argumentMultimap.getValue(prefix).isEmpty()
                 || !argumentMultimap.getPreamble().isEmpty()
                 || argumentMultimap.getValue(prefix).get().isEmpty()) {
             throw new ParseException(String.format(
-                    MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_ONLY_PROJECT_OR_TAG
+                    MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE
             ));
         }
     }
