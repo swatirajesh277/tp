@@ -20,15 +20,15 @@ public class ProgressCommand extends Command {
     public static final String COMMAND_WORD = "progress";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits the progress of the person identified "
-            + "by the index number used in the displayed person list. "
+            + ": Edits the progress of the student identified "
+            + "by the index number used in the displayed student list. "
             + "Existing progress will be overwritten by the input.\n"
             + "Parameters: INDEX (must be a positive integer) "
             + PREFIX_PROGRESS + "PROGRESS\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PROGRESS + "45";
 
-    public static final String MESSAGE_EDIT_PROGRESS_SUCCESS = "Updated progress of Person: %1$s to %2$s";
+    public static final String MESSAGE_EDIT_PROGRESS_SUCCESS = "Updated progress of Student: %1$s to %2$s";
 
     private final Index index;
     private final Progress progress;

@@ -104,7 +104,7 @@ How the `Logic` component works:
 
 1. When `Logic` is called upon to execute a command, it is passed to an `ProfilerParser` object which in turn creates a parser that matches the command (e.g., `DeleteCommandParser`) and uses it to parse the command.
 1. This results in a `Command` object (more precisely, an object of one of its subclasses e.g., `DeleteCommand`) which is executed by the `LogicManager`.
-1. The command can communicate with the `Model` when it is executed (e.g. to delete a person).<br>
+1. The command can communicate with the `Model` when it is executed (e.g. to delete a student).<br>
    Note that although this is shown as a single step in the diagram above (for simplicity), in the code it can take several interactions (between the command object and the `Model`) to achieve.
 1. The result of the command execution is encapsulated as a `CommandResult` object which is returned back from `Logic`.
 
@@ -207,7 +207,7 @@ The following sequence diagram shows how the `sort asc` operation works:
 
 #### Design considerations:
 **Aspect: How sorting is executed:**
-* **Alternative 1 (current choice):** Uses a comparator to sort the list of persons.
+* **Alternative 1 (current choice):** Uses a comparator to sort the list of students.
 * Pros: Easy to implement and understand
 * Cons: May have performance issues for very large lists.
 
@@ -240,11 +240,11 @@ Step 1. The user launches the application for the first time. The `VersionedProf
 
 ![UndoRedoState0](images/UndoRedoState0.png)
 
-Step 2. The user executes `delete 5` command to delete the 5th person in the profiler. The `delete` command calls `Model#commitProfiler()`, causing the modified state of the profiler after the `delete 5` command executes to be saved in the `profilerStateList`, and the `currentStatePointer` is shifted to the newly inserted profiler state.
+Step 2. The user executes `delete 5` command to delete the 5th student in the profiler. The `delete` command calls `Model#commitProfiler()`, causing the modified state of the profiler after the `delete 5` command executes to be saved in the `profilerStateList`, and the `currentStatePointer` is shifted to the newly inserted profiler state.
 
 ![UndoRedoState1](images/UndoRedoState1.png)
 
-Step 3. The user executes `add n/David …​` to add a new person. The `add` command also calls `Model#commitProfiler()`, causing another modified profiler state to be saved into the `profilerStateList`.
+Step 3. The user executes `add n/David …​` to add a new student. The `add` command also calls `Model#commitProfiler()`, causing another modified profiler state to be saved into the `profilerStateList`.
 
 ![UndoRedoState2](images/UndoRedoState2.png)
 
@@ -252,7 +252,7 @@ Step 3. The user executes `add n/David …​` to add a new person. The `add` co
 
 </div>
 
-Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoProfiler()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous profiler state, and restores the profiler to that state.
+Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoProfiler()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous profiler state, and restores the profiler to that state.
 
 ![UndoRedoState3](images/UndoRedoState3.png)
 
@@ -301,7 +301,7 @@ The following activity diagram summarizes what happens when a user executes a ne
 
 * **Alternative 2:** Individual command knows how to undo/redo by
   itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the person being deleted).
+  * Pros: Will use less memory (e.g. for `delete`, just save the student being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
 _{more aspects and alternatives to be added}_
@@ -445,7 +445,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.
-2.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+2.  Should be able to hold up to 1000 students without a noticeable sluggishness in performance for typical usage.
 3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
 4.  The datafile created by the program should be stored in a human-readable format.
 5.  Should work without requiring installation (i.e. packaged as a .jar file).
