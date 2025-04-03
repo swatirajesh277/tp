@@ -35,7 +35,7 @@ public class LogCommandTest {
 
         LogCommand logCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(editedPerson.getLog().value));
 
-        String expectedMessage = String.format(LogCommand.MESSAGE_ADD_LOG_SUCCESS, editedPerson);
+        String expectedMessage = LogCommand.MESSAGE_ADD_LOG_SUCCESS + Messages.format(editedPerson);
 
         Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -50,7 +50,7 @@ public class LogCommandTest {
 
         LogCommand logCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(editedPerson.getLog().value));
 
-        String expectedMessage = String.format(LogCommand.MESSAGE_DELETE_LOG_SUCCESS, editedPerson);
+        String expectedMessage = LogCommand.MESSAGE_DELETE_LOG_SUCCESS + Messages.format(editedPerson);
 
         Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
@@ -66,7 +66,7 @@ public class LogCommandTest {
 
         LogCommand logCommand = new LogCommand(INDEX_FIRST_PERSON, new Log(editedPerson.getLog().value));
 
-        String expectedMessage = String.format(LogCommand.MESSAGE_ADD_LOG_SUCCESS, editedPerson);
+        String expectedMessage = LogCommand.MESSAGE_ADD_LOG_SUCCESS + Messages.format(editedPerson);
 
         Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(firstPerson, editedPerson);
