@@ -55,7 +55,7 @@
             <padding>
               <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
-      <VBox fx:id="logContainer" styleClass="log-box" stylesheets="@LogBox.css">
+      <VBox fx:id="logContainer" styleClass="log-box">
     <Label fx:id="log" styleClass="cell_small_label" text="\$log" wrapText="true" />
     </VBox>
     </VBox>
