@@ -163,6 +163,10 @@ public class MainWindow extends UiPart<Stage> {
         } else {
             helpWindow.focus();
         }
+        String currentThemePath = currentTheme.equals(LIGHT_THEME) ? LIGHT_THEME : DARK_THEME;
+
+        // Pass the correct theme to setTheme method
+        helpWindow.setTheme(currentThemePath);
     }
 
     @FXML
