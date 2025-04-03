@@ -18,14 +18,16 @@ import seedu.address.model.person.Person;
  */
 public class FilterCommand extends Command {
     public static final String COMMAND_WORD = "filter";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters for the student who is under the "
-            + "specified project based on the keywords (case-insensitive) "
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters for the students under the "
+            + "specified project or tags based on the keywords (case-insensitive) "
             + "and displays them as a list with index numbers. \n"
             + "Parameters: \n"
-            + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] \n"
-            + PREFIX_TAG + "KEYWORD [MORE KEYWORDS] \n"
+            + "By Project: " + PREFIX_PROJECT + "KEYWORD [MORE KEYWORDS] \n"
+            + "By Tags: " + PREFIX_TAG + "KEYWORD [MORE KEYWORDS] \n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_PROJECT + " Prof-iler \n"
             + "Example: " + COMMAND_WORD + " " + PREFIX_TAG + "W12" + " CS2103T";
+    public static final String MESSAGE_ONLY_PROJECT_OR_TAG =
+            "Should only have one of " + PREFIX_PROJECT + " or " + PREFIX_TAG;
 
     private final Predicate<Person> predicate;
 
