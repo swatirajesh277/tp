@@ -1,10 +1,12 @@
 package seedu.address.ui;
 
+
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -25,6 +27,8 @@ public class HelpWindow extends UiPart<Stage> {
 
     private static final Logger logger = LogsCenter.getLogger(HelpWindow.class);
     private static final String FXML = "HelpWindow.fxml";
+    private static final String LIGHT_THEME = "/view/LightTheme.css";
+    private static final String DARK_THEME = "/view/DarkTheme.css";
 
     @FXML
     private Button copyButton;
@@ -118,6 +122,22 @@ public class HelpWindow extends UiPart<Stage> {
         PauseTransition pause = new PauseTransition(Duration.seconds(5));
         pause.setOnFinished(event -> copyButton.setText("Copy URL"));
         pause.play();
+    }
+
+    public void setTheme(String currentTheme) {
+        Scene scene = getRoot().getScene();
+        scene.getRoot().getStylesheets().clear();
+        scene.getStylesheets().add(getClass().getResource("/view/HelpWindow.css").toExternalForm());
+
+        scene.getRoot().getStyleClass().removeAll("light", "dark");
+
+        // Conditionally add the theme class and corresponding CSS
+        if (currentTheme.equals(LIGHT_THEME)) {
+            scene.getRoot().getStyleClass().add("light");
+        } else if (currentTheme.equals(DARK_THEME)) {
+            scene.getRoot().getStyleClass().add("dark");
+        }
+
     }
 
 }
