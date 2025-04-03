@@ -20,5 +20,5 @@ Person *--> Phone
 Person *--> Email
 Person *--> Project
 Person *--> Progress
-Person *--> "0..1" Log
+Person *--> Log
 @enduml
