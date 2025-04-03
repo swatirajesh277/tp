@@ -20,8 +20,8 @@ Class Name
 Class Id
 Class Phone
 Class Progress
-Class Tag
 Class Log
+Class Tag
 
 Class I #FFFFFF
 }
@@ -48,6 +48,7 @@ Person *--> Project
 Person *--> Progress
 Person *--> Log
 Person *--> "*" Tag
+
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
