@@ -70,7 +70,7 @@ public class FilterCommandParser implements Parser<FilterCommand> {
                 || !argumentMultimap.getPreamble().isEmpty()
                 || argumentMultimap.getValue(prefix).get().isEmpty()) {
             throw new ParseException(String.format(
-                    MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE
+                    MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_ONLY_PROJECT_OR_TAG
             ));
         }
     }
