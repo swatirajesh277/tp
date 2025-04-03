@@ -395,15 +395,16 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
     Use case ends.
 
-#### **Use case: UC02 Delete a person**
+#### **Use case: UC02 Delete a student**
 
 **MSS**
 
-1.  User requests to <u>list all students [(UC01)](#use-case-uc01-list-all-students-under-user)</u>
+1.  User requests to <a href="#use-case-uc01-list-all-students-under-user" style="text-decoration: underline;">
+    list all students (UC01)
+    </a>
 2.  Prof-iler shows a list of students
-3.  User requests to delete a specific student in the list
-4.  Prof-iler deletes the student
-
+3.  User requests to delete the specific students in the list
+4.  Prof-iler deletes the students
     Use case ends.
 
 **Extensions**
@@ -429,7 +430,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a. The input is invalid
     * 2a1. Prof-iler shows an error message.
 
-    Use case resumes at step 1.
+      Use case resumes at step 1.
+* 2b. The student already exists
+    * 2b1. Prof-iler shows an error message.<br>
+
+      Use case resumes at step 1.
 
 *{More to be added}*
 
@@ -483,17 +488,17 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a person
+### Deleting a student
 
-1. Deleting a person while all persons are being shown
+1. Deleting a student while all students are being shown
 
-   1. Prerequisites: List all persons using the `list` command. Multiple persons in the list.
+   1. Prerequisites: List all students using the `list` command. Multiple students in the list.
 
    1. Test case: `delete 1`<br>
       Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
 
    1. Test case: `delete 0`<br>
-      Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+      Expected: No student is deleted. Error details shown in the status message. Status bar remains the same.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
