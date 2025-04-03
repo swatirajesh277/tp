@@ -42,7 +42,7 @@ public class ProgressCommandTest {
         ProgressCommand progressCommand = new ProgressCommand(indexLastPerson, PROGRESS_AMY);
 
         String expectedMessage = String.format(
-                ProgressCommand.MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson));
+                ProgressCommand.MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson), PROGRESS_AMY);
 
         Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(lastPerson, editedPerson);
@@ -60,7 +60,7 @@ public class ProgressCommandTest {
         ProgressCommand progressCommand = new ProgressCommand(INDEX_FIRST_PERSON, PROGRESS_AMY);
 
         String expectedMessage = String.format(
-                ProgressCommand.MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson));
+                ProgressCommand.MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson), PROGRESS_AMY);
 
         Model expectedModel = new ModelManager(new Profiler(model.getProfiler()), new UserPrefs());
         expectedModel.setPerson(model.getFilteredPersonList().get(0), editedPerson);
