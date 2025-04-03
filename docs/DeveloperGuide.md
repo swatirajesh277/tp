@@ -342,38 +342,42 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority  | As a …​                    | I want to …​                                                             | So that I can…​                                                                   |
-|-----------|----------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| `* * *`   | Professor at SoC           | view all current research students under me                              | quickly access the list of current students                                       |
-| `* * *`   | Professor at SoC           | delete student entries that are no longer active                         | keep the database current and relevant                                            |
-| `* * *`   | Professor at SoC           | add a new student to a specific project                                  | know who are part of that specific project                                        |
-| `* *`     | Professor at SoC           | filter students based on year, course, specialization or project         | quickly find suitable students without going through the whole list               |
-| `* *`     | Professor at SoC           | find a student's name in the directory                                   | remember what project this student worked on under me                             |
-| `* *`     | Professor at SoC           | mark student milestones as complete                                      | track the students' progress over the semester                                    |
-| `* *`     | Professor at SoC           | update and edit student information                                      | have the most up-to-date information regarding the student                        |
-| `* *`     | Professor at SoC           | tag what project the students are doing                                  | quickly know who to contact for a particular research                             |
-| `* *`     | Professor at SoC           | retrieve recently deleted changes                                        | retrieve wrongly deleted data efficiently                                         |
-| `* *`     | Professor at SoC           | clear all data at once                                                   | prepare for a new academic year                                                   |
-| `* *`     | Professor at SoC           | be notified when there are any duplicate entries                         | keep the data relevant                                                            |
-| `* *`     | Professor at SoC           | clear students from a specific project after the project is completed    | keep track of just the ongoing projects                                           |
-| `* *`     | Professor at SoC           | find all active research in a summary dashboard                          | get a quick overview of all the ongoing research                                  |
-| `* *`     | Professor at SoC           | receive reminders about the upcoming student deadlines                   | ensure timely feedback and submissions                                            |
-| `* *`     | Professor at SoC           | find students working on similar projects in the past                    | link up current students to past students for mentoring                           |
-| `* *`     | Professor at SoC           | undo changes                                                             | maintain productivity when I accidentally make unwanted changes                   |
-| `* *`     | Professor at SoC           | redo changes                                                             | change in case I change my mind after undoing a change                            |
-| `* *`     | Professor at SoC           | have a help command                                                      | see all available commands                                                        |
-| `* *`     | Professor at SoC           | use shortcuts to type a command faster                                   | retrieve information faster                                                       |
-| `* *`     | Professor at SoC           | use shortcuts to add new student profiles                                | create users quicker                                                              |
-| `* *`     | Professor at SoC           | log notes about students                                                 | refer to them in the future and find out additional information about the student |
-| `* *`     | Professor at SoC           | set a preferred name for my students                                     | know what to call them                                                            |
-| `* *`     | Forgetful Professor at SoC | set profile picture for my students                                      | remember how they look like                                                       |
-| `*`       | Vain Professor at SoC      | set my own profile picture                                               | admire my face everytime I use the application                                    |
-| `*`       | Professor at SoC           | export data about student research into a report format                  | share my research easily                                                          |
-| `*`       | Forgetful Professor at SoC | log research meetings with students                                      | do not forgot what we discussed in the meeting                                    |
-| `*`       | Professor at SoC           | maintain a professional network with past students                       | reconnect with them for future collaboration                                      |
-| `*`       | Professor at SoC           | create charts and diagrams to compare students across multiple semesters | decide if I need to take in more students for my projects                         |
-| `*`       | Professor at SoC           | export each student's grades for the current semester                    | update their grades into the system easily                                        |
-| `*`       | Professor at SoC           | color tag each students                                                  | sort them effectively                                                             |
+| Priority | As a …​                     | I want to …​                                                             | So that I can…​                                                                   |
+|----------|-----------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| `* * *`  | Professor at SoC            | view all current research students under me                              | quickly access the list of current students                                       |
+| `* * *`  | Professor at SoC            | delete student entries that are no longer active                         | keep the database current and relevant                                            |
+| `* * *`  | Professor at SoC            | add a new student to a specific project                                  | know who are part of that specific project                                        |
+| `* *`    | Professor at SoC            | filter students based on projects and tags                               | quickly find suitable students without going through the whole list               |
+| `* *`    | Professor at SoC            | find a student's name in the directory                                   | remember what project this student worked on under me                             |
+| `* *`    | Professor at SoC            | mark student milestones as complete                                      | track the students' progress over the semester                                    |
+| `* *`    | Professor at SoC            | update and edit student information                                      | have the most up-to-date information regarding the student                        |
+| `* *`    | Professor at SoC            | tag what project the students are doing                                  | quickly know who to contact for a particular research                             |
+| `* *`    | Professor at SoC            | retrieve recently deleted changes                                        | retrieve wrongly deleted data efficiently                                         |
+| `* *`    | Professor at SoC            | update progress of a student                                             | monitor and update the student's progress in that project                         |
+| `* *`    | Professor at SoC            | Sort students based on the progress                                      | know which students are behind progress                                           |
+| `* *`    | Professor at SoC            | delete multiple students at once                                         | perform delete faster when I have multiple students to delete                     |
+| `* *`    | Professor at SoC            | clear all data at once                                                   | prepare for a new academic year                                                   |
+| `* *`    | Professor at SoC            | be asked for confirmation when clearing data                             | prevent accidentally clearing all data                                            |
+| `* *`    | Professor at SoC            | be notified when there are any duplicate entries                         | keep the data relevant                                                            |
+| `* *`    | Professor at SoC            | clear students from a specific project after the project is completed    | keep track of just the ongoing projects                                           |
+| `* *`    | Professor at SoC            | find all active research in a summary dashboard                          | get a quick overview of all the ongoing research                                  |
+| `* *`    | Professor at SoC            | receive reminders about the upcoming student deadlines                   | ensure timely feedback and submissions                                            |
+| `* *`    | Professor at SoC            | find students working on similar projects in the past                    | link up current students to past students for mentoring                           |
+| `* *`    | Professor at SoC            | undo changes                                                             | maintain productivity when I accidentally make unwanted changes                   |
+| `* *`    | Professor at SoC            | redo changes                                                             | change in case I change my mind after undoing a change                            |
+| `* *`    | Professor at SoC            | have a help command                                                      | see all available commands                                                        |
+| `* *`    | Professor at SoC            | use shortcuts to type a command faster                                   | retrieve information faster                                                       |
+| `* *`    | Professor at SoC            | use shortcuts to add new student profiles                                | create users quicker                                                              |
+| `* *`    | Professor at SoC            | log notes about students                                                 | refer to them in the future and find out additional information about the student |
+| `* *`    | Professor at SoC            | set a preferred name for my students                                     | know what to call them                                                            |
+| `* *`    | Forgetful Professor at SoC  | set profile picture for my students                                      | remember how they look like                                                       |
+| `*`      | Vain Professor at SoC       | set my own profile picture                                               | admire my face everytime I use the application                                    |
+| `*`      | Professor at SoC            | export data about student research into a report format                  | share my research easily                                                          |
+| `*`      | Forgetful Professor at SoC  | log research meetings with students                                      | do not forgot what we discussed in the meeting                                    |
+| `*`      | Professor at SoC            | maintain a professional network with past students                       | reconnect with them for future collaboration                                      |
+| `*`      | Professor at SoC            | create charts and diagrams to compare students across multiple semesters | decide if I need to take in more students for my projects                         |
+| `*`      | Professor at SoC            | export each student's grades for the current semester                    | update their grades into the system easily                                        |
+| `*`      | Professor at SoC            | color tag each students                                                  | sort them effectively                                                             |
 
 *{More to be added}*
 
