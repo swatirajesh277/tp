@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Prof-iler is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, Prof-iler can help you manage ur projects faster than traditional GUI apps.
+Prof-iler is a **desktop app for managing student research records, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). Designed for fast typing research professors at SoC, Prof-iler helps streamline research management by organizing, tracking, and maintaining student records over time. These records can be management tasks can be done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -252,10 +252,6 @@ Prof-iler data are saved automatically as a JSON file `[JAR file location]/data/
 If your changes to the data file makes its format invalid, Prof-iler will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
 Furthermore, certain edits can cause the Prof-iler application to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
-
-### Archiving data files `[coming in v1.4]`
-
-_Details coming soon ..._
 
 --------------------------------------------------------------------------------------------------------------------
 
