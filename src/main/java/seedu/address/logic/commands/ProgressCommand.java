@@ -28,7 +28,7 @@ public class ProgressCommand extends Command {
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PROGRESS + "45";
 
-    public static final String MESSAGE_EDIT_PROGRESS_SUCCESS = "Updated progress of Person: %1$s";
+    public static final String MESSAGE_EDIT_PROGRESS_SUCCESS = "Updated progress of Person: %1$s to %2$s";
 
     private final Index index;
     private final Progress progress;
@@ -62,7 +62,7 @@ public class ProgressCommand extends Command {
         model.updateFilteredPersonList(Model.PREDICATE_SHOW_ALL_PERSONS);
 
         return new CommandResult(String.format(
-                MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson)));
+                MESSAGE_EDIT_PROGRESS_SUCCESS, Messages.format(editedPerson), progress));
     }
 
     @Override
