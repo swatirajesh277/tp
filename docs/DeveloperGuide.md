@@ -522,3 +522,4 @@ Team Size: 5
 1. Update light theme for confirmation window when clearing records. 
 2. Improve UI to cater to extremely long values. Currently, if values are over a certain number of characters, it will be concatenated with `...`.
 3. Allow change of theme with CLI command, to conform to `Recommendation-CLI-First`.
+4. Allow help window to be closed via keyboard command, such as using the `esc` key.
