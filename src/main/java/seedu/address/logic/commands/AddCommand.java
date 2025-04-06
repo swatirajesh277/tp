@@ -42,7 +42,7 @@ public class AddCommand extends Command {
             + PREFIX_TAG + "owesMoney";
 
     public static final String MESSAGE_SUCCESS = "New student added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This student already exists in Prof-iler";
+    public static final String MESSAGE_DUPLICATE_PERSON = "Student with same ID already exists in Prof-iler";
 
     private final Person toAdd;
 
