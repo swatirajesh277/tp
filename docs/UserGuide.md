@@ -99,7 +99,8 @@ Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TA
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
 A student can have any number of tags (including 0). <br>
-A student can have unmentioned progress (default = 0).
+A student can have unmentioned progress (default = 0). <br>
+Duplicate students are detected by the same `STUDENT_ID`.
 </div>
 
 Examples:
