@@ -87,11 +87,12 @@ Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TA
 * `EMAIL` should be of the format `local-part@domain` and adhere to the following constraints:
   * The local-part should only contain alphanumeric characters and the special characters `+_.-`.
   * The local-part may not start or end with any special characters.
+  * The local-part may not contain consecutive special characters.
   * This is followed by `@` and then a domain name.
   * The domain name is made up of domain labels separated by periods, and must:
     * end with a domain label at least 2 characters long,
     * have each domain label start and end with alphanumeric characters,
-    * have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
+    * have each domain label consist of alphanumeric characters, separated only by hyphens (non-consecutive), if any.
   * A top-level domain (e.g. `.com`) is optional.
 * `PROJECT` can be any value.
 * `PROGRESS` should be a whole number between 0 and 100.
