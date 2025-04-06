@@ -15,7 +15,7 @@ import seedu.address.model.person.Person;
 public class SortCommand extends Command {
     public static final String COMMAND_WORD = "sort";
     public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Sorts the student's progress based on the given order"
+            + ": Sorts the student's progress based on the given order\n"
             + "Parameters: ORDER (asc/desc)\n"
             + "Example: " + COMMAND_WORD + " asc";
 
