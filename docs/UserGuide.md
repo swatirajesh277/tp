@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Prof-iler is a **desktop app for managing student research records, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). Designed for fast typing research professors at School of Computing (SoC), Prof-iler helps streamline research management by organizing, tracking, and maintaining student records over time. These records can be management tasks can be done faster than traditional GUI apps.
+Prof-iler is a **desktop app for managing student research records, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). Designed for fast typing research professors at SoC, Prof-iler helps streamline research management by organizing, tracking, and maintaining student records over time. These tasks can be done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -303,3 +303,17 @@ Furthermore, certain edits can cause the Prof-iler application to behave in unex
 | **List**     | `list`                                                                                                                                                                                      |
 | **Log**      | `log INDEX l/LOG` <br> e.g. `log 1 l/CS2103T tutor for Class 2A`                                                                                                                              |
 | **Help**     | `help`                                                                                                                                                                                      |
+
+## Glossary
+
+This glossary defines key terms and abbreviations used in the Prof-iler User Guide.
+
+| Term               | Definition |
+|--------------------|------------|
+| **CLI (Command Line Interface)** | A text-based interface where users type commands to interact with the program. Prof-iler is optimized for use via a CLI. |
+| **GUI (Graphical User Interface)** | A visual interface that uses elements like windows, buttons, and icons to help users interact with the application. Prof-iler includes a GUI in addition to the CLI. |
+| **JAR file**        | *Java Archive*. A package file format that bundles Java class files and related resources into one file for distribution and execution. |
+| **Java 17**         | The version of the Java Development Kit (JDK) required to run Prof-iler. |
+| **Home folder**     | The folder where the Prof-iler `.jar` file is located. Data files like `prof-iler.json` are stored here. |
+| **preferences.json**| A settings file storing user interface preferences such as window size and position. Can be deleted to reset the UI. |
+| **prof-iler.json**  | The main data file where Prof-iler stores all student information. Located inside the `data` folder. |
