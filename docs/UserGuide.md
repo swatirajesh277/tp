@@ -182,13 +182,13 @@ Examples:
 Filters for projects that contain all the given keywords or tags that contain any of the given keywords.
 Format: `filter pr/KEYWORD...` or `filter t/KEYWORD...`
 
-* The search is case-insensitive. e.g., `PROF-ILER` will match `prof-iler`
-* The order of the given keywords does not matter. e.g.,`Project Orbital` will match `Orbital Project`
-* At least one fields must be provided, but not both. e.g., `filter pr/Prof-iler t/Y4` will not work.
-* Whitespaces in between each keywords separates the keywords. e.g., `Project Orbital` searches for both keywords `Project` and `Orbital`
-* Only the full keyword will be matched. e.g., `Prof-iler` will not match `Prof-ilers`
-* Filtering for project requires the project to contain all the given keywords. e.g.,`filter pr/Project Orbital` will not match students with project `Orbital` while `filter pr/Orbital` will match student with `Project Orbital`
-* Filtering for tag requires the student to contain any of the given tags. e.g., `Y4` and `CS` will match any student that contain either `Y4` or `CS` or both tags.
+* The search is case-insensitive. e.g. `PROF-ILER` will match `prof-iler`
+* The order of the given keywords does not matter. e.g. `Project Orbital` will match `Orbital Project`
+* At least one fields must be provided, but not both. e.g. `filter pr/Prof-iler t/Y4` will not work.
+* Whitespaces in between each keywords separates the keywords. e.g. `Project Orbital` searches for both keywords `Project` and `Orbital`
+* Only the full keyword will be matched. e.g. `Prof-iler` will not match `Prof-ilers`
+* Filtering for project requires the project to contain all the given keywords. e.g.`filter pr/Project Orbital` will not match students with project `Orbital` while `filter pr/Orbital` will match student with `Project Orbital`
+* Filtering for tag requires the student to contain any of the given tags. e.g. `Y4` and `CS` will match any student that contain either `Y4` or `CS` or both tags.
 * All the filtered students will be shown in the displayed student list to the screen.
 Examples:
 * `filter pr/prof-iler` returns `Charlotte Oliveiro` and `David Li` which are the two students under the project `Prof-iler`
@@ -208,7 +208,7 @@ Format: `sort asc` or `sort desc`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
 The `sort` command works in conjunction with the `filter` command. <br>
-For example, the user can first apply a `filter` command (e.g., `filter pr/Prof-iler`) to view the students in the project that contains the word Prof-iler. After filtering, user can execute `sort desc` to arrange students in those project based on their progress in descending order. <br>
+For example, the user can first apply a `filter` command (e.g. `filter pr/Prof-iler`) to view the students in the project that contains the word Prof-iler. After filtering, user can execute `sort desc` to arrange students in those project based on their progress in descending order. <br>
 This can also be done the other way round by applying the `sort` command first followed by `filter` command.
 </div>
 
@@ -267,7 +267,7 @@ Prof-iler data are saved automatically as a JSON file `[JAR file location]/data/
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, Prof-iler will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the Prof-iler application to behave in unexpected ways (e.g., if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+Furthermore, certain edits can cause the Prof-iler application to behave in unexpected ways (e.g. if a value entered is outside of the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
@@ -288,16 +288,16 @@ Furthermore, certain edits can cause the Prof-iler application to behave in unex
 
 ## Command summary
 
-| Action       | Format, Examples                                                                                                                                                                                |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action       | Format, Examples                                                                                                                                                                            |
+|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**      | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]…​` <br> e.g. `add n/James Ho id/A0223615H p/82793554 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA` |
-| **Clear**    | `clear [KEYWORD]`<br> e.g. `clear` <br> e.g. `clear prof-iler`                                                                                                                                  |
-| **Delete**   | `delete INDEX [,INDEXES] ...`<br> e.g., `delete 1, 3`                                                                                                                                           |
-| **Edit**     | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                                 |
-| **Filter**   | `filter pr/KEYWORD...` or `filter t/KEYWORD...`<br> e.g., `filter pr/prof-iler` <br> e.g. `filter t/CS2103T CS2109S`                                                                            |
-| **Sort**     | `sort asc` or `sort desc`                                                                                                                                                                       |
-| **Find**     | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`                                                                                                                                      |
-| **Progress** | `progress INDEX pb/PROGRESS`<br> e.g., `progress 1 pb/45`                                                                                                                                       |
-| **List**     | `list`                                                                                                                                                                                          |
-| **Log**      | `log INDEX l/LOG`                                                                                                                                                                               |
-| **Help**     | `help`                                                                                                                                                                                          |
+| **Clear**    | `clear [KEYWORD]`<br> e.g. `clear` <br> e.g. `clear prof-iler`                                                                                                                              |
+| **Delete**   | `delete INDEX [,INDEXES] ...`<br> e.g. `delete 1, 3`                                                                                                                                        |
+| **Edit**     | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                             |
+| **Filter**   | `filter pr/KEYWORD...` or `filter t/KEYWORD...`<br> e.g. `filter pr/prof-iler` <br> e.g. `filter t/CS2103T CS2109S`                                                                         |
+| **Sort**     | `sort asc` or `sort desc`                                                                                                                                                                   |
+| **Find**     | `find KEYWORD [MORE_KEYWORDS]`<br> e.g. `find James Jake`                                                                                                                                   |
+| **Progress** | `progress INDEX pb/PROGRESS`<br> e.g. `progress 1 pb/45`                                                                                                                                    |
+| **List**     | `list`                                                                                                                                                                                      |
+| **Log**      | `log INDEX l/LOG` <br> e.g. `log 1 l/CS2103T tutor for Class 2A`                                                                                                                              |
+| **Help**     | `help`                                                                                                                                                                                      |
