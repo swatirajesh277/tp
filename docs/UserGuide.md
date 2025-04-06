@@ -184,7 +184,7 @@ Format: `filter pr/KEYWORD...` or `filter t/KEYWORD...`
 
 * The search is case-insensitive. e.g., `PROF-ILER` will match `prof-iler`
 * The order of the given keywords does not matter. e.g.,`Project Orbital` will match `Orbital Project`
-* At least one of the optional fields must be provided.
+* At least one fields must be provided, but not both. e.g., `filter pr/Prof-iler t/Y4` will not work.
 * Whitespaces in between each keywords separates the keywords. e.g., `Project Orbital` searches for both keywords `Project` and `Orbital`
 * Only the full keyword will be matched. e.g., `Prof-iler` will not match `Prof-ilers`
 * Filtering for project requires the project to contain all the given keywords. e.g.,`filter pr/Project Orbital` will not match students with project `Orbital` while `filter pr/Orbital` will match student with `Project Orbital`
@@ -193,7 +193,7 @@ Format: `filter pr/KEYWORD...` or `filter t/KEYWORD...`
 Examples:
 * `filter pr/prof-iler` returns `Charlotte Oliveiro` and `David Li` which are the two students under the project `Prof-iler`
     ![result for `filter pr/prof-iler`](images/filterProjectExample.png)
-* `filter t/Y4 CS` returns `David Li`and `Irfan Ibrahim` which are the students that contain at least one of the given keywords for the tag.
+* `filter t/Y4 CS` returns `David Li` and `Irfan Ibrahim` which are the students that contain at least one of the given keywords for the tag.
     ![result for `filter t/CS2103T t/Tutor](images/filterTagExample.png)
 
 ### Sorting based on progress: `sort`
