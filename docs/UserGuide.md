@@ -210,7 +210,7 @@ Format: `sort asc` or `sort desc`
 * All the sorted students will be shown in the displayed student list to the screen.
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
-Use `list` command to return back to the original list after commands such as `sort`, `filter` and `find`. <br>
+Use `list` command to return to the original list after commands such as `sort`, `filter` and `find`. <br>
 The `sort` command works in conjunction with the `filter` command. <br>
 For example, the user can first apply a `filter` command (e.g. `filter pr/Prof-iler`) to view the students in the project that contains the word Prof-iler. After filtering, user can execute `sort desc` to arrange students in those project based on their progress in descending order. <br>
 This can also be done the other way round by applying the `sort` command first followed by `filter` command.
