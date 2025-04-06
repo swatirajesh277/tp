@@ -92,9 +92,10 @@ Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TA
     * end with a domain label at least 2 characters long,
     * have each domain label start and end with alphanumeric characters,
     * have each domain label consist of alphanumeric characters, separated only by hyphens, if any.
+  * A top-level domain (e.g. `.com`) is optional.
 * `PROJECT` can be any value.
 * `PROGRESS` should be a whole number between 0 and 100.
-* Each `TAG` should be alphanumeric.
+* Each `TAG` should be alphanumeric and is case-sensitive (e.g. `cs` and `Cs` are counted as two different tags).
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
 A student can have any number of tags (including 0). <br>
