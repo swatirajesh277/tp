@@ -236,6 +236,8 @@ Examples:
 
 Clears all entries from Prof-iler, or clears a given project.
 
+Format: `clear [PROJECT]`
+
 * If no project is given, all the entries are cleared.
 * The project field is case-insensitive.
 * All the students under the project will be cleared.
@@ -249,8 +251,6 @@ Simply use keyboard tab or arrow keys to toggle between the options. Press `ente
 Examples:
 * `clear` clears all entries.
 * `clear prof-iler` clears `Charlotte Oliveiro` and `David Li` which are the two students under the project `Prof-iler`.
-
-Format: `clear [PROJECT]`
 
 ### Exiting the program : `exit`
 
