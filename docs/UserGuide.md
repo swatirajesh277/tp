@@ -192,7 +192,7 @@ Format: `filter pr/KEYWORD...` or `filter t/KEYWORD...`
 Examples:
 * `filter pr/prof-iler` returns `Charlotte Oliveiro` and `David Li` which are the two students under the project `Prof-iler`
     ![result for `filter pr/prof-iler`](images/filterProjectExample.png)
-* `filter t/Y4 CS` returns `David Li`and `Irfan Ibrahim` which are the students that contain at least one of the given keywords for the tag.
+* `filter t/Y4 CS` returns `David Li` and `Irfan Ibrahim` which are the students that contain at least one of the given keywords for the tag.
     ![result for `filter t/CS2103T t/Tutor](images/filterTagExample.png)
 
 ### Sorting based on progress: `sort`
