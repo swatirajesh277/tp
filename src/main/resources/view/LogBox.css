@@ -7,13 +7,18 @@
 -fx-padding: 8px;
 -fx-min-width: 200px;
 -fx-max-width: 700px;
--fx-min-height: 100px;
 -fx-max-height: 120px;
--fx-overflow: hidden;
+}
+
+.scroll-pane {
+    -fx-background-color: #2b2b2b;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: #2b2b2b;
 }
 
 #log {
--fx-text-wrap: balance;
+-fx-wrap-text: true;
 }
 
 .log-box:hover {

@@ -14,6 +14,13 @@
 -fx-overflow: hidden;
 }
 
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
 .log-box:hover {
 -fx-background-color: linear-gradient(to bottom right, #d3d3d6, #e4e4e7);
 -fx-border-color: #3e7b91

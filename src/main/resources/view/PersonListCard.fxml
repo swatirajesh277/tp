@@ -14,8 +14,9 @@
 
 <?import javafx.scene.control.ProgressBar?>
 
+<?import javafx.scene.control.ScrollPane?>
 <HBox id="cardPane" fx:id="cardPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      prefWidth="100" prefHeight="100">
+      prefWidth="100" prefHeight="100" HBox.hgrow="ALWAYS">
   <GridPane HBox.hgrow="ALWAYS">
     <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" minWidth="10" prefWidth="150" />
@@ -56,9 +57,11 @@
             <padding>
               <Insets top="5" right="5" bottom="5" left="15" />
             </padding>
-      <VBox fx:id="logContainer" styleClass="log-box">
-    <Label fx:id="log" styleClass="cell_small_label" text="\$log" wrapText="true" />
-    </VBox>
+      <ScrollPane fitToWidth="true" prefViewportHeight="100" hbarPolicy="NEVER" styleClass="edge-to-edge">
+        <VBox fx:id="logContainer" styleClass="log-box">
+          <Label fx:id="log" styleClass="cell_small_label" text="\$log" wrapText="true" />
+        </VBox>
+      </ScrollPane>
     </VBox>
   </GridPane>
 </HBox>
