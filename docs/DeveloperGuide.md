@@ -382,13 +382,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 **MSS**
 
 1. User request to list all students.
-2. Prof-iler displays the list of all students under user.
-
+2. Prof-iler displays the list of all students under user.<br>
    Use case ends.
 
 **Extensions**
-* 2a. The List is empty.
-
+* 2a. The List is empty.<br>
     Use case ends.
 
 #### **Use case: UC02 Delete a student**
@@ -407,8 +405,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * 3a. The given index is invalid.
 
-    * 3a1. Prof-iler shows an error message.
-
+    * 3a1. Prof-iler shows an error message.<br>
       Use case resumes at step 2.
 
 #### **Use case: UC03 Add a student**
@@ -418,19 +415,17 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User requests to add the student.
 2. User enters the required details to add a student.
 3. Prof-iler adds the student.
-4. Prof-iler displays the added student.
-
+4. Prof-iler displays the added student.<br>
     Use case ends.
 
 **Extensions**
 * 2a. The input is invalid.
-    * 2a1. Prof-iler shows an error message.
+    * 2a1. Prof-iler shows an error message.<br>
+      Use case ends.<br>
 
-      Use case ends.
 * 2b. The student already exists.
     * 2b1. Prof-iler shows an error message.<br>
-
-      Use case ends.
+      Use case ends.<br>
 
 #### **Use case: UC04 Edit a student**
 
