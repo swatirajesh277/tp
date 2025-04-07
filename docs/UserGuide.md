@@ -97,7 +97,7 @@ Format: `add n/NAME id/STUDENT_ID p/PHONE e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TA
   * A top-level domain (e.g. `.com`) is optional.
 * `PROJECT` can be any value.
 * `PROGRESS` should be a whole number between 0 and 100.
-* Each `TAG` should be alphanumeric, contains no spacing and is case-sensitive (e.g. `cs` and `Cs` are counted as two different tags).
+* Each `TAG` should be alphanumeric, contain no spaces and is case-sensitive (e.g. `cs` and `Cs` are counted as two different tags).
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:** <br>
 A student can have any number of tags (including 0). <br>
