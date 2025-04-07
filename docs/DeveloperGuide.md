@@ -540,7 +540,7 @@ Use case ends.<br>
 **MSS**
 1. User request to clear all entries.
 2. User enters the required inputs.
-3. Prof-iler ask for confirmations.
+3. Prof-iler ask for confirmation.
 4. Prof-iler clears all entries.<br>
 Use case ends.<br>
 
