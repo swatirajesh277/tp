@@ -444,9 +444,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User request to edit the details of a specific student
-2. User enters the required input and details to be edited for that student
-2. Prof-iler updates the student with the new details. <br>
+1. User request to edit the details of a specific student.
+2. User enters the required input and details to be edited for that student.
+3. Prof-iler updates the student with the new details. <br>
    Use case ends.<br>
 
 **Extensions**
