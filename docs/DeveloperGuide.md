@@ -490,8 +490,6 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
-
 ### Deleting a student
 
 1. Deleting a student while all students are being shown
@@ -507,15 +505,44 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### Sort Function
 
-### Saving data
+1. **Sorting students by progress**
 
-1. Dealing with missing/corrupted data files
+   1. **Test case: `sort asc`**
+      - **Expected:** Students are displayed in ascending order of their progress.
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+   1. **Test case: `sort desc`**
+      - **Expected:**  Students are displayed in descending order based on their progress values.
 
-1. _{ more test cases …​ }_
+   1. **Invalid test case: `sort invalid`**
+      - **Expected:**  The application shows an error message detailing the usage of `sort`.
+
+#### Filter Function
+
+1. **Filtering students by project**
+
+   1. **Prerequisites:** At least one student with project containing the word `Prof-iler`, and no students with project containing the word `Invalid`.
+
+   1. **Test case: `filter pr/Prof-iler`**
+      - **Expected:**  Only students associated with the project "Prof-iler" are shown.
+
+   1. **Test case: `filter pr/Invalid`**
+      - **Expected:** An empty list is displayed.
+
+1. **Filtering students by tag**
+
+   1. **Prerequisites:** At least one student with tag containing the word `Y4`, and no students with tag containing the word `Invalid`.
+
+   1. **Test case: `filter t/Y4`**
+      - **Expected:** Only students tagged with "Y4" are shown.
+
+   2. **Test case: `filter t/Invalid`**
+      - **Expected:** An empty list is displayed.
+
+3. **Test case: Invalid command**
+   - **Command:** `filter pr/Prof-iler t/Y4`
+   - **Expected:**  The application shows an error message: `Should only have one of pr/ or t/`.
 
 ## **Appendix: Planned Enhancements**
 Team Size: 5
