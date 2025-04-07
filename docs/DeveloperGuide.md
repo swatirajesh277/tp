@@ -467,7 +467,7 @@ Use case ends.<br>
     * 2a1. Prof-iler shows an error message.<br>
   Use case ends.<br>
 * 2b. The progress value is invalid.
-    * 2b1. Prof-iiler shows an error message.<br>
+    * 2b1. Prof-iler shows an error message.<br>
   Use case ends.
 
 #### **Use case: UC06 Log notes about a student**
