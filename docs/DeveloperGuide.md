@@ -524,3 +524,4 @@ Team Size: 5
 3. Allow change of theme with CLI command, to conform to `Recommendation-CLI-First`.
 4. Allow help window to be closed via keyboard command, such as using the `esc` key.
 5. Allow `Filter Command` to filter for projects that contain prefixes such as `pr/` and `t/` without error. Since a project name can take any value, the users are allowed to add projects with names such as pr/Project Prof-iler or even t/Project Orbital. However, `filter command` is not able to filter such projects efficiently in the presence of leading whitespaces in between commands. For example, `filter pr/   pr/Project Prof-iler` will lead to an error to indicate the presence of multiple prefixes `pr/`, similar for prefix `t/`. However, `filter pr/pr/Project Prof-iler` will work.
+6. Allow names to accept special prefixes such as s/o, d/o and w/o.
