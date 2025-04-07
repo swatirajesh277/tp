@@ -301,19 +301,19 @@ Furthermore, certain edits can cause the Prof-iler application to behave in unex
 
 ## Command summary
 
-| Action       | Format, Examples                                                                                                                                                                            |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action       | Format, Examples                                                                                                                                                                                |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Add**      | `add n/NAME id/STUDENT_ID p/PHONE_NUMBER e/EMAIL pr/PROJECT [pb/PROGRESS] [t/TAG]…​` <br> e.g. `add n/James Ho id/A0223615H p/82793554 e/jamesho@example.com pr/Project_Orbit t/Y3 pb/29 t/BZA` |
-| **Clear**    | `clear [KEYWORD]`<br> e.g. `clear` <br> e.g. `clear prof-iler`                                                                                                                              |
-| **Delete**   | `delete INDEX [,INDEXES] ...`<br> e.g. `delete 1, 3`                                                                                                                                        |
-| **Edit**     | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                             |
-| **Filter**   | `filter pr/KEYWORD...` or `filter t/KEYWORD...`<br> e.g. `filter pr/prof-iler` <br> e.g. `filter t/CS2103T CS2109S`                                                                         |
-| **Sort**     | `sort asc` or `sort desc`                                                                                                                                                                   |
-| **Find**     | `find KEYWORD [MORE_KEYWORDS]`<br> e.g. `find James Jake`                                                                                                                                   |
-| **Progress** | `progress INDEX pb/PROGRESS`<br> e.g. `progress 1 pb/45`                                                                                                                                    |
-| **List**     | `list`                                                                                                                                                                                      |
-| **Log**      | `log INDEX l/LOG` <br> e.g. `log 1 l/CS2103T tutor for Class 2A`                                                                                                                              |
-| **Help**     | `help`                                                                                                                                                                                      |
+| **Clear**    | `clear [PROJECT]`<br> e.g. `clear` <br> e.g. `clear prof-iler`                                                                                                                                  |
+| **Delete**   | `delete INDEX [,INDEXES] ...`<br> e.g. `delete 1, 3`                                                                                                                                            |
+| **Edit**     | `edit INDEX [n/NAME] [id/STUDENT_ID] [p/PHONE] [e/EMAIL] [pr/PROJECT] [pb/PROGRESS] [t/TAG]…​`<br> e.g.`edit 2 n/James Lee id/A0112946T e/jameslee@example.com`                                 |
+| **Filter**   | `filter pr/KEYWORD...` or `filter t/KEYWORD...`<br> e.g. `filter pr/prof-iler` <br> e.g. `filter t/CS2103T CS2109S`                                                                             |
+| **Sort**     | `sort asc` or `sort desc`                                                                                                                                                                       |
+| **Find**     | `find KEYWORD [MORE_KEYWORDS]`<br> e.g. `find James Jake`                                                                                                                                       |
+| **Progress** | `progress INDEX pb/PROGRESS`<br> e.g. `progress 1 pb/45`                                                                                                                                        |
+| **List**     | `list`                                                                                                                                                                                          |
+| **Log**      | `log INDEX l/LOG` <br> e.g. `log 1 l/CS2103T tutor for Class 2A`                                                                                                                                |
+| **Help**     | `help`                                                                                                                                                                                          |
 
 ## Glossary
 
