@@ -64,6 +64,15 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+
+### Changing Theme
+
+Clicking 'Theme' shows a drop-down box with options Dark and Light.
+A GUI similar to the below should appear on clicking Light.
+
+![light_ui](images/lightUI.png)
+
+
 ### Viewing help : `help`
 
 Shows a link to the user guide and a list of all commands available in Prof-iler.
