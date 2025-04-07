@@ -426,7 +426,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 1. User request to add the student.
 2. User enters the required details to add a student.
 3. Prof-iler adds the student.
-4. Prof-iler display the added student.
+4. Prof-iler displays the added student.
 
     Use case ends.
 
@@ -475,7 +475,7 @@ Use case ends.<br>
 **MSS**
 1. User request to log some notes of a specific student.
 2. User enters the required input and notes regarding the student.
-3. Prof-iler logged the students with the given notes.<br>
+3. Prof-iler logs the students with the given notes.<br>
 Use case ends.<br>
 
 **Extensions**
@@ -488,7 +488,7 @@ Use case ends.<br>
 **MSS**
 1. User request to find certain students based on the names.
 2. User enters the required inputs and the keywords.
-3. Prof-iler search for the students based on the keywords.
+3. Prof-iler searches for the students based on the keywords.
 4. Prof-iler displays all the students that matches the keywords. <br>
 Use case ends.<br>
 
@@ -523,7 +523,7 @@ Use case ends. <br>
 **MSS**
 1. User request to sort students based on the order of progress.
 2. User enters the required inputs and the order.
-3. Prof-iler arrange the students based on the given order.
+3. Prof-iler arranges the students based on the given order.
 4. Prof-iler displays the students in the given order.<br>
 Use case ends.<br>
 
