@@ -304,13 +304,6 @@ The following activity diagram summarizes what happens when a user executes a ne
   * Pros: Will use less memory (e.g. for `delete`, just save the student being deleted).
   * Cons: We must ensure that the implementation of each individual command are correct.
 
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -379,7 +372,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | Professor at SoC            | export each student's grades for the current semester                    | update their grades into the system easily                                        |
 | `*`      | Professor at SoC            | color tag each students                                                  | sort them effectively                                                             |
 
-*{More to be added}*
 
 ### Use cases
 
