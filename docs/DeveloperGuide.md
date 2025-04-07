@@ -423,7 +423,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User request to add the student.
+1. User requests to add the student.
 2. User enters the required details to add a student.
 3. Prof-iler adds the student.
 4. Prof-iler displays the added student.
@@ -463,11 +463,11 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 Use case ends.<br>
 
 **Extensions**
-* 2a. The input format is invalid.
-    * 2a1. Prof-iler shows an error message.<br>
+* 2a. The input is invalid.
+    * 2a1. Prof-iler shows an error message indicating invalid input.<br>
   Use case ends.<br>
 * 2b. The progress value is invalid.
-    * 2b1. Prof-iler shows an error message.<br>
+    * 2b1. Prof-iler shows an error message indicating invalid progress.<br>
   Use case ends.
 
 #### **Use case: UC06 Log notes about a student**
@@ -479,21 +479,21 @@ Use case ends.<br>
 Use case ends.<br>
 
 **Extensions**
-* 2a. The input format is invalid.
+* 2a. The input is invalid.
     * 2a1. Prof-iler shows an error message.<br>
   Use case ends.<br>
 
 #### **Use case: UC07 Find students based on their name**
 
 **MSS**
-1. User request to find certain students based on the names.
+1. User requests to find certain students based on the names.
 2. User enters the required inputs and the keywords.
 3. Prof-iler searches for the students based on the keywords.
 4. Prof-iler displays all the students that matches the keywords. <br>
 Use case ends.<br>
 
 **Extensions**
-* 2a. The input format is invalid.
+* 2a. The input is invalid.
     * 2a1. Prof-iler shows an error message.<br>
   Use case ends.<br>
 
@@ -504,14 +504,14 @@ Use case ends.<br>
 #### **Use case: UC08 Filter students based on project**
 
 **MSS**
-1. User request to filter students based on their project.
+1. User requests to filter students based on their project.
 2. User enters the required inputs and the keywords.
 3. Prof-iler searches for students with the project that matches the keywords.
 4. Prof-iler displays all the students with projects that match the keywords.<br>
 Use case ends. <br>
 
 **Extensions**
-* 2a. The input format is invalid.
+* 2a. The input is invalid.
     * 2a1. Prof-iler shows an error message.<br>
   Use case ends.<br>
 * 3a. No project matches the given keyword.
@@ -521,7 +521,7 @@ Use case ends. <br>
 #### **Use case: UC09 Sort students based on order of progress**
 
 **MSS**
-1. User request to sort students based on the order of progress.
+1. User requests to sort students based on the order of progress.
 2. User enters the required inputs and the order.
 3. Prof-iler arranges the students based on the given order.
 4. Prof-iler displays the students in the given order.<br>
@@ -539,16 +539,13 @@ Use case ends.<br>
 
 **MSS**
 1. User request to clear all entries.
-2. User enters the required inputs.
-3. Prof-iler asks for confirmation.
-4. Prof-iler clears all entries.<br>
+2. Prof-iler asks for confirmation.
+3. Prof-iler clears all entries.<br>
 Use case ends.<br>
 
 **Extensions**
-* 3a. The user declines the clearing of all entries.<br>
+* 2a. The user declines the clearing of all entries.<br>
 Use case ends.<br>
-
-*{More to be added}*
 
 ### Non-Functional Requirements
 
