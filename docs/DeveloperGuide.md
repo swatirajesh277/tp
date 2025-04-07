@@ -507,7 +507,7 @@ Use case ends.<br>
 1. User request to filter students based on their project.
 2. User enters the required inputs and the keywords.
 3. Prof-iler searches for students with the project that matches the keywords.
-4. Prof-iler displays all the students with projects that matches the keywords.<br>
+4. Prof-iler displays all the students with projects that match the keywords.<br>
 Use case ends. <br>
 
 **Extensions**
