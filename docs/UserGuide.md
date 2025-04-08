@@ -26,13 +26,13 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
    Some example commands you can try:
 
-   * `list` : Lists all contacts.
+   * `list` : Lists all students.
 
-   * `add n/John Doe p/98765432 id/A0253517M e/johnd@example.com pr/Prof-iler pb/72 t/Y3` : Adds a contact named `John Doe` to Prof-iler
+   * `add n/John Doe p/98765432 id/A0253517M e/johnd@example.com pr/Prof-iler pb/72 t/Y3` : Adds a student named `John Doe` to Prof-iler
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+   * `delete 3` : Deletes the 3rd student shown in the current list.
 
-   * `clear` : Deletes all contacts.
+   * `clear` : Deletes all students.
 
    * `exit` : Exits the app.
 
