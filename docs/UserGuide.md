@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-Prof-iler is a **desktop app for managing student research records, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). Designed for fast typing research professors at SoC, Prof-iler helps streamline research management by organizing, tracking, and maintaining student records over time. These tasks can be done faster than traditional GUI apps.
+Prof-iler is a **desktop app for managing student research records, optimized for use via a [Command Line Interface (CLI)](#cli)** while still having the benefits of a [Graphical User Interface (GUI)](#gui). Designed for fast typing research professors at SoC, Prof-iler helps streamline research management by organizing, tracking, and maintaining student records over time. These tasks can be done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -12,15 +12,15 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
 
 ## Quick start
 
-1. Ensure you have Java `17` or above installed in your Computer.<br>
+1. Ensure you have [Java `17`](#java-17) or above installed in your Computer.<br>
    **Mac users:** Ensure you have the precise JDK version prescribed [here](https://se-education.org/guides/tutorials/javaInstallationMac.html).
 
-2. Download the latest `.jar` file from [here](https://github.com/AY2425S2-CS2103T-W12-3/tp/releases).
+2. Download the latest [`.jar`](#jar-file) file from [here](https://github.com/AY2425S2-CS2103T-W12-3/tp/releases).
 
-3. Copy the file to the folder you want to use as the _home folder_ for your Prof-iler application.
+3. Copy the file to the folder you want to use as the [_home folder_](#home-folder) for your Prof-iler application.
 
-4. Open a command terminal, `cd` into the folder you put the jar file in, and use the `java -jar Prof-iler.jar` command to run the application.<br>
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+4. Open a command terminal, `cd` into the folder you put the [jar file](#jar-file) in, and use the `java -jar Prof-iler.jar` command to run the application.<br>
+   A [GUI](#gui) similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`help`** and pressing Enter will open the help window.<br>
@@ -69,7 +69,7 @@ Prof-iler is a **desktop app for managing student research records, optimized fo
 ### Changing Theme
 
 Clicking 'Theme' shows a drop-down box with options Dark and Light.
-A GUI similar to the below should appear on clicking Light.
+A [GUI](#gui) similar to the below should appear on clicking Light.
 
 ![light_ui](images/lightUI.png)
 
@@ -276,7 +276,7 @@ Prof-iler data are saved in the hard disk automatically after any command that c
 
 ### Editing the data file
 
-Prof-iler data are saved automatically as a JSON file `[JAR file location]/data/prof-iler.json`. Advanced users are welcome to update data directly by editing that data file.
+Prof-iler data are saved automatically as a JSON file [`[JAR file location]/data/prof-iler.json`](#prof-iler-json). Advanced users are welcome to update data directly by editing that data file.
 
 <div markdown="span" class="alert alert-warning">:exclamation: **Caution:**
 If your changes to the data file makes its format invalid, Prof-iler will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.<br>
@@ -294,7 +294,7 @@ Furthermore, certain edits can cause the Prof-iler application to behave in unex
 
 ## Known issues
 
-1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
+1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the [GUI](#gui) will open off-screen. The remedy is to delete the [`preferences.json`](#preferences-json) file created by the application before running the application again.
 2. **If you minimize the Help Window** and then run the `help` command (or use the `Help` menu, or the keyboard shortcut `F1`) again, the original Help Window will remain minimized, and no new Help Window will appear. The remedy is to manually restore the minimized Help Window.
 
 --------------------------------------------------------------------------------------------------------------------
@@ -319,12 +319,12 @@ Furthermore, certain edits can cause the Prof-iler application to behave in unex
 
 This glossary defines key terms and abbreviations used in the Prof-iler User Guide.
 
-| Term               | Definition |
-|--------------------|------------|
-| **CLI (Command Line Interface)** | A text-based interface where users type commands to interact with the program. Prof-iler is optimized for use via a CLI. |
-| **GUI (Graphical User Interface)** | A visual interface that uses elements like windows, buttons, and icons to help users interact with the application. Prof-iler includes a GUI in addition to the CLI. |
-| **JAR file**        | *Java Archive*. A package file format that bundles Java class files and related resources into one file for distribution and execution. |
-| **Java 17**         | The version of the Java Development Kit (JDK) required to run Prof-iler. |
-| **Home folder**     | The folder where the Prof-iler `.jar` file is located. Data files like `prof-iler.json` are stored here. |
-| **preferences.json**| A settings file storing user interface preferences such as window size and position. Can be deleted to reset the UI. |
-| **prof-iler.json**  | The main data file where Prof-iler stores all student information. Located inside the `data` folder. |
+| Term                             | Definition |
+|----------------------------------|------------|
+| <a name="cli"></a>**CLI (Command Line Interface)** | A text-based interface where users type commands to interact with the program. Prof-iler is optimized for use via a CLI. |
+| <a name="gui"></a>**GUI (Graphical User Interface)** | A visual interface that uses elements like windows, buttons, and icons to help users interact with the application. Prof-iler includes a GUI in addition to the CLI. |
+| <a name="jar-file"></a>**JAR file**                     | *Java Archive*. A package file format that bundles Java class files and related resources into one file for distribution and execution. |
+| <a name="java-17"></a>**Java 17**                      | The version of the Java Development Kit (JDK) required to run Prof-iler. |
+| <a name="home-folder"></a>**Home folder**                  | The folder where the Prof-iler `.jar` file is located. Data files like `prof-iler.json` are stored here. |
+| <a name="preferences-json"></a>**preferences.json**             | A settings file storing user interface preferences such as window size and position. Can be deleted to reset the UI. |
+| <a name="prof-iler-json"></a>**prof-iler.json**               | The main data file where Prof-iler stores all student information. Located inside the `data` folder. |
