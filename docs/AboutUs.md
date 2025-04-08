@@ -13,9 +13,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/dragonesejosh.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
 [[github](https://github.com/dragonesejosh)]
-[[portfolio](team/johndoe.md)]
 
 * Role: Project Advisor
 
@@ -24,7 +22,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/swatirajesh277.png" width="200px">
 
 [[github](http://github.com/swatirajesh277)]
-[[portfolio](team/johndoe.md)]
 
 * Role: Team Lead
 * Responsibilities: UI
@@ -33,7 +30,7 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 <img src="images/shijianxi.png" width="200px">
 
-[[github](http://github.com/shijianxi)] [[portfolio](team/johndoe.md)]
+[[github](http://github.com/shijianxi)]
 
 * Role: Developer
 * Responsibilities: Data
@@ -43,7 +40,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/weiwong834.png" width="200px">
 
 [[github](http://github.com/weiwong834)]
-[[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: Dev Ops + Threading
@@ -53,7 +49,6 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 <img src="images/gekjunxu.png" width="200px">
 
 [[github](http://github.com/gekjunxu)]
-[[portfolio](team/johndoe.md)]
 
 * Role: Developer
 * Responsibilities: UI
