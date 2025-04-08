@@ -381,7 +381,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 **MSS**
 
-1. User request to list all students.
+1. User requests to list all students.
 2. Prof-iler displays the list of all students under user.<br>
    Use case ends.
 
