@@ -53,7 +53,7 @@ public class HelpCommand extends Command {
                     + "Usage: list",
 
             "clear: Remove all students from list or from a specified project.\n"
-                    + "Usage: clear [pr/PROJECT]\n"
+                    + "Usage: clear [PROJECT]\n"
                     + "Example: clear\n"
                     + "Example: clear Orbital"
     );
