@@ -21,14 +21,16 @@ import seedu.address.model.tag.Tag;
  */
 public class SampleDataUtil {
     public static final Log EMPTY_LOG = new Log("");
+    public static final Log ALEX_LOG = new Log("Got to arrange a meeting with Alex to discuss the bugs");
+    public static final Log BERNICE_LOG = new Log("CS2103T TA");
     public static Person[] getSamplePersons() {
         return new Person[] {
             new Person(new Name("Alex Yeoh"), new Id("A0289384P"), new Phone("87438807"),
                     new Email("alexyeoh@example.com"),
-                new Project("Project Orbiting"), new Progress("30"), EMPTY_LOG,
+                new Project("Project Orbiting"), new Progress("30"), ALEX_LOG,
                 getTagSet("Y3", "InfoSys")),
             new Person(new Name("Bernice Yu"), new Id("A0214850K"), new Phone("99272758"),
-                new Email("berniceyu@example.com"), new Project("Project ReX"), new Progress("21"), EMPTY_LOG,
+                new Email("berniceyu@example.com"), new Project("Project ReX"), new Progress("21"), BERNICE_LOG,
                 getTagSet("Y3", "CS2101")),
             new Person(new Name("Charlotte Oliveiro"), new Id("A0250255M"), new Phone("93210283"),
                 new Email("charlotte@example.com"), new Project("Prof-iler"), new Progress(), EMPTY_LOG,
